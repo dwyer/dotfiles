@@ -32,6 +32,7 @@ alias p='mpc toggle'
 alias pa='ps -A'
 alias pp='echo hehehe'
 alias py='python'
+alias sc='screen -r'
 alias sl='ls'
 
 # shortcuts
