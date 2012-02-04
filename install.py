@@ -20,8 +20,8 @@ for filename in os.listdir(thisdir):
     dest = os.path.join(homedir, filename)
     try:
         print 'linking %s to %s...' % (src, dest),
-        if os.path.exists(dest):
-            os.remove(dest)
+        if os.path.lexists(dest):
+            os.unlink(dest)
         os.symlink(src, dest)
         print 'ok'
     except OSError, e:
