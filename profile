@@ -6,6 +6,8 @@ export BROWSER=google-chrome
 export EDITOR=vim
 export PAGER=less
 
+export LESSHISTFILE=/dev/null
+
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
