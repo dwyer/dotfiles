@@ -13,7 +13,7 @@ if not homedir:
 
 for filename in os.listdir(thisdir):
     src = os.path.join(thisdir, filename)
-    if src == thispath:
+    if src == thispath or filename.startswith('.'):
         continue
     elif filename != 'bin':
         filename = '.' + filename
