@@ -1,0 +1,9 @@
+#!/bin/sh
+params='-npro -kr -i4 -ts4 -sob -l80 -ss -ncs -cp1 -brf -nut'
+for file in "$@"
+do
+    indent $params "$file"
+    rm "$file"~
+done
+
+

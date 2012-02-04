@@ -1,0 +1,4 @@
+#!/bin/sh
+# A simple script for launching GUI programs from the command line that insist
+# on taking over the terminal and fill it up with warning and error messages.
+exec "$@" 1>/dev/null 2>/dev/null &

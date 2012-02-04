@@ -1,0 +1,8 @@
+#!/bin/sh
+tmp=`mktemp kcexpand.XXXXXXXXXX`
+for file in "$@"
+do
+    expand -t 4 "$file" >$tmp
+    cat $tmp >"$file"
+done
+rm -f $tmp

@@ -1,0 +1,16 @@
+search-mode = 1
+screen-list = playlist artist
+enable-colors = yes
+color background = none
+color title = 223
+color title-bold = 174
+color line = 188
+color list = 188
+color list-bold = 108
+color progressbar = 174
+color status-state = 188
+color status-song = 108
+color status-time = 116
+color alert = 188
+#colordef yellow = 529, 686, 529
+colordef yellow = 527, 683, 527
