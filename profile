@@ -2,8 +2,9 @@
 export TERM=xterm-256color
 export LS_COLORS='di=38;5;108:fi=00:*svn-commit.tmp=31:ln=38;5;116:ex=38;5;186'
 
-export EDITOR=vim
 export BROWSER=google-chrome
+export EDITOR=vim
+export PAGER=less
 
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
