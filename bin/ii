@@ -121,9 +121,8 @@ def getstr(scr, y, prompt=''):
 
 def find(pattern, playlist):
     """find pattern in playlist, return its index or -1 if it can't be found"""
-    pattern = pattern.lower()
     for i, (s, t) in enumerate(playlist):
-        if pattern in s.lower():
+        if re.search(pattern, s.lower()):
             return i
     return -1
 
