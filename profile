@@ -34,6 +34,8 @@ alias pp='echo hehehe'
 alias py='python'
 alias sc='screen -r'
 alias sl='ls'
+alias t='tmux'
+alias ta='tmux a'
 
 # shortcuts
 alias eclipse=/usr/local/eclipse/eclipse
