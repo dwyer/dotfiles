@@ -1,0 +1,198 @@
+#!/usr/bin/env python
+
+"""
+ipod interface: a vim-like ncurses-based interface for your ipod.
+
+Hotkeys for edit mode:
+    Up, arrow, down arrow, page up, page down, home, end and delete all do what
+    you would expect. The following not as intuitive unless you use vim:
+
+Navigation:
+    j: move down
+    k: move up
+
+Search:
+    /: find next
+    ?: find previous
+    n: repeat find
+    N: repeat reverse find
+
+Modifcation:
+    d: delete
+    u: undo
+
+Repetition:
+    Entering a number N before a command will repeat the command N times.
+
+Quit:
+    q: quit
+"""
+
+import argparse
+import curses
+import curses.textpad
+import locale
+import re
+import sys
+
+import gpod
+
+# key bindings
+keys = {
+    'dn': [ord('j'), curses.KEY_DOWN],
+    'up': [ord('k'), curses.KEY_UP],
+    'del': [ord('d'), curses.KEY_DC],
+    'undo': [ord('u')],
+    'quit': [ord('q')],
+    'find': [ord('/')],
+    'findp': [ord('?')],
+    'next': [ord('n')],
+    'prev': [ord('N')],
+    'pgdn': [curses.KEY_NPAGE],
+    'pgup': [curses.KEY_PPAGE],
+    'home': [curses.KEY_HOME],
+    'end': [curses.KEY_END],
+}
+
+# these are the fields to use when printing a track
+track_fields = ['artist', 'album', 'track_nr', 'title']
+track_field_sep = ' - '
+
+parser = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=
+                                 argparse.RawDescriptionHelpFormatter)
+parser.add_argument('ls', nargs='?')
+args = parser.parse_args()
+
+try:
+    db = gpod.Database() # todo: let user select mountpoint
+    pl = db.get_master() # todo: let user select playlist
+
+except gpod.ipod.DatabaseException, e:
+    print 'Error:', e
+    sys.exit(1)
+except AttributeError:
+    print 'Error:', e
+    sys.exit(1)
+
+if args.ls:
+    for pl in db.get_playlists():
+        print pl
+    sys.exit(0)
+
+locale.setlocale(locale.LC_ALL, '')
+code = locale.getpreferredencoding()
+
+def track_to_str(track):
+    s = track_field_sep.join(str(track[key]) for key in track_fields)
+    return s.encode(code)
+
+tracks = [(track_to_str(track), track) for track in pl]
+trash = []
+
+def getstr(scr, y, prompt=''):
+    curses.curs_set(1)
+    curses.echo()
+    scr.addstr(y, 0, prompt)
+    ret = scr.getstr(y, len(prompt))
+    curses.curs_set(0)
+    curses.noecho()
+    return ret
+
+def find(pattern, playlist):
+    pattern = pattern.lower()
+    for i, (s, t) in enumerate(playlist):
+        if pattern in s.lower():
+            return i + 1
+    return 0
+
+def find_next(pattern, playlist, start):
+    return start + find(pattern, playlist[start+1:])
+
+def find_prev(pattern, playlist, start):
+    return start - find(pattern, reversed(playlist[:start]))
+
+def edit_mode(scr):
+    global tracks, trash
+    scr_pos = 0
+    usr_pos = 0
+    search = ''
+    repeat = 0
+    history = []
+    curses.use_default_colors()
+    curses.curs_set(0) # we'll use our own cursor.
+    keys['digits'] = [i + ord('0') for i in xrange(10)]
+    while 1:
+        # output
+        scr.clear()
+        h, w = scr.getmaxyx()
+        h -= 1
+        for y, (s, track) in enumerate(tracks[scr_pos:scr_pos + h]):
+            color = curses.A_REVERSE if y + scr_pos == usr_pos else 0
+            scr.addnstr(y, 0, s, w - 1, color)
+        scr.refresh()
+        # input
+        c = scr.getch()
+        if c in keys['quit']:
+            break
+        elif c in keys['dn']:
+            usr_pos += 1 * (repeat or 1)
+            repeat = 0
+        elif c in keys['up']:
+            usr_pos -= 1 * (repeat or 1)
+            repeat = 0
+        elif c in keys['pgdn']:
+            usr_pos += h * (repeat or 1)
+            repeat = 0
+        elif c in keys['pgup']:
+            usr_pos -= h * (repeat or 1)
+            repeat = 0
+        elif c in keys['home']:
+            usr_pos = 0
+            repeat = 0
+        elif c in keys['end']:
+            usr_pos = len(tracks)
+            repeat = 0
+        elif c in keys['del']:
+            for i in xrange(repeat or 1):
+                if tracks:
+                    trash.append(tracks.pop(usr_pos))
+                    history.append(usr_pos)
+            repeat = 0
+        elif c in keys['undo']:
+            for i in xrange(repeat or 1):
+                if history:
+                    usr_pos = history.pop()
+                    tracks.insert(usr_pos, trash.pop())
+            repeat = 0
+        elif c in keys['find']:
+            search = getstr(scr, h, '/')
+            usr_pos = find_next(search, tracks, usr_pos)
+        elif c in keys['findp']:
+            search = getstr(scr, h, '?')
+            usr_pos = find_prev(search, tracks, usr_pos)
+        elif c in keys['next']:
+            usr_pos = find_next(search, tracks, usr_pos)
+        elif c in keys['prev']:
+            usr_pos = find_prev(search, tracks, usr_pos)
+        elif c in keys['digits']:
+            repeat *= 10
+            repeat += int(chr(c))
+        # keep the user in the list
+        if usr_pos < 0:
+            usr_pos = 0
+        elif usr_pos >= len(tracks):
+            usr_pos = len(tracks) - 1
+        # keep the screen focused on the user
+        if scr_pos > usr_pos:
+            scr_pos = usr_pos
+        elif scr_pos < usr_pos - h + 1:
+            scr_pos = usr_pos - h + 1
+    curses.endwin()
+
+curses.wrapper(edit_mode)
+
+if trash:
+    print 'Are you sure you want to delete the following tracks?'
+    for s, track in trash:
+        print ' ', s
