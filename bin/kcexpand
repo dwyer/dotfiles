@@ -1,8 +1,13 @@
 #!/bin/sh
-tmp=`mktemp kcexpand.XXXXXXXXXX`
+tmp=`mktemp`
+trap 'rm -f $tmp' 0
 for file in "$@"
 do
-    expand -t 4 "$file" >$tmp
-    cat $tmp >"$file"
+    if [ -e "$file" ]
+    then
+        expand -t 4 "$file" >$tmp
+        cat $tmp >"$file"
+    else
+        echo $0: $file: no such file
+    fi
 done
-rm -f $tmp
