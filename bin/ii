@@ -61,13 +61,12 @@ track_field_sep = ' - '
 parser = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=
                                  argparse.RawDescriptionHelpFormatter)
-parser.add_argument('ls', nargs='?')
+parser.add_argument('files', nargs='*')
 args = parser.parse_args()
 
 try:
     db = gpod.Database() # todo: let user select mountpoint
     pl = db.get_master() # todo: let user select playlist
-
 except gpod.ipod.DatabaseException, e:
     print 'Error:', e
     sys.exit(1)
@@ -75,19 +74,29 @@ except AttributeError:
     print 'Error:', e
     sys.exit(1)
 
-if args.ls:
-    for pl in db.get_playlists():
-        print pl
+if args.files:
+    for filename in args.files:
+        try:
+            pl.add(gpod.Track(filename))
+        except gpod.TrackException, e:
+            print 'Warning: %s: %s' % (filename, e)
+    db.copy_delayed_files()
+    db.close()
     sys.exit(0)
 
 locale.setlocale(locale.LC_ALL, '')
 code = locale.getpreferredencoding()
 
 def track_to_str(track):
-    s = track_field_sep.join(str(track[key]) for key in track_fields)
+    sep = ' - '
+    s = sep.join((str(track['artist']), str(track['album'])))
+    if track['cd_nr']:
+        s = sep.join((s, 'disc '+str(track['cd_nr'])))
+    s = sep.join((s, '%2d' % track['track_nr'], str(track['title'])))
     return s.encode(code)
 
 tracks = [(track_to_str(track), track) for track in pl]
+tracks = sorted(tracks, key=lambda pair: pair[0])
 trash = []
 history = []
 
