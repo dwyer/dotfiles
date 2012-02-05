@@ -89,6 +89,26 @@ def track_to_str(track):
 
 tracks = [(track_to_str(track), track) for track in pl]
 trash = []
+history = []
+
+def do(n, something, *args, **kwargs):
+    """do something n times"""
+    ret = None
+    for i in xrange(n or 1):
+        ret = something(*args, **kwargs)
+    return ret
+
+def delete(n):
+    """delete track n from playlist"""
+    trash.append(tracks.pop(n))
+    history.append(n)
+
+def undo():
+    if not history:
+        return 0
+    n = history.pop()
+    tracks.insert(n, trash.pop())
+    return n
 
 def getstr(scr, y, prompt=''):
     curses.curs_set(1)
@@ -100,25 +120,27 @@ def getstr(scr, y, prompt=''):
     return ret
 
 def find(pattern, playlist):
+    """find pattern in playlist, return its index or -1 if it can't be found"""
     pattern = pattern.lower()
     for i, (s, t) in enumerate(playlist):
         if pattern in s.lower():
-            return i + 1
-    return 0
+            return i
+    return -1
 
 def find_next(pattern, playlist, start):
-    return start + find(pattern, playlist[start+1:])
+    """find next pattern in playlist starting from start"""
+    return start + find(pattern, playlist[start+1:]) + 1
 
 def find_prev(pattern, playlist, start):
-    return start - find(pattern, reversed(playlist[:start]))
+    """find previous pattern in playlist starting from start"""
+    return start - find(pattern, reversed(playlist[:start])) - 1
 
 def edit_mode(scr):
     global tracks, trash
+    repeat = 0
     scr_pos = 0
     usr_pos = 0
     search = ''
-    repeat = 0
-    history = []
     curses.use_default_colors()
     curses.curs_set(0) # we'll use our own cursor.
     keys['digits'] = [i + ord('0') for i in xrange(10)]
@@ -137,47 +159,42 @@ def edit_mode(scr):
             break
         elif c in keys['dn']:
             usr_pos += 1 * (repeat or 1)
-            repeat = 0
         elif c in keys['up']:
             usr_pos -= 1 * (repeat or 1)
-            repeat = 0
         elif c in keys['pgdn']:
             usr_pos += h * (repeat or 1)
-            repeat = 0
         elif c in keys['pgup']:
             usr_pos -= h * (repeat or 1)
-            repeat = 0
         elif c in keys['home']:
             usr_pos = 0
-            repeat = 0
         elif c in keys['end']:
             usr_pos = len(tracks)
-            repeat = 0
         elif c in keys['del']:
             for i in xrange(repeat or 1):
-                if tracks:
-                    trash.append(tracks.pop(usr_pos))
-                    history.append(usr_pos)
-            repeat = 0
+                delete(usr_pos)
         elif c in keys['undo']:
             for i in xrange(repeat or 1):
-                if history:
-                    usr_pos = history.pop()
-                    tracks.insert(usr_pos, trash.pop())
-            repeat = 0
+                usr_pos = undo()
         elif c in keys['find']:
             search = getstr(scr, h, '/')
-            usr_pos = find_next(search, tracks, usr_pos)
+            for i in xrange(repeat or 1):
+                usr_pos = find_next(search, tracks, usr_pos)
         elif c in keys['findp']:
             search = getstr(scr, h, '?')
-            usr_pos = find_prev(search, tracks, usr_pos)
+            for i in xrange(repeat or 1):
+                usr_pos = find_prev(search, tracks, usr_pos)
         elif c in keys['next']:
-            usr_pos = find_next(search, tracks, usr_pos)
+            for i in xrange(repeat or 1):
+                usr_pos = find_next(search, tracks, usr_pos)
         elif c in keys['prev']:
-            usr_pos = find_prev(search, tracks, usr_pos)
+            for i in xrange(repeat or 1):
+                usr_pos = find_prev(search, tracks, usr_pos)
         elif c in keys['digits']:
             repeat *= 10
             repeat += int(chr(c))
+        # clear repeat if the last c wasn't a digit
+        if c not in keys['digits']:
+            repeat = 0
         # keep the user in the list
         if usr_pos < 0:
             usr_pos = 0
