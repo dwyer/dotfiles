@@ -92,7 +92,7 @@ def track_to_str(track):
     s = sep.join((str(track['artist']), str(track['album'])))
     if track['cd_nr']:
         s = sep.join((s, 'disc '+str(track['cd_nr'])))
-    s = sep.join((s, '%2d' % track['track_nr'], str(track['title'])))
+    s = sep.join((s, '%02d' % track['track_nr'], str(track['title'])))
     return s.encode(code)
 
 tracks = [(track_to_str(track), track) for track in pl]

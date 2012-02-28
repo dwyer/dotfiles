@@ -1,13 +1,7 @@
-set shell=/bin/bash
-
-" colors!
-set t_Co=256
-"let g:zenburn_high_Contrast=1
-colors zenburnt
-hi Normal ctermbg=none
-
 syntax on
-filetype plugin indent on
+filetype on
+filetype indent on
+filetype plugin on
 
 "indent
 set autoindent
@@ -16,20 +10,20 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-set hidden
-set wildmode=list:longest
 set backupdir=~/.vimtmp
 set directory=~/.vimtmp
-inoremap jj <esc>
-nmap <C-a><Tab> <C-w><C-w>
+set hidden
+set shell=/bin/bash
+set wildmode=list:longest
 
 " Intuitive backspacing in insert mode
 set backspace=indent,eol,start
   
-" File-type highlighting and configuration.
-" Run :filetype (without args) to see what you may have
-" to turn on yourself, or just set them all to be sure.
-syntax on
-filetype on
-filetype indent on
-filetype plugin on
+imap <C-c> <C-[>
+
+" colors!
+set t_Co=256
+"let g:zenburn_high_Contrast=1
+colors zenburnt
+hi Normal ctermbg=none
+

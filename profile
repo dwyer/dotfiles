@@ -8,10 +8,6 @@ export PAGER=less
 
 export LESSHISTFILE=/dev/null
 
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
 # overrides
 alias apt-get='aptitude'
 alias cp='cp -i'
@@ -28,10 +24,12 @@ alias la='ls -A'
 alias lc='wc -l'
 alias ll='ls -lh'
 alias lla='ls -Alh'
+alias md='mkdir -p'
 alias p='mpc toggle'
 alias pa='ps -A'
 alias pp='echo hehehe'
 alias py='python'
+alias s='source'
 alias sc='screen -r'
 alias sl='ls'
 alias t='tmux'
@@ -48,4 +46,7 @@ alias appcfg=/usr/local/google_appengine/appcfg.py
 # stfu
 alias eog='stfu eog'
 alias evince='stfu evince'
+alias gimp='stfu gimp'
+alias google-chrome='stfu google-chrome'
 alias lyx='stfu lyx'
+alias totem='stfu totem'
