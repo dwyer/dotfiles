@@ -1,4 +1,5 @@
 # colors
+export PATH=$HOME/bin:$PATH
 export TERM=xterm-256color
 export LS_COLORS='di=38;5;108:fi=00:*svn-commit.tmp=31:ln=38;5;116:ex=38;5;186'
 
@@ -17,6 +18,7 @@ alias ls='ls --color=auto'
 alias mv='mv -i'
 
 # shortcuts
+alias ch='google-chrome'
 alias cx='chmod +x'
 alias ipy='ipython -pylab -noconfirm_exit'
 alias l='ls'
