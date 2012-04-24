@@ -18,8 +18,8 @@ alias ls='ls --color=auto'
 alias mv='mv -i'
 
 # shortcuts
-alias ch='google-chrome'
 alias cx='chmod +x'
+alias gc='google-chrome'
 alias ipy='ipython -pylab -noconfirm_exit'
 alias l='ls'
 alias la='ls -A'
