@@ -41,5 +41,6 @@ setopt bash_autolist
 
 bindkey ';5C' emacs-forward-word
 bindkey ';5D' emacs-backward-word
+bindkey '^U' backward-kill-line
 source ~/.profile
 PROMPT=$'%{\e[38;5;187m%}%n@%m%{\e[0m%} %{\e[38;5;174m%}%~ %#% %{\e[0m%} '
