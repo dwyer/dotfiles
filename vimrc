@@ -10,8 +10,9 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-set backupdir=~/.vimtmp
-set directory=~/.vimtmp
+set backupdir=~/.tmp/vim
+set directory=~/.tmp/vim
+set viminfo+=n~/.tmp/viminfo
 set hidden
 set shell=/bin/bash
 set wildmode=list:longest
