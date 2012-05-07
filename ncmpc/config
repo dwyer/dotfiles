@@ -14,3 +14,5 @@ color status-time = 116
 color alert = 188
 #colordef yellow = 529, 686, 529
 colordef yellow = 527, 683, 527
+visible-bitrate = yes
+set-xterm-title = yes
