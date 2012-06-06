@@ -20,8 +20,9 @@ alias mv='mv -i'
 # shortcuts
 alias ac='apt-cache'
 alias cx='chmod +x'
-alias gc='google-chrome'
+alias gc='stfu google-chrome'
 alias ipy='ipython -pylab -noconfirm_exit'
+alias ka='killall'
 alias l='ls'
 alias la='ls -A'
 alias lc='wc -l'
@@ -40,10 +41,8 @@ alias t='tmux'
 alias ta='tmux a'
 
 # shortcuts
-alias eclipse=/usr/local/eclipse/eclipse
 alias irb=/usr/bin/irb1.9.1
 alias ruby=/usr/bin/ruby1.9.1
-alias sublime=/usr/local/sublime/sublime_text
 alias appserver=/usr/local/google_appengine/dev_appserver.py
 alias appcfg=/usr/local/google_appengine/appcfg.py
 
@@ -51,8 +50,8 @@ alias appcfg=/usr/local/google_appengine/appcfg.py
 alias eog='stfu eog'
 alias evince='stfu evince'
 alias gimp='stfu gimp'
-alias google-chrome='stfu google-chrome'
 alias lyx='stfu lyx'
 alias parole='stfu parole'
+alias picard='stfu picard'
 alias ristretto='stfu ristretto'
 alias totem='stfu totem'

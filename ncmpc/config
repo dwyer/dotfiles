@@ -16,3 +16,5 @@ color alert = 188
 colordef yellow = 527, 683, 527
 visible-bitrate = yes
 set-xterm-title = yes
+list-format = "[[%artist% - ]%title%]|[%file]"
+xterm-title-format = ""%title%" [by %artist%] from %album%"
