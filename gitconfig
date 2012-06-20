@@ -3,5 +3,9 @@
 [user]
 	name = Casey Dwyer
 	email = caseydwyer@gmail.com
+[alias]
+    ci = commit
+    co = checkout
+    tree = log --graph --oneline --all
 [web]
 	browser = google-chrome
