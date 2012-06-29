@@ -1,5 +1,4 @@
 # colors
-export PATH=$HOME/bin:$PATH
 export TERM=xterm-256color
 export LS_COLORS='di=38;5;108:fi=00:*svn-commit.tmp=31:ln=38;5;116:ex=38;5;186'
 
@@ -8,6 +7,23 @@ export EDITOR=vim
 export PAGER=less
 
 export LESSHISTFILE=/dev/null
+
+# Add ~/bin to path
+if [ -e $HOME/bin ]; then
+    PATH=$HOME/bin:$PATH
+fi
+
+# Add Android SDK to path.
+if [ -e /usr/local/android-sdk-linux/tools ]; then
+    PATH=/usr/local/android-sdk-linux/tools:$PATH
+fi
+
+# Add App Engine SDK to path
+if [ -e /usr/local/google_appengine ]; then
+    PATH=/usr/local/google_appengine:$PATH
+fi
+
+export PATH
 
 # overrides
 alias apt-get='aptitude'
