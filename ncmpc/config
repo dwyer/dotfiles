@@ -17,5 +17,5 @@ colordef yellow = 527, 683, 527
 visible-bitrate = yes
 screen-list = playlist browse
 set-xterm-title = yes
-list-format = [[%artist% - ]%title%]|%file%]
+list-format = [[%discnumber%][%track% - ][%artist% - ][%title%]|%file%]
 xterm-title-format = "%title%" [by %artist%] from %album%
