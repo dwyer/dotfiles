@@ -1,0 +1,18 @@
+#!/bin/sh
+TARGET=1
+DOMAIN=org.caseydwyer
+case $# in
+    1)
+        path=$1
+        name=`nf / $path`
+        android create project --target $TARGET --path $path --package $DOMAIN.$name --activity $name
+        cd $path
+        echo 'bin\ngen' >.gitignore
+        git init
+        git add .
+        git commit -m "Created $name."
+        ;;
+    *)
+        echo Usage: `nf / $0` ProjectName.
+        exit 1
+esac
