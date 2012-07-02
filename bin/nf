@@ -1,0 +1,11 @@
+#!/bin/sh
+case $# in
+    1)
+        echo `cat` | awk -F$1 '{print $NF}'
+        ;;
+    2)
+        echo $2 | awk -F$1 '{print $NF}'
+        ;;
+    *)
+        echo 'Usage: nf separator [text]'
+esac

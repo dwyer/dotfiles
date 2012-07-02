@@ -1,5 +1,7 @@
 [core]
 	editor = vim
+	autocrlf = input
+	safecrlf = false
 [user]
 	name = Casey Dwyer
 	email = caseydwyer@gmail.com

@@ -18,6 +18,10 @@ if [ -e /usr/local/android-sdk-linux/tools ]; then
     PATH=/usr/local/android-sdk-linux/tools:$PATH
 fi
 
+if [ -e /usr/local/android-sdk-linux/platform-tools ]; then
+    PATH=/usr/local/android-sdk-linux/platform-tools:$PATH
+fi
+
 # Add App Engine SDK to path
 if [ -e /usr/local/google_appengine ]; then
     PATH=/usr/local/google_appengine:$PATH
