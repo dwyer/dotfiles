@@ -8,23 +8,29 @@ export PAGER=less
 
 export LESSHISTFILE=/dev/null
 
+export ANDROIDPATH=/usr/local/android-sdk-linux
+export APPENGINEPATH=/usr/local/google_appengine
+export GSUTILPATH=/usr/local/gsutil
+
 # Add ~/bin to path
 if [ -e $HOME/bin ]; then
     PATH=$HOME/bin:$PATH
 fi
 
 # Add Android SDK to path.
-if [ -e /usr/local/android-sdk-linux/tools ]; then
-    PATH=/usr/local/android-sdk-linux/tools:$PATH
-fi
-
-if [ -e /usr/local/android-sdk-linux/platform-tools ]; then
-    PATH=/usr/local/android-sdk-linux/platform-tools:$PATH
+if [ -e $ANDROIDPATH ]; then
+    PATH=$ANDROIDPATH/platform-tools:$PATH
+    PATH=$ANDROIDPATH/tools:$PATH
 fi
 
 # Add App Engine SDK to path
-if [ -e /usr/local/google_appengine ]; then
-    PATH=/usr/local/google_appengine:$PATH
+if [ -e $APPENGINEPATH ]; then
+    PATH=$APPENGINEPATH:$PATH
+fi
+
+# Add gsutil to path
+if [ -e $GSUTILPATH ]; then
+    PATH=$GSUTILPATH:$PATH
 fi
 
 export PATH
