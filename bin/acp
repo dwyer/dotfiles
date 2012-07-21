@@ -4,10 +4,18 @@ DOMAIN=org.caseydwyer
 case $# in
     1)
         path=$1
+        shift 1
         name=`nf / $path`
-        android create project --target $TARGET --path $path --package $DOMAIN.$name --activity $name
+        # TODO check name for spaces
+        android create project \
+            --target $TARGET \
+            --path $path \
+            --package $DOMAIN.`lower $name` \
+            --activity $name'Activity' \
+            --name $name \
+            "$@"
         cd $path
-        echo 'bin\ngen' >.gitignore
+        echo 'local.properties\nbin\ngen' >.gitignore
         git init
         git add .
         git commit -m "Created $name."

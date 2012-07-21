@@ -63,6 +63,7 @@ alias py='python'
 alias s='source'
 alias sc='screen -r'
 alias sl='ls'
+alias sqlite3=/usr/bin/sqlite3
 alias t='tmux'
 alias ta='tmux a'
 
