@@ -1,4 +1,3 @@
-source /etc/bash_completion_lib/bash_completion_lib
 source ~/.profile
 
 function col_begin() { echo -ne "\[\e[38;5;$1m\]"; }
