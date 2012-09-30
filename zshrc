@@ -1,5 +1,4 @@
 # Set up the prompt
-
 autoload -Uz promptinit
 promptinit
 #prompt adam1
@@ -38,8 +37,19 @@ setopt bash_autolist
 #zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 #zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+# alt+left/right to move between words in Gnome Terminal
 bindkey ';5C' emacs-forward-word
 bindkey ';5D' emacs-backward-word
+
+# alt+left/right to move between words in iTerm2
+bindkey ';9C' emacs-forward-word
+bindkey ';9D' emacs-backward-word
+
+# ctrl+U deletes everything to the left of the cursor instead of the whole line
 bindkey '^U' backward-kill-line
+
+# load options shared between bash and zsh
 source ~/.profile
+
+# custom prompt
 PROMPT=$'%{\e[38;5;187m%}%n@%m%{\e[0m%} %{\e[38;5;174m%}%~ %#% %{\e[0m%} '
