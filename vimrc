@@ -10,11 +10,10 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-set backupdir=~/.tmp/vim
-set directory=~/.tmp/vim
-set viminfo+=n~/.tmp/viminfo
+set backupdir=~/.vimtmp
+set directory=~/.vimtmp
 set hidden
-set shell=/bin/bash
+"set shell=/bin/bash
 set wildmode=list:longest
 
 " Intuitive backspacing in insert mode
@@ -27,4 +26,3 @@ set t_Co=256
 "let g:zenburn_high_Contrast=1
 colors zenburnt
 hi Normal ctermbg=none
-
