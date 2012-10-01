@@ -24,5 +24,6 @@ imap <C-c> <C-[>
 " colors!
 set t_Co=256
 "let g:zenburn_high_Contrast=1
-colors zenburnt
+"colors zenburnt
+colors solarized
 hi Normal ctermbg=none
