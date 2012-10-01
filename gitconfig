@@ -10,5 +10,3 @@
 	ci = commit
 	co = checkout
 	tree = log --graph --oneline --all
-[web]
-	browser = google-chrome
