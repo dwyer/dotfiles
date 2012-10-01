@@ -11,4 +11,5 @@
 	co = checkout
     pl = pull
     ps = push
+    rh = reset --hard
 	tree = log --graph --oneline --all
