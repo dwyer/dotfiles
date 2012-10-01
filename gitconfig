@@ -12,4 +12,5 @@
     pl = pull
     ps = push
     rh = reset --hard
+    st = status
 	tree = log --graph --oneline --all
