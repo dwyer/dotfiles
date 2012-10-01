@@ -2,16 +2,20 @@
 export TERM=xterm-256color
 export LS_COLORS='di=38;5;108:fi=00:ln=38;5;116:ex=38;5;186'
 
-# browser
-export BROWSER=w3m
-
 # editor
 export EDITOR=vim
+
+# browser
+export BROWSER=w3m
 
 # pager
 export PAGER=less
 export LESSHISTFILE=/dev/null
 
+# news
+export NNTPSERVER=nntp.aioe.org
+
+# dev tools
 export ANDROIDPATH=/usr/local/android-sdk-linux
 export APPENGINEPATH=/usr/local/google_appengine
 export GSUTILPATH=/usr/local/gsutil
