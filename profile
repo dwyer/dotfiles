@@ -45,6 +45,10 @@ fi
 
 export PATH
 
+stfu() {
+    exec "$@" 1>/dev/null 2>/dev/null &
+}
+
 # overrides
 alias apt-get='aptitude'
 alias cp='cp -i'
