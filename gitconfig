@@ -9,4 +9,6 @@
 [alias]
 	ci = commit
 	co = checkout
+    pl = pull
+    ps = push
 	tree = log --graph --oneline --all
