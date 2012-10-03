@@ -1,3 +1,4 @@
+call pathogen#infect()
 syntax on
 filetype on
 filetype indent on
