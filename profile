@@ -16,7 +16,7 @@ export LESSHISTFILE=/dev/null
 export NNTPSERVER=nntp.aioe.org
 
 # dev tools
-export ANDROIDPATH=/usr/local/android-sdk-linux
+export ANDROIDPATH=/usr/local/android-sdk
 export APPENGINEPATH=/usr/local/google_appengine
 export GSUTILPATH=/usr/local/gsutil
 export HOMEBIN=$HOME/bin
