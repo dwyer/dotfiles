@@ -94,3 +94,9 @@ alias parole='stfu parole'
 alias picard='stfu picard'
 alias ristretto='stfu ristretto'
 alias totem='stfu totem'
+
+LOCALPROFILE=$HOME/.profile.local
+
+if [ -e $LOCALPROFILE ]; then
+    source $LOCALPROFILE
+fi
