@@ -41,9 +41,11 @@ setopt bash_autolist
 bindkey ';5C' emacs-forward-word
 bindkey ';5D' emacs-backward-word
 
-# alt+left/right to move between words in iTerm2
+# option+left/right to move between words in iTerm2
 bindkey ';9C' emacs-forward-word
 bindkey ';9D' emacs-backward-word
+bindkey '[C' emacs-forward-word
+bindkey '[D' emacs-backward-word
 
 # ctrl+U deletes everything to the left of the cursor instead of the whole line
 bindkey '^U' backward-kill-line
