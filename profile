@@ -15,6 +15,10 @@ export LESSHISTFILE=/dev/null
 # news
 export NNTPSERVER=nntp.aioe.org
 
+# mpd
+export MPD_HOST=d.local
+export MPD_PORT=6600
+
 # dev tools
 export ANDROIDPATH=/usr/local/android-sdk
 export APPENGINEPATH=/usr/local/google_appengine
@@ -95,6 +99,11 @@ alias picard='stfu picard'
 alias ristretto='stfu ristretto'
 alias totem='stfu totem'
 
+if [ `uname` = 'Darwin' ]; then
+    alias md5sum='md5 -r'
+fi
+
+# Local profile (if present) is loaded last so things can be overridden.
 LOCALPROFILE=$HOME/.profile.local
 
 if [ -e $LOCALPROFILE ]; then
