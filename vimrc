@@ -28,3 +28,5 @@ set t_Co=256
 "colors zenburnt
 colors solarized
 hi Normal ctermbg=none
+
+au BufRead,BufNewFile *.sub set filetype=sub
