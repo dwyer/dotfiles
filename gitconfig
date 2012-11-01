@@ -9,12 +9,21 @@
 [alias]
 	a = add
 	ap = add -p
-	ci = commit
-    cim = commit -m
+	b = branch
+	c = commit
+	cl = clone
+	cm = commit -m
 	co = checkout
-	lol = log --oneline
+	d = diff
+	dc = diff --cached
+	g = grep
+	i = init
+	l = log
+	lg = log --graph
+	lo = log --oneline
+	p = push
 	pl = pull
-	ps = push
+	r = reset
 	rh = reset --hard
-	st = status
-	tree = log --graph --oneline --all
+	s = status
+	t = log --graph --oneline --all
