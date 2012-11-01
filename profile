@@ -71,6 +71,7 @@ fi
 # shortcuts
 alias ac='apt-cache'
 alias cx='chmod +x'
+alias ip='curl ifconfig.me'
 alias ipy='ipython -pylab -noconfirm_exit'
 alias ka='killall'
 alias l='ls'
