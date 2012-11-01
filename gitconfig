@@ -11,6 +11,7 @@
     ap = add -p
 	ci = commit
 	co = checkout
+    lol = log --oneline
     pl = pull
     ps = push
     rh = reset --hard
