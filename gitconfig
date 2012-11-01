@@ -10,6 +10,7 @@
 	a = add
 	ap = add -p
 	ci = commit
+    cim = commit -m
 	co = checkout
 	lol = log --oneline
 	pl = pull
