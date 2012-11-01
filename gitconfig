@@ -7,13 +7,13 @@
 	name = Casey Dwyer
 	email = caseydwyer@gmail.com
 [alias]
-    a = add
-    ap = add -p
+	a = add
+	ap = add -p
 	ci = commit
 	co = checkout
-    lol = log --oneline
-    pl = pull
-    ps = push
-    rh = reset --hard
-    st = status
+	lol = log --oneline
+	pl = pull
+	ps = push
+	rh = reset --hard
+	st = status
 	tree = log --graph --oneline --all
