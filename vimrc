@@ -1,4 +1,5 @@
 call pathogen#infect()
+
 syntax on
 filetype on
 filetype indent on
@@ -7,9 +8,7 @@ filetype plugin on
 "indent
 set autoindent
 set smartindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
+set noexpandtab
 
 set backupdir=~/.vimtmp
 set directory=~/.vimtmp
