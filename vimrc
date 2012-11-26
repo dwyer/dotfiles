@@ -8,7 +8,7 @@ filetype plugin on
 "indent
 set autoindent
 set smartindent
-set noexpandtab
+set expandtab
 
 set backupdir=~/.vimtmp
 set directory=~/.vimtmp
