@@ -113,6 +113,7 @@ alias src='source'
 alias sl='ls' # this typo happens a lot
 alias t='tmux'
 alias ta='tmux a'
+alias tx='tar xzf'
 
 # stfu
 alias eog='stfu eog'
