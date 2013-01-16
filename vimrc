@@ -14,6 +14,7 @@ set backupdir=~/.vimtmp
 set directory=~/.vimtmp
 set hidden
 "set shell=/bin/bash
+set ruler
 set wildmode=list:longest
 
 " Intuitive backspacing in insert mode
