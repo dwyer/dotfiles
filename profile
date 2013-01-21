@@ -112,6 +112,7 @@ alias py='python'
 alias rl='rlwrap'
 alias src='source'
 alias sl='ls' # this typo happens a lot
+alias subscm='rl subscm'
 alias t='tmux'
 alias ta='tmux a'
 alias tx='tar xzf'
