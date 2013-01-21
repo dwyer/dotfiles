@@ -109,6 +109,7 @@ alias pa='ps -A'
 alias pag='ps -A | grep'
 alias pp='echo hehehe'
 alias py='python'
+alias rl='rlwrap'
 alias src='source'
 alias sl='ls' # this typo happens a lot
 alias t='tmux'
