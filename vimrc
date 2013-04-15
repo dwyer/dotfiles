@@ -14,13 +14,24 @@ set backupdir=~/.vimtmp
 set directory=~/.vimtmp
 set hidden
 "set shell=/bin/bash
+set number
 set ruler
 set wildmode=list:longest
 
 " Intuitive backspacing in insert mode
 set backspace=indent,eol,start
-  
-imap <C-c> <C-[>
+
+" ctrl+c to escape
+"imap <C-c> <C-[>
+"nmap <C-a> <Home>
+"nmap <C-e> <End>
+
+" search
+set incsearch
+set ignorecase
+set smartcase
+set hlsearch
+nmap \q :nohlsearch<CR>
 
 " colors!
 set t_Co=256
