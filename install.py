@@ -1,28 +1,30 @@
 #!/usr/bin/env python
 
+"""Links filenames to ~/.filename"""
+
 import os
 import sys
 
-thispath = os.path.abspath(__file__)
-thisdir = os.path.dirname(thispath)
-homedir = os.getenv('HOME')
+THIS_PATH = os.path.abspath(__file__)
+THIS_DIR = os.path.dirname(THIS_PATH)
+HOME_DIR = os.getenv('HOME')
 
-if not homedir:
+if not HOME_DIR:
     print "couldn't find your home directory"
     sys.exit(1)
 
-for filename in os.listdir(thisdir):
-    src = os.path.join(thisdir, filename)
-    if src == thispath or filename.startswith('.'):
+for filename in os.listdir(THIS_DIR):
+    src = os.path.join(THIS_DIR, filename)
+    if src == THIS_PATH or filename.startswith('.'):
         continue
     elif filename != 'bin':
         filename = '.' + filename
-    dest = os.path.join(homedir, filename)
+    dest = os.path.join(HOME_DIR, filename)
     try:
         print 'linking %s to %s...' % (src, dest),
         if os.path.lexists(dest):
             os.unlink(dest)
         os.symlink(src, dest)
         print 'ok'
-    except OSError, e:
-        print e
+    except OSError, err:
+        print err
