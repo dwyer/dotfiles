@@ -40,4 +40,6 @@ set t_Co=256
 colors solarized
 hi Normal ctermbg=none
 
-au BufRead,BufNewFile *.sub set filetype=sub
+autocmd BufNewFile,BufRead *.gyp set ft=python
+autocmd BufNewFile,BufRead *.json set ft=javascript
+autocmd BufRead,BufNewFile *.sub set filetype=sub
