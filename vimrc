@@ -1,5 +1,8 @@
 call pathogen#infect()
 
+"freebsd paranoia
+set nomodeline
+
 syntax on
 filetype on
 filetype indent on
