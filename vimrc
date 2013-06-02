@@ -1,11 +1,6 @@
 call pathogen#infect()
 
 syntax on
-filetype on
-filetype indent on
-filetype plugin on
-
-"indent
 set autoindent
 "set smartindent
 set expandtab
@@ -13,7 +8,7 @@ set expandtab
 set backupdir=~/.vimtmp
 set directory=~/.vimtmp
 set hidden
-"set shell=/bin/bash
+set shell=/bin/zsh
 set number
 set ruler
 set wildmode=list:longest
@@ -33,13 +28,16 @@ set smartcase
 set hlsearch
 nmap \q :nohlsearch<CR>
 
-" colors!
 set t_Co=256
-"let g:zenburn_high_Contrast=1
-"colors zenburnt
 colors solarized
 hi Normal ctermbg=none
 
-autocmd BufNewFile,BufRead *.gyp set ft=python
-autocmd BufNewFile,BufRead *.json set ft=javascript
-autocmd BufRead,BufNewFile *.sub set filetype=sub
+"" filetypes
+filetype on
+filetype indent on
+filetype plugin on
+au BufNewFile,BufRead *.gyp setl ft=python
+au BufNewFile,BufRead *.json setl ft=javascript
+au BufNewFile,BufRead *.li setl lisp ft=li
+au BufNewFile,BufRead *.sub setl ft=sub
+au FileType c setl cin cino=(0 cino=:0 et sw=4 tw=80
