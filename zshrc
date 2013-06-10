@@ -55,3 +55,4 @@ source ~/.profile
 
 # custom prompt
 PROMPT=$'%{\e[38;5;187m%}%n@%m%{\e[0m%} %{\e[38;5;174m%}%~ %#% %{\e[0m%} '
+PROMPT=$'%n@%m %~ %#%  '
