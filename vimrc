@@ -1,4 +1,16 @@
-call pathogen#infect()
+"""call pathogen#infect()
+
+let has_vundle=1
+if !filereadable($HOME."/.vim/bundle/vundle/README.md")
+    silent !mkdir -p $HOME/.vim/bundle
+    silent !git clone https://github.com/gmarik/vundle $HOME/.vim/bundle/vundle
+    let has_vundle=0
+endif
+filetype off
+set rtp+=$HOME/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+Bundle 'mattn/zencoding-vim'
 
 "freebsd paranoia
 set nomodeline
@@ -7,6 +19,8 @@ syntax on
 set autoindent
 "set smartindent
 set expandtab
+set shiftwidth=4
+set tabstop=4
 
 set backupdir=~/.vimtmp
 set directory=~/.vimtmp
