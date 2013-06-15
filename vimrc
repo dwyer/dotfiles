@@ -32,9 +32,16 @@ map <c-s>       :write<cr>
 map <leader>bs  :buffers<cr>
 map <leader>bw  :bwipeout!<cr>
 map <leader>e   :edit<space>
-map <leader>ga  :!git add %<cr>
-map <leader>gc  :!git commit<cr>
-map <leader>gs  :!git status<cr>
+map <leader>ga  :Gwrite<cr>
+map <leader>gb  :Gblame<cr>
+map <leader>gc  :Gcommit<cr>
+map <leader>gd  :Gdiff<cr>
+map <leader>gg  :Ggrep<space>
+map <leader>gv  :Gvsplit<cr>
+"map <leader>gr  :Gremove<cr>
+map <leader>gs  :Gstatus<cr>
+map <leader>dg  :diffget<cr>
+map <leader>dp  :diffput<cr>
 map <leader>h   :help<space>
 map <leader>m   :make<cr>
 map <leader>n   :tabn<cr>
