@@ -12,6 +12,8 @@ Bundle 'Rip-Rip/clang_complete'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'gmarik/vundle'
 Bundle 'mattn/zencoding-vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 
