@@ -30,6 +30,9 @@ autocmd BufNewFile,BufRead *.sub setl ft=sub
 let mapleader = ','
 map <c-s>       :write<cr>
 map <leader>e   :edit<space>
+map <leader>ga  :!git add %<cr>
+map <leader>gc  :!git commit<cr>
+map <leader>gs  :!git status<cr>
 map <leader>h   :help<space>
 map <leader>q   :quit<cr>
 map <leader>r   :source ~/.vimrc<cr>
