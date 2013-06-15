@@ -24,11 +24,17 @@ autocmd FileType c setl cin cino=(0 cino=:0 tw=80
 autocmd BufNewFile,BufRead *.gyp setl ft=python
 autocmd BufNewFile,BufRead *.json setl ft=javascript
 autocmd BufNewFile,BufRead *.li setl lisp ft=li
-autocmd BufNewFile,BufRead *.sub setl ft=sub
+autocmd BufNewFile,BufRead *.sub setl lisp ft=sub
+
+" hard-wraping objective-c is a pain and xcode does a pretty good job of
+" soft-wrapping it anyway
+autocmd BufNewFile,BufRead *.m setl nolinebreak
 
 " key bindings
 let mapleader = ','
 map <c-s>       :write<cr>
+map <leader>,{  =i{
+map <leader>,(  =i(
 map <leader>bs  :buffers<cr>
 map <leader>bw  :bwipeout!<cr>
 map <leader>e   :edit<space>
@@ -48,11 +54,12 @@ map <leader>dp  :diffput<cr>
 map <leader>du  :diffupdate<cr>
 map <leader>h   :help<space>
 map <leader>m   :make<cr>
-map <leader>n   :tabn<cr>
-map <leader>p   :tabp<cr>
+"map <leader>n   :tabn<cr>
+"map <leader>p   :tabp<cr>
 map <leader>q   :quit<cr>
 map <leader>r   :source ~/.vimrc<cr>
 map <leader>s   :split<space>
+map <leader>S   :split<cr>
 map <leader>t   :tabnew<space>
 map <leader>v   :vsplit<space>
 map <leader>w   :write<cr>
@@ -60,13 +67,15 @@ map <leader>x   :xit<cr>
 map <tab>       :tabn<cr>
 map <s-tab>     :tabp<cr>
 
-" indentation
+" format and indentation
 set autoindent
 set backspace=indent,eol,start  " Intuitive backspacing in insert mode
 set expandtab
+set linebreak
 set shiftwidth=4
 set nosmartindent
 set tabstop=8
+set textwidth=80
 
 " misc
 silent !mkdir -p ~/.vimtmp
@@ -75,9 +84,11 @@ set directory=~/.vimtmp
 set hidden
 set nomodeline                  " freebsd paranoia
 set number
-set ruler
 set wildmode=list:longest
+
+" status line
 set laststatus=2
+set ruler
 
 " search
 set nohlsearch
