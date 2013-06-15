@@ -29,6 +29,8 @@ autocmd BufNewFile,BufRead *.sub setl ft=sub
 " key bindings
 let mapleader = ','
 map <c-s>       :write<cr>
+map <leader>bs  :buffers<cr>
+map <leader>bw  :bwipeout!<cr>
 map <leader>e   :edit<space>
 map <leader>ga  :!git add %<cr>
 map <leader>gc  :!git commit<cr>
@@ -60,6 +62,7 @@ silent !mkdir -p ~/.vimtmp
 set backupdir=~/.vimtmp
 set directory=~/.vimtmp
 set hidden
+set laststatus=2
 set nomodeline                  " freebsd paranoia
 set number
 set ruler
