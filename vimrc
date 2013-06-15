@@ -37,11 +37,14 @@ map <leader>gb  :Gblame<cr>
 map <leader>gc  :Gcommit<cr>
 map <leader>gd  :Gdiff<cr>
 map <leader>gg  :Ggrep<space>
+map <leader>gl  :Glog<cr>
+map <leader>gm  :Gmove<space>
 map <leader>gv  :Gvsplit<cr>
 "map <leader>gr  :Gremove<cr>
 map <leader>gs  :Gstatus<cr>
 map <leader>dg  :diffget<cr>
 map <leader>dp  :diffput<cr>
+map <leader>du  :diffupdate<cr>
 map <leader>h   :help<space>
 map <leader>m   :make<cr>
 map <leader>n   :tabn<cr>
@@ -69,11 +72,11 @@ silent !mkdir -p ~/.vimtmp
 set backupdir=~/.vimtmp
 set directory=~/.vimtmp
 set hidden
-set laststatus=2
 set nomodeline                  " freebsd paranoia
 set number
 set ruler
 set wildmode=list:longest
+set laststatus=2
 
 " search
 set nohlsearch
