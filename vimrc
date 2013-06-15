@@ -34,12 +34,18 @@ map <leader>ga  :!git add %<cr>
 map <leader>gc  :!git commit<cr>
 map <leader>gs  :!git status<cr>
 map <leader>h   :help<space>
+map <leader>m   :make<cr>
+map <leader>n   :tabn<cr>
+map <leader>p   :tabp<cr>
 map <leader>q   :quit<cr>
 map <leader>r   :source ~/.vimrc<cr>
 map <leader>s   :split<space>
+map <leader>t   :tabnew<space>
 map <leader>v   :vsplit<space>
 map <leader>w   :write<cr>
 map <leader>x   :xit<cr>
+map <tab>       :tabn<cr>
+map <s-tab>     :tabp<cr>
 
 " indentation
 set autoindent
