@@ -1,8 +1,6 @@
-let has_vundle=1
 if !filereadable($HOME.'/.vim/bundle/vundle/README.md')
     silent !mkdir -p ~/.vim/bundle
     silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-    let has_vundle=0
 endif
 
 " vundle stuff
@@ -74,5 +72,7 @@ nmap \q :nohlsearch<cr>
 
 " terminal stuff
 set t_Co=256
-colors solarized
+if filereadable($HOME.'/.vim/bundle/vim-colors-solarized/README.mkd')
+    colors solarized
+endif
 hi Normal ctermbg=none
