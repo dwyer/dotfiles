@@ -43,6 +43,7 @@ map <leader>gv  :Gvsplit<cr>
 "map <leader>gr  :Gremove<cr>
 map <leader>gs  :Gstatus<cr>
 map <leader>dg  :diffget<cr>
+map <leader>do  :do<cr>
 map <leader>dp  :diffput<cr>
 map <leader>du  :diffupdate<cr>
 map <leader>h   :help<space>
