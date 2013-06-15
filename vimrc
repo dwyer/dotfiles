@@ -25,7 +25,6 @@ set tabstop=4
 set backupdir=~/.vimtmp
 set directory=~/.vimtmp
 set hidden
-set shell=/bin/zsh
 set number
 set ruler
 set wildmode=list:longest
