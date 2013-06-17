@@ -33,51 +33,49 @@ autocmd BufNewFile,BufRead profile setl ft=sh
 autocmd BufNewFile,BufRead *.m setl nolinebreak
 
 " key bindings
-map ;           :
-map J           <c-d>
-map K           <c-u>
-noremap Q       q
-map du          :diffupdate<cr>
-map ga          :Gwrite<cr>
-map gb          :Gblame<cr>
-map gc          :Gcommit<cr>
-map gd          :Gdiff<cr>
-map gh          :Gbrowse<cr>
-map gl          :Glog<cr>
-map gm          :Gmove<space>
-map gp          :Git push<cr>
-map gv          :Gvsplit<cr>
-map gq          :quit<cr>
-"map gr          :Gremove<cr>
-map gr          :Ggrep<space>
-map gs          :Gstatus<cr>
-map gw          :write<cr>
-map gx          :xit<cr>
-map q           :quit<cr>
-map <c-j>       :join<cr>
-map <space>     :write<cr>
-map <tab>       :tabn<cr>
-map <s-tab>     :tabp<cr>
+nnoremap ;              :
+nnoremap H              ^
+nnoremap J              <c-d>
+nnoremap K              <c-u>
+nnoremap L              $
+noremap Q               q
+nnoremap du             :diffupdate<cr>
+nnoremap ga             :Gwrite<cr>
+nnoremap gb             :Gblame<cr>
+nnoremap gc             :Gcommit<cr>
+nnoremap gd             :Gdiff<cr>
+nnoremap gh             :Gbrowse<cr>
+nnoremap gl             :Glog<cr>
+nnoremap gm             :Gmove<space>
+nnoremap gp             :Git push<cr>
+nnoremap gv             :Gvsplit<cr>
+"nnoremap gr             :Gremove<cr>
+nnoremap gr             :Ggrep<space>
+nnoremap gs             :Gstatus<cr>
+nnoremap gx             :xit<cr>
+nnoremap q              :quit<cr>
+nnoremap <c-j>          :join<cr>
+nnoremap <space>        :write<cr>
+nnoremap <tab>          :tabn<cr>
+nnoremap <s-tab>        :tabp<cr>
 
 "leader key bindings
 let mapleader = ','
-map <leader>,{  =i{
-map <leader>bs  :buffers<cr>
-map <leader>bw  :bwipeout!<cr>
-map <leader>e   :edit<space>
-map <leader>h   :help<space>
-map <leader>m   :make<cr>
-"map <leader>n   :tabn<cr>
-"map <leader>p   :tabp<cr>
-map <leader>o   :only<cr>
-map <leader>q   :quit<cr>
-map <leader>r   :source ~/.vimrc<cr>
-map <leader>s   :split<space>
-map <leader>S   :split<cr>
-map <leader>t   :tabnew<space>
-map <leader>v   :vsplit<space>
-map <leader>w   :write<cr>
-map <leader>x   :xit<cr>
+nnoremap <leader>{      =i{
+nnoremap <leader>bs     :buffers<cr>
+nnoremap <leader>bw     :bwipeout!<cr>
+nnoremap <leader>e      :edit<space>
+nnoremap <leader>h      :help<space>
+nnoremap <leader>m      :make<cr>
+"nnoremap <leader>n      :tabn<cr>
+"nnoremap <leader>p      :tabp<cr>
+nnoremap <leader>o      :only<cr>
+nnoremap <leader>r      :source ~/.vimrc<cr>
+nnoremap <leader>s      :split<space>
+nnoremap <leader>S      :split<cr>
+nnoremap <leader>t      :tabnew<space>
+nnoremap <leader>v      :vsplit<space>
+nnoremap <leader>x      :xit<cr>
 
 " format and indentation
 set autoindent
