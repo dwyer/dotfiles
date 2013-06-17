@@ -18,7 +18,6 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 
 " filetypes
-syntax on
 filetype plugin indent on
 autocmd FileType c setlocal cin cino=(0 cino=:0 tw=80
 autocmd BufNewFile,BufRead *.gyp setlocal filetype=python
@@ -116,7 +115,8 @@ set smartcase
 
 " terminal stuff
 set t_Co=256
+syntax on
 if filereadable($HOME.'/.vim/bundle/vim-colors-solarized/README.mkd')
-    colors solarized
+    colorscheme solarized
 endif
 highlight Normal ctermbg=none
