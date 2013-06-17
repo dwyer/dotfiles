@@ -6,7 +6,7 @@ endif
 " vundle stuff
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
+set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'altercation/vim-colors-solarized'
@@ -20,20 +20,21 @@ Bundle 'tpope/vim-surround'
 " filetypes
 syntax on
 filetype plugin indent on
-autocmd FileType c setl cin cino=(0 cino=:0 tw=80
-autocmd BufNewFile,BufRead *.gyp setl ft=python
-autocmd BufNewFile,BufRead *.json setl ft=javascript
-autocmd BufNewFile,BufRead *.li setl lisp ft=li
-autocmd BufNewFile,BufRead *.sub setl lisp ft=sub
-autocmd BufNewFile,BufRead gitconfig setl ft=gitconfig
-autocmd BufNewFile,BufRead profile setl ft=sh
+autocmd FileType c setlocal cin cino=(0 cino=:0 tw=80
+autocmd BufNewFile,BufRead *.gyp setlocal filetype=python
+autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
+autocmd BufNewFile,BufRead *.li setlocal lisp filetype=li
+autocmd BufNewFile,BufRead *.sub setlocal lisp filetype=sub
+autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
+autocmd BufNewFile,BufRead profile setlocal filetype=sh
 
 " hard-wraping objective-c is a pain and xcode does a pretty good job of
 " soft-wrapping it anyway
-autocmd BufNewFile,BufRead *.m setl nolinebreak
+autocmd BufNewFile,BufRead *.m setlocal nolinebreak
 
 " key bindings
 nnoremap ;              :
+nnoremap \q             :nohlsearch<cr>
 nnoremap H              ^
 nnoremap J              <c-d>
 nnoremap K              <c-u>
@@ -112,11 +113,10 @@ set nohlsearch
 set incsearch
 set ignorecase
 set smartcase
-nmap \q :nohlsearch<cr>
 
 " terminal stuff
 set t_Co=256
 if filereadable($HOME.'/.vim/bundle/vim-colors-solarized/README.mkd')
     colors solarized
 endif
-hi Normal ctermbg=none
+highlight Normal ctermbg=none
