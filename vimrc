@@ -63,6 +63,7 @@ map <leader>h   :help<space>
 map <leader>m   :make<cr>
 "map <leader>n   :tabn<cr>
 "map <leader>p   :tabp<cr>
+map <leader>o   :only<cr>
 map <leader>q   :quit<cr>
 map <leader>r   :source ~/.vimrc<cr>
 map <leader>s   :split<space>
