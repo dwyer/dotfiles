@@ -51,6 +51,7 @@ map <leader>gd  :Gdiff<cr>
 map <leader>gg  :Ggrep<space>
 map <leader>gl  :Glog<cr>
 map <leader>gm  :Gmove<space>
+map <leader>gp  :Git push<cr>
 map <leader>gv  :Gvsplit<cr>
 "map <leader>gr  :Gremove<cr>
 map <leader>gs  :Gstatus<cr>
