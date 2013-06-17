@@ -89,9 +89,10 @@ set tabstop=8
 set textwidth=80
 
 " misc
-silent !mkdir -p ~/.vimtmp
-set backupdir=~/.vimtmp
-set directory=~/.vimtmp
+if !filereadable($HOME.'/.vimtmp/.keep')
+    silent !mkdir -p ~/.vimtmp
+    silent !touch ~/.vimtmp/.keep
+endif
 set hidden
 set nomodeline                  " freebsd paranoia
 set number
