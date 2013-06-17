@@ -55,7 +55,7 @@ nnoremap gs             :Gstatus<cr>
 nnoremap gw             <c-w>
 nnoremap gx             :xit<cr>
 nnoremap q              :quit<cr>
-nnoremap <c-j>          :join<cr>
+nnoremap <c-j>          J
 nnoremap <space>        :write<cr>
 nnoremap <tab>          :tabn<cr>
 nnoremap <s-tab>        :tabp<cr>
