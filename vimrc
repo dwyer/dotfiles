@@ -55,7 +55,7 @@ map <c-s>       :write<cr>
 map <tab>       :tabn<cr>
 map <s-tab>     :tabp<cr>
 
-# leader key bindings
+"leader key bindings
 let mapleader = ','
 map <leader>,{  =i{
 map <leader>bs  :buffers<cr>
