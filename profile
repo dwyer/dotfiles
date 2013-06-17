@@ -123,20 +123,6 @@ ta() {
     fi
 }
 
-# stfu
-stfu() {
-    exec "$@" 1>/dev/null 2>/dev/null &
-}
-alias eog='stfu eog'
-alias evince='stfu evince'
-alias gimp='stfu gimp'
-alias lyx='stfu lyx'
-alias nautilus='stfu nautilus'
-alias parole='stfu parole'
-alias picard='stfu picard'
-alias ristretto='stfu ristretto'
-alias totem='stfu totem'
-
 # platform specific
 UNAME=`uname`
 if [ $UNAME = 'Darwin' ]; then
@@ -144,6 +130,19 @@ if [ $UNAME = 'Darwin' ]; then
 elif [ $UNAME = 'Linux' ]; then
     alias pbcopy='xsel --clipboard --input'
     alias pbpaste='xsel --clipboard --output'
+    # stfu
+    stfu() {
+        exec "$@" 1>/dev/null 2>/dev/null &
+    }
+    alias eog='stfu eog'
+    alias evince='stfu evince'
+    alias gimp='stfu gimp'
+    alias lyx='stfu lyx'
+    alias nautilus='stfu nautilus'
+    alias parole='stfu parole'
+    alias picard='stfu picard'
+    alias ristretto='stfu ristretto'
+    alias totem='stfu totem'
 fi
 
 # Local profile (if present) is loaded last so things can be overridden.
