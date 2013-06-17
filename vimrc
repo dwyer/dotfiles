@@ -52,6 +52,7 @@ nnoremap gv             :Gvsplit<cr>
 "nnoremap gr             :Gremove<cr>
 nnoremap gr             :Ggrep<space>
 nnoremap gs             :Gstatus<cr>
+nnoremap gw             <c-w>
 nnoremap gx             :xit<cr>
 nnoremap q              :quit<cr>
 nnoremap <c-j>          :join<cr>
