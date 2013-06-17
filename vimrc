@@ -32,6 +32,7 @@ autocmd BufNewFile,BufRead *.m setl nolinebreak
 
 " key bindings
 let mapleader = ','
+map ;           :
 map <c-s>       :write<cr>
 map <leader>,{  =i{
 map <leader>,(  =i(
