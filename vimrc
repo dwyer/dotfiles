@@ -116,7 +116,9 @@ set smartcase
 " terminal stuff
 set t_Co=256
 syntax on
+set background=dark
 if filereadable($HOME.'/.vim/bundle/vim-colors-solarized/README.mkd')
     colorscheme solarized
+    call togglebg#map("<F5>")
 endif
 highlight Normal ctermbg=none
