@@ -137,8 +137,13 @@ alias picard='stfu picard'
 alias ristretto='stfu ristretto'
 alias totem='stfu totem'
 
-if [ `uname` = 'Darwin' ]; then
+# platform specific
+UNAME=`uname`
+if [ $UNAME = 'Darwin' ]; then
     alias md5sum='md5 -r'
+elif [ $UNAME = 'Linux' ]; then
+    alias pbcopy='xsel --clipboard --input'
+    alias pbpaste='xsel --clipboard --output'
 fi
 
 # Local profile (if present) is loaded last so things can be overridden.
