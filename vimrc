@@ -93,6 +93,8 @@ if !filereadable($HOME.'/.vimtmp/.keep')
     silent !mkdir -p ~/.vimtmp
     silent !touch ~/.vimtmp/.keep
 endif
+set backupdir=~/.vimtmp//
+set directory=~/.vimtmp//
 set hidden
 set nomodeline                  " freebsd paranoia
 set number
