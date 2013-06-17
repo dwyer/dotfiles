@@ -115,8 +115,17 @@ alias rl='rlwrap'
 alias src='source'
 alias sl='ls' # this typo happens a lot
 alias t='tmux'
-alias ta='tmux a'
+#alias ta='tmux a'
+alias tls='tmux ls'
 alias tx='tar xzf'
+
+ta() {
+    if [ $# -gt 0 ]; then
+        tmux attach -t $@
+    else
+        tmux attach
+    fi
+}
 
 # stfu
 alias eog='stfu eog'
