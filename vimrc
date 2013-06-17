@@ -37,7 +37,6 @@ let mapleader = ','
 map ;           :
 map J           <c-d>
 map K           <c-u>
-map dp          :diffput<cr>
 map du          :diffupdate<cr>
 map ga          :Gwrite<cr>
 map gb          :Gblame<cr>
