@@ -46,12 +46,13 @@ map gl          :Glog<cr>
 map gm          :Gmove<space>
 map gp          :Git push<cr>
 map gv          :Gvsplit<cr>
+map gq          :quit<cr>
 "map gr          :Gremove<cr>
 map gr          :Ggrep<space>
 map gs          :Gstatus<cr>
-map gw          <c-w>
+map gw          :write<cr>
+map gx          :xit<cr>
 map <c-j>       :join<cr>
-map <c-s>       :write<cr>
 map <tab>       :tabn<cr>
 map <s-tab>     :tabp<cr>
 
