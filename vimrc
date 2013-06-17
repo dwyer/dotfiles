@@ -40,7 +40,6 @@ map K           <c-u>
 map <c-j>       :join<cr>
 map <c-s>       :write<cr>
 map <leader>,{  =i{
-map <leader>,(  =i(
 map <leader>bs  :buffers<cr>
 map <leader>bw  :bwipeout!<cr>
 map <leader>e   :edit<space>
@@ -49,6 +48,7 @@ map <leader>gb  :Gblame<cr>
 map <leader>gc  :Gcommit<cr>
 map <leader>gd  :Gdiff<cr>
 map <leader>gg  :Ggrep<space>
+map <leader>gh  :Gbrowse<cr>
 map <leader>gl  :Glog<cr>
 map <leader>gm  :Gmove<space>
 map <leader>gp  :Git push<cr>

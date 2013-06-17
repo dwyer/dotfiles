@@ -27,3 +27,5 @@
 	rh = reset --hard
 	s = status
 	t = log --graph --oneline --all
+[web]
+	browser = open
