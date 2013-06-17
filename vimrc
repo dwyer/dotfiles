@@ -38,7 +38,7 @@ nnoremap H              ^
 nnoremap J              <c-d>
 nnoremap K              <c-u>
 nnoremap L              $
-noremap Q               q
+nnoremap Q              q
 nnoremap du             :diffupdate<cr>
 nnoremap ga             :Gwrite<cr>
 nnoremap gb             :Gblame<cr>
