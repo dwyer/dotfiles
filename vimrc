@@ -49,6 +49,7 @@ map gp          :Git push<cr>
 map gv          :Gvsplit<cr>
 "map gr          :Gremove<cr>
 map gs          :Gstatus<cr>
+map gw          <c-w>
 map <c-j>       :join<cr>
 map <c-s>       :write<cr>
 map <tab>       :tabn<cr>
@@ -73,8 +74,6 @@ map <leader>t   :tabnew<space>
 map <leader>v   :vsplit<space>
 map <leader>w   :write<cr>
 map <leader>x   :xit<cr>
-map <tab>       :tabn<cr>
-map <s-tab>     :tabp<cr>
 
 " format and indentation
 set autoindent
