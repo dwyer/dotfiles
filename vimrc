@@ -36,6 +36,7 @@ autocmd BufNewFile,BufRead *.m setl nolinebreak
 map ;           :
 map J           <c-d>
 map K           <c-u>
+noremap Q       q
 map du          :diffupdate<cr>
 map ga          :Gwrite<cr>
 map gb          :Gblame<cr>
@@ -52,7 +53,9 @@ map gr          :Ggrep<space>
 map gs          :Gstatus<cr>
 map gw          :write<cr>
 map gx          :xit<cr>
+map q           :quit<cr>
 map <c-j>       :join<cr>
+map <space>     :write<cr>
 map <tab>       :tabn<cr>
 map <s-tab>     :tabp<cr>
 
