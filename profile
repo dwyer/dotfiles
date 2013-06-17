@@ -49,10 +49,6 @@ fi
 
 export PATH
 
-stfu() {
-    exec "$@" 1>/dev/null 2>/dev/null &
-}
-
 # overrides
 alias apt-get='aptitude'
 alias cp='cp -i'
@@ -128,6 +124,9 @@ ta() {
 }
 
 # stfu
+stfu() {
+    exec "$@" 1>/dev/null 2>/dev/null &
+}
 alias eog='stfu eog'
 alias evince='stfu evince'
 alias gimp='stfu gimp'
