@@ -100,7 +100,9 @@ set wildmode=list:longest
 " status line
 set laststatus=2
 set ruler
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+if filereadable($HOME.'/.vim/bundle/vim-fugitive/README.markdown')
+    set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+endif
 
 " search
 set nohlsearch
