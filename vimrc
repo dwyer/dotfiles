@@ -25,6 +25,7 @@ autocmd BufNewFile,BufRead *.gyp setl ft=python
 autocmd BufNewFile,BufRead *.json setl ft=javascript
 autocmd BufNewFile,BufRead *.li setl lisp ft=li
 autocmd BufNewFile,BufRead *.sub setl lisp ft=sub
+autocmd BufNewFile,BufRead gitconfig setl ft=gitconfig
 autocmd BufNewFile,BufRead profile setl ft=sh
 
 " hard-wraping objective-c is a pain and xcode does a pretty good job of
