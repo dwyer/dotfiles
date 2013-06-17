@@ -33,7 +33,6 @@ autocmd BufNewFile,BufRead profile setl ft=sh
 autocmd BufNewFile,BufRead *.m setl nolinebreak
 
 " key bindings
-let mapleader = ','
 map ;           :
 map J           <c-d>
 map K           <c-u>
@@ -52,6 +51,11 @@ map gv          :Gvsplit<cr>
 map gs          :Gstatus<cr>
 map <c-j>       :join<cr>
 map <c-s>       :write<cr>
+map <tab>       :tabn<cr>
+map <s-tab>     :tabp<cr>
+
+# leader key bindings
+let mapleader = ','
 map <leader>,{  =i{
 map <leader>bs  :buffers<cr>
 map <leader>bw  :bwipeout!<cr>
