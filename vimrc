@@ -41,13 +41,13 @@ map ga          :Gwrite<cr>
 map gb          :Gblame<cr>
 map gc          :Gcommit<cr>
 map gd          :Gdiff<cr>
-"map gg          :Ggrep<space>
-map gh          :gbrowse<cr>
-map gl          :glog<cr>
+map gh          :Gbrowse<cr>
+map gl          :Glog<cr>
 map gm          :Gmove<space>
 map gp          :Git push<cr>
 map gv          :Gvsplit<cr>
 "map gr          :Gremove<cr>
+map gr          :Ggrep<space>
 map gs          :Gstatus<cr>
 map gw          <c-w>
 map <c-j>       :join<cr>
