@@ -38,7 +38,6 @@ nnoremap H              ^
 nnoremap J              <c-d>
 nnoremap K              <c-u>
 nnoremap L              $
-nnoremap Q              q
 nnoremap du             :diffupdate<cr>
 nnoremap ga             :Gwrite<cr>
 nnoremap gb             :Gblame<cr>
@@ -71,6 +70,7 @@ nnoremap <leader>m      :make<cr>
 "nnoremap <leader>p      :tabp<cr>
 nnoremap <leader>o      :only<cr>
 nnoremap <leader>r      :source ~/.vimrc<cr>
+nnoremap <leader>q      q
 nnoremap <leader>s      :split<space>
 nnoremap <leader>S      :split<cr>
 nnoremap <leader>t      :tabnew<space>
