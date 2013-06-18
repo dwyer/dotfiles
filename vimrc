@@ -34,6 +34,13 @@ autocmd BufNewFile,BufRead profile setlocal filetype=sh
 autocmd BufNewFile,BufRead *.m setlocal nolinebreak
 
 " key bindings
+nnoremap <space>        :write<cr>
+nnoremap <c-h>          H
+nnoremap <c-j>          J
+nnoremap <c-k>          K
+nnoremap <c-l>          L
+nnoremap <tab>          :tabn<cr>
+nnoremap <s-tab>        :tabp<cr>
 nnoremap ;              :
 nnoremap \q             :nohlsearch<cr>
 nnoremap H              ^
@@ -55,10 +62,6 @@ nnoremap gr             :Ggrep<space>
 nnoremap gs             :Gstatus<cr>
 nnoremap gw             <c-w>
 nnoremap q              :quit<cr>
-nnoremap <c-j>          J
-nnoremap <space>        :write<cr>
-nnoremap <tab>          :tabn<cr>
-nnoremap <s-tab>        :tabp<cr>
 
 "leader key bindings
 let mapleader = ','
