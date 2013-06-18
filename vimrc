@@ -62,7 +62,6 @@ nnoremap gr             :Ggrep<space>
 nnoremap gs             :Gstatus<cr>
 nnoremap gw             <c-w>
 nnoremap q              :quit<cr>
-nnoremap vs             :vsplit<space>
 
 "leader key bindings
 let mapleader = ','
