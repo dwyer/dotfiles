@@ -20,13 +20,13 @@ Bundle 'tpope/vim-surround'
 " filetypes
 filetype plugin indent on
 autocmd FileType c setlocal cin cino=(0 cino=:0 tw=80
+autocmd FileType html setlocal shiftwidth=2
+autocmd FileType java setlocal textwidth=100
+autocmd FileType xml setlocal shiftwidth=4
 autocmd BufNewFile,BufRead *.gyp setlocal filetype=python
-autocmd BufNewFile,BufRead *.html setlocal shiftwidth=2
-autocmd BufNewFile,BufRead *.java setlocal textwidth=100
 autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
 autocmd BufNewFile,BufRead *.li setlocal lisp filetype=li
 autocmd BufNewFile,BufRead *.sub setlocal lisp filetype=sub
-autocmd BufNewFile,BufRead *.xml setlocal shiftwidth=4
 autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
 autocmd BufNewFile,BufRead profile setlocal filetype=sh
 
