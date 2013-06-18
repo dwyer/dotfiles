@@ -71,7 +71,7 @@ nnoremap <leader>m      :make<cr>
 "nnoremap <leader>n      :tabn<cr>
 "nnoremap <leader>p      :tabp<cr>
 nnoremap <leader>o      :only<cr>
-nnoremap <leader>r      :source ~/.vimrc<cr>
+nnoremap <leader>r      :source $MYVIMRC<cr>
 nnoremap <leader>q      q
 nnoremap <leader>s      :split<space>
 nnoremap <leader>S      :split<cr>
