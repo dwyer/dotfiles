@@ -104,7 +104,7 @@ if !filereadable($HOME.'/.vimtmp/.keep')
 endif
 set backupdir=~/.vimtmp//
 set directory=~/.vimtmp//
-set hidden
+set nohidden
 set nomodeline                  " freebsd paranoia
 set number
 set wildmode=list:longest
