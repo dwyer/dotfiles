@@ -55,7 +55,9 @@ nnoremap gd             :Gdiff<cr>
 nnoremap gh             :Gbrowse<cr>
 nnoremap gl             :Glog<cr>
 nnoremap gm             :Gmove<space>
-nnoremap gp             :Git push<cr>
+nnoremap gp             <nop>
+nnoremap gpp            :Git push<cr>
+nnoremap gpl            :Git pull<cr>
 nnoremap gv             :Gvsplit<cr>
 "nnoremap gr             :Gremove<cr>
 nnoremap gr             :Ggrep<space>
