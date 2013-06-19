@@ -40,8 +40,7 @@ nnoremap <c-h>          H
 nnoremap <c-j>          J
 nnoremap <c-k>          K
 nnoremap <c-l>          L
-nnoremap <tab>          :tabn<cr>
-nnoremap <s-tab>        :tabp<cr>
+nnoremap <tab>          <c-w>
 nnoremap ;              :
 nnoremap \q             :nohlsearch<cr>
 nnoremap H              ^
@@ -63,7 +62,6 @@ nnoremap gv             :Gvsplit<cr>
 "nnoremap gr             :Gremove<cr>
 nnoremap gr             :Ggrep<space>
 nnoremap gs             :Gstatus<cr>
-nnoremap gw             <c-w>
 nnoremap q              :quit<cr>
 nnoremap vs             :vsplit<space>
 
