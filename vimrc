@@ -10,8 +10,8 @@ set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'gmarik/vundle'
 Bundle 'dwyer/li.vim'
+Bundle 'gmarik/vundle'
 Bundle 'mattn/zencoding-vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
