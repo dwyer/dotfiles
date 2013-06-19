@@ -91,6 +91,7 @@ nnoremap <leader>x      :xit<cr>
 " format and indentation
 set autoindent
 set backspace=indent,eol,start  " Intuitive backspacing in insert mode
+set colorcolumn=+0
 set expandtab
 set linebreak
 set shiftwidth=4
