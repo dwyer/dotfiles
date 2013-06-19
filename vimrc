@@ -51,6 +51,7 @@ nnoremap H              ^
 nnoremap J              <c-d>
 nnoremap K              <c-u>
 nnoremap L              $
+nnoremap U              <c-r>
 nnoremap du             :diffupdate<cr>
 nnoremap ga             :Gwrite<cr>
 nnoremap gb             :Gblame<cr>
