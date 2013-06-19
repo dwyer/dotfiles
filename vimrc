@@ -42,6 +42,7 @@ nnoremap <c-j>          J
 nnoremap <c-k>          K
 nnoremap <c-l>          L
 nnoremap <tab>          <c-w>
+nnoremap <tab><tab>     <c-w><c-w>
 nnoremap !              :!
 nnoremap !!             :!!<cr>
 nnoremap ;              :
