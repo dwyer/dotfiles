@@ -130,7 +130,7 @@ if [ $UNAME = 'Darwin' ]; then
 elif [ $UNAME = 'Linux' ]; then
     alias pbcopy='xsel --clipboard --input'
     alias pbpaste='xsel --clipboard --output'
-    # stfu
+    # stfu: force certain processes to run silently in the background
     stfu() {
         exec "$@" 1>/dev/null 2>/dev/null &
     }
