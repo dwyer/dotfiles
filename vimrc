@@ -41,6 +41,8 @@ nnoremap <c-j>          J
 nnoremap <c-k>          K
 nnoremap <c-l>          L
 nnoremap <tab>          <c-w>
+nnoremap !              :!
+nnoremap !!             :!!<cr>
 nnoremap ;              :
 nnoremap \q             :nohlsearch<cr>
 nnoremap H              ^
