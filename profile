@@ -151,3 +151,22 @@ LOCALPROFILE=$HOME/.profile.local
 if [ -e $LOCALPROFILE ]; then
     source $LOCALPROFILE
 fi
+
+rate() {
+    if [ $# -eq 2 ]; then
+        i=$1
+        j=$2
+        while [ $i -gt 0 ]; do
+            echo -n "\xe2\x98\x85"
+            i=$(expr $i - 1)
+            j=$(expr $j - 1)
+        done
+        while [ $j -gt 0 ]; do
+            echo -n "\xe2\x98\x86"
+            j=$(expr $j - 1)
+        done
+        echo
+    else
+        echo usage: rate N P
+    fi
+}
