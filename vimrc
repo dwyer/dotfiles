@@ -73,6 +73,7 @@ nnoremap vs             :vsplit<space>
 
 "leader key bindings
 let mapleader = ','
+nnoremap <leader>.      :edit .<cr>
 nnoremap <leader>{      =i{
 nnoremap <leader>b1     :buffer 1<cr>
 nnoremap <leader>bn     :bnext<cr>
