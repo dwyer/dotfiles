@@ -75,6 +75,8 @@ nnoremap vs             :vsplit<space>
 let mapleader = ','
 nnoremap <leader>.      :edit .<cr>
 nnoremap <leader>{      =i{
+nnoremap <leader>S      :split .<cr>
+nnoremap <leader>V      :vsplit .<cr>
 nnoremap <leader>b1     :buffer 1<cr>
 nnoremap <leader>b2     :buffer 2<cr>
 nnoremap <leader>b3     :buffer 3<cr>
