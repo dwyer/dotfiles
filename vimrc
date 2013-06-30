@@ -74,7 +74,6 @@ nnoremap vs             :vsplit<space>
 "leader key bindings
 let mapleader = ','
 nnoremap <leader>.      :edit .<cr>
-nnoremap <leader>{      =i{
 nnoremap <leader>S      :split .<cr>
 nnoremap <leader>V      :vsplit .<cr>
 nnoremap <leader>b1     :buffer 1<cr>
@@ -93,15 +92,15 @@ nnoremap <leader>e      :edit<space>
 nnoremap <leader>h      :help<space>
 nnoremap <leader>m      :make<cr>
 "nnoremap <leader>n      :tabn<cr>
-"nnoremap <leader>p      :tabp<cr>
 nnoremap <leader>o      :only<cr>
-nnoremap <leader>r      :source $MYVIMRC<cr>
+"nnoremap <leader>p      :tabp<cr>
 nnoremap <leader>q      q
+nnoremap <leader>r      :source $MYVIMRC<cr>
 nnoremap <leader>s      :split<space>
-nnoremap <leader>S      :split<cr>
 nnoremap <leader>t      :tabnew<space>
 nnoremap <leader>v      :vsplit<space>
 nnoremap <leader>x      :xit<cr>
+nnoremap <leader>{      =i{
 
 " format and indentation
 set autoindent
