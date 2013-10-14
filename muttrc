@@ -1,8 +1,6 @@
 # PGP
-set pgp_autosign=yes
-set pgp_sign_as=0x4E87A111
 
-source ~/.mutt/pw.rc
+source ~/.mutt/account.muttrc
 source ~/.mutt/gpg.rc
 
 # Change the following line to a different editor you prefer.
