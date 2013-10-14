@@ -38,8 +38,7 @@ ignore "DKIM-Signature:"
 hdr_order Date From To Cc
 alternative_order text/plain text/html *
 auto_view text/html
-bind editor <Tab> complete-query
-bind editor ^T complete
+bind editor <Tab> complete
 bind editor <space> noop 
 
 macro pager J "<next-page>"
