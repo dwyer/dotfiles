@@ -29,8 +29,10 @@ autocmd FileType xml setlocal shiftwidth=4
 autocmd BufNewFile,BufRead *.gyp setlocal filetype=python
 autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
 autocmd BufNewFile,BufRead *.li setlocal lisp filetype=li
+autocmd BufNewFile,BufRead *.muttrc setlocal filetype=muttrc
 autocmd BufNewFile,BufRead *.sub setlocal lisp filetype=sub
 autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
+autocmd BufNewFile,BufRead mutt-* setlocal filetype=mail spell tw=72
 autocmd BufNewFile,BufRead profile setlocal filetype=sh
 
 " hard-wraping objective-c is a pain and xcode does a pretty good job of
