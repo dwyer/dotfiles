@@ -1,7 +1,10 @@
-# PGP
-
+# account
 source ~/.mutt/account.muttrc
-source ~/.mutt/aliases.muttrc
+
+# aliases
+set alias_file = ~/.mutt/aliases.muttrc
+source $alias_file
+
 source ~/.mutt/gpg.rc
 
 # Global crypto options -- these affect PGP operations as well.
