@@ -4,6 +4,13 @@ source ~/.mutt/account.muttrc
 source ~/.mutt/aliases.muttrc
 source ~/.mutt/gpg.rc
 
+# Global crypto options -- these affect PGP operations as well.
+set crypt_autosign = yes
+set crypt_replyencrypt = yes
+set crypt_replysign = yes
+set crypt_replysignencrypted = yes
+set crypt_verify_sig = yes
+
 # Change the following line to a different editor you prefer.
 set editor = "vi"
 
