@@ -1,0 +1,3 @@
+audio/*;        open -W %s
+image/*;        open -W %s
+text/html;      open -W %s
