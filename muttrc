@@ -1,6 +1,7 @@
 # PGP
 
 source ~/.mutt/account.muttrc
+source ~/.mutt/aliases.muttrc
 source ~/.mutt/gpg.rc
 
 # Change the following line to a different editor you prefer.
