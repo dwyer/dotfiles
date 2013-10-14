@@ -41,6 +41,7 @@ auto_view text/html
 bind editor <Tab> complete
 bind editor <space> noop 
 
+macro index G "<imap-fetch-mail>" "Fetch mail."
 macro pager J "<next-page>"
 macro pager K "<previous-page>"
 macro pager j "<next-line>"
