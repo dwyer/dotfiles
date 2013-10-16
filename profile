@@ -126,6 +126,8 @@ ta() {
 # platform specific
 UNAME=`uname`
 if [ $UNAME = 'Darwin' ]; then
+    alias gradlew='/Applications/Android Studio.app/sdk/tools/templates/gradle/wrapper/gradlew'
+    alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
     alias md5sum='md5 -r'
 elif [ $UNAME = 'Linux' ]; then
     alias pbcopy='xsel --clipboard --input'
