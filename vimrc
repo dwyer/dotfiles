@@ -41,7 +41,7 @@ autocmd BufNewFile,BufRead profile setlocal filetype=sh
 " hard-wraping objective-c is a pain and xcode does a pretty good job of
 " soft-wrapping it anyway
 autocmd BufNewFile,BufRead *.m setlocal nolinebreak
-autocmd FileType m setlocal nolinebreak
+autocmd FileType objc setlocal nolinebreak
 
 " key bindings
 nnoremap <space>        :write<cr>
