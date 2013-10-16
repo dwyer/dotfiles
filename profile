@@ -66,7 +66,6 @@ if [ $? != 0 ]; then
 fi
 
 # shortcuts
-alias ac='apt-cache'
 alias cx='chmod +x'
 alias g='git'
 alias ga='git add'
@@ -132,6 +131,7 @@ if [ $UNAME = 'Darwin' ]; then
     alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
     alias md5sum='md5 -r'
 elif [ $UNAME = 'Linux' ]; then
+    alias ac='apt-cache'
     alias pbcopy='xsel --clipboard --input'
     alias pbpaste='xsel --clipboard --output'
     # stfu: force certain processes to run silently in the background
