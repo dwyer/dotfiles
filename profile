@@ -22,7 +22,6 @@ export MPD_PORT=6600
 # dev tools
 export ANDROIDPATH=/usr/local/android-sdk
 export APPENGINEPATH=/usr/local/google_appengine
-export GSUTILPATH=/usr/local/gsutil
 export HOMEBIN=$HOME/bin
 
 # Add ~/bin to path
@@ -40,11 +39,6 @@ fi
 # Add App Engine SDK to path
 if [ -e $APPENGINEPATH ]; then
     PATH=$APPENGINEPATH:$PATH
-fi
-
-# Add gsutil to path
-if [ -e $GSUTILPATH ]; then
-    PATH=$GSUTILPATH:$PATH
 fi
 
 export PATH
