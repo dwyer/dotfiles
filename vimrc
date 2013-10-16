@@ -28,20 +28,17 @@ autocmd FileType html setlocal shiftwidth=2
 autocmd FileType java setlocal textwidth=100
 autocmd FileType lisp setlocal lispwords+=syntax-rules
 autocmd FileType mail setlocal spell textwidth=72
+autocmd FileType objc setlocal nolinebreak
 autocmd FileType xml setlocal shiftwidth=4
 autocmd BufNewFile,BufRead *.gyp setlocal filetype=python
 autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
 autocmd BufNewFile,BufRead *.li setlocal filetype=li lisp
+autocmd BufNewFile,BufRead *.m setlocal filetype=obj
 autocmd BufNewFile,BufRead *.muttrc setlocal filetype=muttrc
 autocmd BufNewFile,BufRead *.sub setlocal filetype=sub lisp
 autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
 autocmd BufNewFile,BufRead mutt-* setlocal filetype=mail
 autocmd BufNewFile,BufRead profile setlocal filetype=sh
-
-" hard-wraping objective-c is a pain and xcode does a pretty good job of
-" soft-wrapping it anyway
-autocmd BufNewFile,BufRead *.m setlocal filetype=obj
-autocmd FileType objc setlocal nolinebreak
 
 " key bindings
 nnoremap <space>        :write<cr>
