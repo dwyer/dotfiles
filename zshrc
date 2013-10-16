@@ -54,6 +54,11 @@ bindkey '^U' backward-kill-line
 source ~/.profile
 
 # custom prompt
-PROMPT=$'%{\e[38;5;187m%}%n@%m%{\e[0m%} %{\e[38;5;174m%}%~ %#% %{\e[0m%} '
-PROMPT=$'%n@%m %~ %#%  '
-RPROMPT='[%* on %D]'
+setopt prompt_subst
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' actionformats '[%b|%a] '
+zstyle ':vcs_info:*' formats       '[%b] '
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b:%r'
+precmd () { vcs_info }
+PROMPT='%n@%m %3~ ${vcs_info_msg_0_}%# '
+RPROMPT='[%D %*]'
