@@ -123,6 +123,7 @@ if !filereadable($HOME.'/.vimtmp/.keep')
     silent !touch ~/.vimtmp/.keep
 endif
 set backupdir=~/.vimtmp//
+set cryptmethod=blowfish
 set directory=~/.vimtmp//
 set nohidden
 set nomodeline                  " freebsd paranoia
