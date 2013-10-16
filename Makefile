@@ -1,5 +1,8 @@
+LN=ln -s
+RM=rm -f
+
 SRCFILES=$(shell ls -d [a-z]*)
-DOTFILES=$(addprefix $(HOME)/., $(SRCFILES))
+DOTFILES=$(addprefix $(HOME)/., gitignore_global hgignore_global $(SRCFILES))
 
 usage:
 	@echo Usage:
@@ -9,7 +12,13 @@ usage:
 install: $(DOTFILES)
 
 uninstall:
-	rm -fr $(DOTFILES)
+	$(RM) $(DOTFILES)
+
+$(HOME)/.gitignore_global: .gitignore
+	$(LN) $(PWD)/$< $@
+
+$(HOME)/.hgignore_global: .gitignore
+	$(LN) $(PWD)/$< $@
 
 $(HOME)/.%: %
-	ln -s $(PWD)/$< $@
+	$(LN) $(PWD)/$< $@
