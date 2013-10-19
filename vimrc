@@ -1,9 +1,8 @@
+" vundle stuff
 if !filereadable($HOME.'/.vim/bundle/vundle/README.md')
     silent !mkdir -p ~/.vim/bundle
     silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
 endif
-
-" vundle stuff
 set nocompatible
 filetype off
 set runtimepath+=~/.vim/bundle/vundle/
