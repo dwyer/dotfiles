@@ -23,7 +23,7 @@ Bundle 'tpope/vim-surround'
 filetype plugin indent on
 autocmd FileType c setlocal cin cino=(0 cino=:0 tw=80
 autocmd FileType gitcommit setlocal spell
-autocmd FileType html setlocal shiftwidth=2
+autocmd FileType html setlocal nolinebreak shiftwidth=2
 autocmd FileType java setlocal textwidth=100
 autocmd FileType lisp setlocal lispwords+=syntax-rules
 autocmd FileType mail setlocal spell textwidth=72
