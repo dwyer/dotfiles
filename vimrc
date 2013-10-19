@@ -1,4 +1,4 @@
-" vundle stuff
+" vundle stuff {{{1
 if !filereadable($HOME.'/.vim/bundle/vundle/README.md')
     silent !mkdir -p ~/.vim/bundle
     silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
@@ -19,7 +19,7 @@ Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 
-" filetypes
+" filetypes {{{1
 filetype plugin indent on
 autocmd FileType c setlocal cin cino=(0 cino=:0 tw=80
 autocmd FileType gitcommit setlocal spell
@@ -40,7 +40,7 @@ autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
 autocmd BufNewFile,BufRead mutt-* setlocal filetype=mail
 autocmd BufNewFile,BufRead profile setlocal filetype=sh
 
-" key bindings
+" key bindings {{{1
 nnoremap <space>        :write<cr>
 nnoremap <c-h>          H
 nnoremap <c-j>          J
@@ -76,7 +76,7 @@ nnoremap gs             :Gstatus<cr>
 nnoremap q              :quit<cr>
 nnoremap vs             :vsplit<space>
 
-"leader key bindings
+"leader key bindings {{{1
 let mapleader = ','
 nnoremap <leader>.      :edit .<cr>
 nnoremap <leader>S      :split .<cr>
@@ -107,7 +107,7 @@ nnoremap <leader>v      :vsplit<space>
 nnoremap <leader>x      :xit<cr>
 nnoremap <leader>{      =i{
 
-" format and indentation
+" format and indentation {{{1
 set autoindent
 set backspace=indent,eol,start  " Intuitive backspacing in insert mode
 set colorcolumn=+0
@@ -118,7 +118,7 @@ set nosmartindent
 set tabstop=8
 set textwidth=80
 
-" misc
+" misc {{{1
 if !filereadable($HOME.'/.vimtmp/.keep')
     silent !mkdir -p ~/.vimtmp
     silent !touch ~/.vimtmp/.keep
@@ -131,20 +131,20 @@ set nomodeline                  " freebsd paranoia
 set number
 set wildmode=list:longest
 
-" status line
+" status line {{{1
 set laststatus=2
 set ruler
 if filereadable($HOME.'/.vim/bundle/vim-fugitive/README.markdown')
     set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 endif
 
-" search
+" search {{{1
 set nohlsearch
 set incsearch
 set ignorecase
 set smartcase
 
-" terminal stuff
+" terminal stuff {{{1
 set t_Co=256
 syntax on
 set background=dark
