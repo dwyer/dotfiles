@@ -60,6 +60,7 @@ nnoremap <c-k>          K
 nnoremap <c-l>          L
 nnoremap <tab>          <c-w>
 nnoremap <tab><tab>     <c-w><c-w>
+nnoremap +              za
 nnoremap !              :!
 nnoremap !!             :!!<cr>
 nnoremap ;              :
@@ -138,6 +139,7 @@ endif
 set backupdir=~/.vimtmp//
 set cryptmethod=blowfish
 set directory=~/.vimtmp//
+set foldlevel=3
 set nohidden
 set nomodeline                  " freebsd paranoia
 set number
