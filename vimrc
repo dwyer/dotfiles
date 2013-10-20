@@ -141,6 +141,7 @@ nnoremap q              :quit<cr>
 nnoremap vs             :vsplit<space>
 
 " Leader Bindings {{{1
+
 nnoremap <leader>.      :edit .<cr>
 nnoremap <leader>S      :split .<cr>
 nnoremap <leader>V      :vsplit .<cr>
@@ -159,13 +160,10 @@ nnoremap <leader>bw     :bwipeout!<cr>
 nnoremap <leader>e      :edit<space>
 nnoremap <leader>h      :help<space>
 nnoremap <leader>m      :make<cr>
-"nnoremap <leader>n      :tabn<cr>
 nnoremap <leader>o      :only<cr>
-"nnoremap <leader>p      :tabp<cr>
 nnoremap <leader>r      :source $MYVIMRC<cr>
 nnoremap <leader>s      :split<space>
 nnoremap <leader>t      :tabnew<space>
 nnoremap <leader>v      :vsplit<space>
 nnoremap <leader>x      :xit<cr>
 nnoremap <leader>{      =i{
-
