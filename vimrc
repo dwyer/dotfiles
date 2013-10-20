@@ -45,10 +45,10 @@ set textwidth=80
 if !filereadable($HOME.'/.vimtmp/.keep')
     silent !mkdir -p ~/.vimtmp
     silent !touch ~/.vimtmp/.keep
+    set backupdir=~/.vimtmp//
+    set directory=~/.vimtmp//
 endif
-set backupdir=~/.vimtmp//
 set cryptmethod=blowfish
-set directory=~/.vimtmp//
 set foldlevel=3
 set nohidden
 set nomodeline                  " freebsd paranoia
