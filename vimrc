@@ -21,6 +21,17 @@ Bundle 'tpope/vim-surround'
 
 " filetypes {{{1
 filetype plugin indent on
+function! ObjcFold()
+    let line = getline(v:lnum)
+    if line =~ '^@interface' || line =~ '^@implementation'
+        return '>1'
+    elseif line =~ '^#pragma mark'
+        return '>2'
+    elseif line =~ '^[\+\-][^;]*$'
+        return '>3'
+    endif
+    return '='
+endfunction
 autocmd FileType c setlocal cin cino=(0 cino=:0 tw=80
 autocmd FileType gitcommit setlocal spell
 autocmd FileType html setlocal nolinebreak shiftwidth=2
@@ -28,7 +39,7 @@ autocmd FileType htmldjango setlocal nolinebreak shiftwidth=2
 autocmd FileType java setlocal textwidth=100
 autocmd FileType lisp setlocal lispwords+=syntax-rules
 autocmd FileType mail setlocal spell textwidth=72
-autocmd FileType objc setlocal nolinebreak
+autocmd FileType objc setlocal foldcolumn=4 foldexpr=ObjcFold() foldmethod=expr foldtext=getline(v:foldstart) nolinebreak
 autocmd FileType vim setlocal foldmethod=marker
 autocmd FileType xml setlocal shiftwidth=4
 autocmd BufNewFile,BufRead *.gyp setlocal filetype=python
