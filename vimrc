@@ -130,6 +130,7 @@ set expandtab
 set linebreak
 set shiftwidth=4
 set nosmartindent
+set softtabstop=4
 set tabstop=8
 set textwidth=80
 
