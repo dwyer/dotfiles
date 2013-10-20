@@ -126,24 +126,10 @@ nnoremap Q              q
 nnoremap U              <c-r>
 nnoremap cx             :!chmod +x %<cr>
 nnoremap du             :diffupdate<cr>
-nnoremap ga             :Gwrite<cr>
-nnoremap gb             :Gblame<cr>
-nnoremap gc             :Gcommit<cr>
-nnoremap gd             :Gdiff<cr>
-nnoremap gh             :Gbrowse<cr>
-nnoremap gl             :Glog<cr>
-nnoremap gm             :Gmove<space>
-nnoremap gp             <nop>
-nnoremap gpp            :Git push<cr>
-nnoremap gpl            :Git pull<cr>
-nnoremap gv             :Gvsplit<cr>
-"nnoremap gr             :Gremove<cr>
-nnoremap gr             :Ggrep<space>
-nnoremap gs             :Gstatus<cr>
 nnoremap q              :quit<cr>
 nnoremap vs             :vsplit<space>
 
-" Leader Mappings {{{1
+" Leader Bindings {{{1
 
 nnoremap <leader>.      :edit .<cr>
 nnoremap <leader>S      :split .<cr>
@@ -161,6 +147,18 @@ nnoremap <leader>bn     :bnext<cr>
 nnoremap <leader>bs     :buffers<cr>
 nnoremap <leader>bw     :bwipeout!<cr>
 nnoremap <leader>e      :edit<space>
+nnoremap <leader>ga     :Gwrite<cr>
+nnoremap <leader>gb     :Gblame<cr>
+nnoremap <leader>gc     :Gcommit<cr>
+nnoremap <leader>gd     :Gdiff<cr>
+nnoremap <leader>gh     :Gbrowse<cr>
+nnoremap <leader>gl     :Glog<cr>
+nnoremap <leader>gm     :Gmove<space>
+nnoremap <leader>gpp    :Git push<cr>
+nnoremap <leader>gpl    :Git pull<cr>
+nnoremap <leader>gv     :Gvsplit<cr>
+nnoremap <leader>gr     :Ggrep<space>
+nnoremap <leader>gs     :Gstatus<cr>
 nnoremap <leader>h      :help<space>
 nnoremap <leader>m      :make<cr>
 nnoremap <leader>o      :only<cr>
