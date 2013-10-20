@@ -40,7 +40,7 @@ autocmd FileType java setlocal textwidth=100
 autocmd FileType lisp setlocal lispwords+=syntax-rules
 autocmd FileType mail setlocal spell textwidth=72
 autocmd FileType objc setlocal foldcolumn=4 foldexpr=ObjcFold() foldmethod=expr foldtext=getline(v:foldstart) nolinebreak
-autocmd FileType vim setlocal foldmethod=marker
+autocmd FileType vim setlocal foldcolumn=1 foldmethod=marker
 autocmd FileType xml setlocal shiftwidth=4
 autocmd BufNewFile,BufRead *.gyp setlocal filetype=python
 autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
