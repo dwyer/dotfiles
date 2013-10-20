@@ -6,6 +6,7 @@
 *.dll
 *.exe
 *.o
+*.pyc
 *.so
 
 # Logs and databases.
