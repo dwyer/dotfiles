@@ -140,8 +140,7 @@ nnoremap gs             :Gstatus<cr>
 nnoremap q              :quit<cr>
 nnoremap vs             :vsplit<space>
 
-"leader key bindings {{{1
-let mapleader = ','
+" Leader Bindings {{{1
 nnoremap <leader>.      :edit .<cr>
 nnoremap <leader>S      :split .<cr>
 nnoremap <leader>V      :vsplit .<cr>
