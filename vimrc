@@ -19,15 +19,16 @@ Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 
-" terminal stuff {{{1
-set t_Co=256
+" Syntax {{{1
 syntax on
+highlight Normal ctermbg=none
 set background=dark
+set t_Co=256
 if filereadable($HOME.'/.vim/bundle/vim-colors-solarized/README.mkd')
     colorscheme solarized
     call togglebg#map("<F5>")
 endif
-highlight Normal ctermbg=none
+
 " format and indentation {{{1
 set autoindent
 set backspace=indent,eol,start  " Intuitive backspacing in insert mode
