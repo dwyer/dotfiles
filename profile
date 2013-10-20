@@ -60,6 +60,7 @@ if [ $? != 0 ]; then
 fi
 
 # shortcuts
+alias appcfg.py='appcfg.py --oath2'
 alias cx='chmod +x'
 alias g='git'
 alias ga='git add'
