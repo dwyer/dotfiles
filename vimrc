@@ -43,7 +43,6 @@ set foldlevel=3
 set nohidden
 set nomodeline                  " freebsd paranoia
 set number
-set wildmode=list:longest
 
 " status line {{{1
 set laststatus=2
@@ -57,6 +56,7 @@ set nohlsearch
 set incsearch
 set ignorecase
 set smartcase
+set wildmode=list:longest
 
 " terminal stuff {{{1
 set t_Co=256
