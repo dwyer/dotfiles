@@ -119,6 +119,7 @@ nnoremap H              ^
 nnoremap J              <c-d>
 nnoremap K              <c-u>
 nnoremap L              $
+nnoremap Q              q
 nnoremap U              <c-r>
 nnoremap cx             :!chmod +x %<cr>
 nnoremap du             :diffupdate<cr>
@@ -162,7 +163,6 @@ nnoremap <leader>m      :make<cr>
 "nnoremap <leader>n      :tabn<cr>
 nnoremap <leader>o      :only<cr>
 "nnoremap <leader>p      :tabp<cr>
-nnoremap <leader>q      q
 nnoremap <leader>r      :source $MYVIMRC<cr>
 nnoremap <leader>s      :split<space>
 nnoremap <leader>t      :tabnew<space>
