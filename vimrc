@@ -41,18 +41,6 @@ set softtabstop=4
 set tabstop=8
 set textwidth=80
 
-" misc {{{1
-if !filereadable($HOME.'/.vimtmp')
-    silent !mkdir -p ~/.vimtmp
-    set backupdir=~/.vimtmp//
-    set directory=~/.vimtmp//
-endif
-set cryptmethod=blowfish
-set foldlevel=3
-set nohidden
-set nomodeline                  " freebsd paranoia
-set number
-
 " status line {{{1
 set laststatus=2
 set ruler
@@ -66,6 +54,18 @@ set incsearch
 set ignorecase
 set smartcase
 set wildmode=list:longest
+
+" misc {{{1
+if !filereadable($HOME.'/.vimtmp')
+    silent !mkdir -p ~/.vimtmp
+    set backupdir=~/.vimtmp//
+    set directory=~/.vimtmp//
+endif
+set cryptmethod=blowfish
+set foldlevel=3
+set nohidden
+set nomodeline                  " freebsd paranoia
+set number
 
 " filetypes {{{1
 filetype plugin indent on
@@ -140,7 +140,7 @@ nnoremap gs             :Gstatus<cr>
 nnoremap q              :quit<cr>
 nnoremap vs             :vsplit<space>
 
-" Leader Bindings {{{1
+" Leader Mappings {{{1
 
 nnoremap <leader>.      :edit .<cr>
 nnoremap <leader>S      :split .<cr>
