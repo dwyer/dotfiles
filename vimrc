@@ -23,7 +23,9 @@ Bundle 'tpope/vim-surround'
 filetype plugin indent on
 function! ObjcFold()
     let line = getline(v:lnum)
-    if line =~ '^@interface' || line =~ '^@implementation'
+    if line == '@end'
+        return 0
+    elseif line =~ '^@interface' || line =~ '^@implementation'
         return '>1'
     elseif line =~ '^#pragma mark'
         return '>2'
