@@ -42,9 +42,8 @@ set tabstop=8
 set textwidth=80
 
 " misc {{{1
-if !filereadable($HOME.'/.vimtmp/.keep')
+if !filereadable($HOME.'/.vimtmp')
     silent !mkdir -p ~/.vimtmp
-    silent !touch ~/.vimtmp/.keep
     set backupdir=~/.vimtmp//
     set directory=~/.vimtmp//
 endif
