@@ -19,6 +19,54 @@ Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 
+" format and indentation {{{1
+set autoindent
+set backspace=indent,eol,start  " Intuitive backspacing in insert mode
+set colorcolumn=+0
+set expandtab
+set linebreak
+set shiftwidth=4
+set nosmartindent
+set softtabstop=4
+set tabstop=8
+set textwidth=80
+
+" misc {{{1
+if !filereadable($HOME.'/.vimtmp/.keep')
+    silent !mkdir -p ~/.vimtmp
+    silent !touch ~/.vimtmp/.keep
+endif
+set backupdir=~/.vimtmp//
+set cryptmethod=blowfish
+set directory=~/.vimtmp//
+set foldlevel=3
+set nohidden
+set nomodeline                  " freebsd paranoia
+set number
+set wildmode=list:longest
+
+" status line {{{1
+set laststatus=2
+set ruler
+if filereadable($HOME.'/.vim/bundle/vim-fugitive/README.markdown')
+    set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+endif
+
+" search {{{1
+set nohlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" terminal stuff {{{1
+set t_Co=256
+syntax on
+set background=dark
+if filereadable($HOME.'/.vim/bundle/vim-colors-solarized/README.mkd')
+    colorscheme solarized
+    call togglebg#map("<F5>")
+endif
+highlight Normal ctermbg=none
 " filetypes {{{1
 filetype plugin indent on
 function! ObjcFold()
@@ -122,51 +170,3 @@ nnoremap <leader>v      :vsplit<space>
 nnoremap <leader>x      :xit<cr>
 nnoremap <leader>{      =i{
 
-" format and indentation {{{1
-set autoindent
-set backspace=indent,eol,start  " Intuitive backspacing in insert mode
-set colorcolumn=+0
-set expandtab
-set linebreak
-set shiftwidth=4
-set nosmartindent
-set softtabstop=4
-set tabstop=8
-set textwidth=80
-
-" misc {{{1
-if !filereadable($HOME.'/.vimtmp/.keep')
-    silent !mkdir -p ~/.vimtmp
-    silent !touch ~/.vimtmp/.keep
-endif
-set backupdir=~/.vimtmp//
-set cryptmethod=blowfish
-set directory=~/.vimtmp//
-set foldlevel=3
-set nohidden
-set nomodeline                  " freebsd paranoia
-set number
-set wildmode=list:longest
-
-" status line {{{1
-set laststatus=2
-set ruler
-if filereadable($HOME.'/.vim/bundle/vim-fugitive/README.markdown')
-    set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-endif
-
-" search {{{1
-set nohlsearch
-set incsearch
-set ignorecase
-set smartcase
-
-" terminal stuff {{{1
-set t_Co=256
-syntax on
-set background=dark
-if filereadable($HOME.'/.vim/bundle/vim-colors-solarized/README.mkd')
-    colorscheme solarized
-    call togglebg#map("<F5>")
-endif
-highlight Normal ctermbg=none
