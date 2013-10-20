@@ -69,6 +69,7 @@ set number
 
 " filetypes {{{1
 filetype plugin indent on
+
 function! ObjcFold()
     let line = getline(v:lnum)
     if line == '@end'
@@ -82,25 +83,27 @@ function! ObjcFold()
     endif
     return '='
 endfunction
-autocmd FileType c setlocal cin cino=(0 cino=:0 tw=80
-autocmd FileType gitcommit setlocal spell
-autocmd FileType html setlocal nolinebreak shiftwidth=2
-autocmd FileType htmldjango setlocal nolinebreak shiftwidth=2
-autocmd FileType java setlocal textwidth=100
-autocmd FileType lisp setlocal lispwords+=syntax-rules
-autocmd FileType mail setlocal spell textwidth=72
-autocmd FileType objc setlocal foldcolumn=4 foldexpr=ObjcFold() foldmethod=expr foldtext=getline(v:foldstart) nolinebreak
-autocmd FileType vim setlocal foldcolumn=1 foldmethod=marker
-autocmd FileType xml setlocal shiftwidth=4
-autocmd BufNewFile,BufRead *.gyp setlocal filetype=python
-autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
-autocmd BufNewFile,BufRead *.li setlocal filetype=li lisp
-autocmd BufNewFile,BufRead *.m setlocal filetype=objc
-autocmd BufNewFile,BufRead *.muttrc setlocal filetype=muttrc
-autocmd BufNewFile,BufRead *.sub setlocal filetype=sub lisp
-autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
-autocmd BufNewFile,BufRead mutt-* setlocal filetype=mail
-autocmd BufNewFile,BufRead profile setlocal filetype=sh
+
+if has('autocmd')
+    autocmd FileType c setlocal cin cino=(0 cino=:0
+    autocmd FileType gitcommit setlocal spell
+    autocmd FileType html setlocal nolinebreak shiftwidth=2
+    autocmd FileType htmldjango setlocal nolinebreak shiftwidth=2
+    autocmd FileType java setlocal textwidth=100
+    autocmd FileType lisp setlocal lispwords+=syntax-rules
+    autocmd FileType mail setlocal spell textwidth=72
+    autocmd FileType objc setlocal foldcolumn=4 foldexpr=ObjcFold() foldmethod=expr foldtext=getline(v:foldstart) nolinebreak
+    autocmd FileType vim setlocal foldcolumn=1 foldmethod=marker
+    autocmd BufNewFile,BufRead *.gyp setlocal filetype=python
+    autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
+    autocmd BufNewFile,BufRead *.li setlocal filetype=li lisp
+    autocmd BufNewFile,BufRead *.m setlocal filetype=objc
+    autocmd BufNewFile,BufRead *.muttrc setlocal filetype=muttrc
+    autocmd BufNewFile,BufRead *.sub setlocal filetype=sub lisp
+    autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
+    autocmd BufNewFile,BufRead mutt-* setlocal filetype=mail
+    autocmd BufNewFile,BufRead profile setlocal filetype=sh
+endif
 
 " key bindings {{{1
 nnoremap <space>        :write<cr>
