@@ -137,7 +137,6 @@ nnoremap gpl            :Git pull<cr>
 nnoremap gpp            :Git push<cr>
 nnoremap gr             :Ggrep<space>
 nnoremap gs             :Gstatus<cr>
-nnoremap gv             :Gvsplit<cr>
 nnoremap q              :quit<cr>
 
 " Leader Mappings {{{2
@@ -170,7 +169,6 @@ nnoremap <leader>gh     gh
 nnoremap <leader>gm     gm
 nnoremap <leader>gr     gr
 nnoremap <leader>gs     gs
-nnoremap <leader>gv     gv
 nnoremap <leader>h      :help<space>
 nnoremap <leader>m      :make<cr>
 nnoremap <leader>q      q
