@@ -14,6 +14,7 @@ call vundle#rc()
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'dwyer/li.vim'
+Bundle 'godlygeek/tabular'
 Bundle 'gmarik/vundle'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'mattn/zencoding-vim'
@@ -33,6 +34,7 @@ filetype plugin indent on
 syntax on
 highlight Normal ctermbg=none
 set background=dark
+set t_Co=256
 if filereadable($HOME.'/.vim/bundle/vim-colors-solarized/README.mkd')
     colorscheme solarized
     call togglebg#map("<F6>")
