@@ -13,11 +13,14 @@ Bundle 'dwyer/li.vim'
 Bundle 'gmarik/vundle'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'mattn/zencoding-vim'
-"Bundle 'msanders/cocoa.vim'
+" Bundle 'msanders/cocoa.vim'
+Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-unimpaired'
 
 " Syntax {{{1
 syntax on
