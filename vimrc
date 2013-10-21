@@ -149,10 +149,10 @@ nnoremap cx                 :!chmod +x %<cr>
 nnoremap du                 :diffupdate<cr>
 nnoremap ga                 :Gwrite<cr>
 nnoremap gb                 :Gblame<cr>
-nnoremap gd                 :Gdiff<cr>
+nnoremap gd                 :Gdiff<cr><c-w>h
 nnoremap gh                 :Gbrowse<cr>
 nnoremap gl                 :Glog<cr>
-nnoremap gm                 :Gcommit<cr>
+nnoremap gm                 :Gcommit<cr>i
 nnoremap gpl                :Git pull<cr>
 nnoremap gpp                :Git push<cr>
 nnoremap gr                 :Ggrep<space>
