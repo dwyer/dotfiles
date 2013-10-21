@@ -115,6 +115,7 @@ nnoremap <c-h>          H
 nnoremap <c-j>          J
 nnoremap <c-l>          L
 nnoremap <return>       za
+nnoremap <f5>           :source $MYVIMRC<cr>
 nnoremap <space>        :write<cr>
 nnoremap <tab>          <c-w>
 nnoremap <tab><tab>     <c-w>w
