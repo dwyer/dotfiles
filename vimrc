@@ -122,7 +122,7 @@ if has('autocmd')
     autocmd BufNewFile,BufRead *.txt setlocal formatoptions+=a
     autocmd BufNewFile,BufRead gitconfig setfiletype gitconfig
     autocmd BufNewFile,BufRead mutt-* setfiletype mail
-    autocmd BufNewFile,BufRead profile setfiletype sh
+    autocmd BufNewFile,BufRead profile setlocal filetype=sh
 endif
 
 " Mappings {{{1
