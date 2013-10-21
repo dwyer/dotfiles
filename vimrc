@@ -1,12 +1,16 @@
 " vundle {{{1
+
 if !filereadable($HOME.'/.vim/bundle/vundle/README.md')
     silent !mkdir -p ~/.vim/bundle
     silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
 endif
+
 set nocompatible
 filetype off
+
 set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
+
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'dwyer/li.vim'
@@ -22,57 +26,65 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 
-" Syntax {{{1
+filetype plugin indent on
+
+" Syntax Highlighting {{{1
+
 syntax on
-highlight Normal ctermbg=none
 set background=dark
-set t_Co=256
 if filereadable($HOME.'/.vim/bundle/vim-colors-solarized/README.mkd')
     colorscheme solarized
     call togglebg#map("<F6>")
 endif
+highlight Normal ctermbg=none
 
 " Format and Indentation {{{1
+
 set autoindent
-set backspace=indent,eol,start  " Intuitive backspacing in insert mode
+set backspace=indent,eol,start
 set colorcolumn=+0
 set expandtab
 set linebreak
 set shiftwidth=4
-set nosmartindent
+set smartindent
 set softtabstop=4
 set tabstop=8
 set textwidth=80
 
 " Status Line {{{1
-set laststatus=2
+
+set laststatus=2 " always show the status line
 set ruler
 if filereadable($HOME.'/.vim/bundle/vim-fugitive/README.markdown')
     set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 endif
 
 " Search {{{1
+
 set nohlsearch
 set incsearch
 set ignorecase
 set smartcase
 set wildmode=list:longest
+set nowildmenu
 
 " Misc {{{1
+
 if !filereadable($HOME.'/.vimtmp')
     silent !mkdir -p ~/.vimtmp
-    set backupdir=~/.vimtmp//
-    set directory=~/.vimtmp//
 endif
+set backupdir=~/.vimtmp//
 set cryptmethod=blowfish
+set directory=~/.vimtmp//
 set foldlevel=3
 set nohidden
-set nomodeline                  " freebsd paranoia
+set nomodeline
 set number
 set spelllang=en_us
 
 " Filetypes {{{1
-filetype plugin indent on
+
+" filetype plugin indent on
 
 function! ObjcFold()
     " A function for folding Objective-C code.
