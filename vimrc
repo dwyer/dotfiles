@@ -26,7 +26,7 @@ set background=dark
 set t_Co=256
 if filereadable($HOME.'/.vim/bundle/vim-colors-solarized/README.mkd')
     colorscheme solarized
-    call togglebg#map("<F5>")
+    call togglebg#map("<F6>")
 endif
 
 " Format and Indentation {{{1
