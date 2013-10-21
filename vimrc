@@ -92,7 +92,8 @@ if has('autocmd')
     autocmd FileType java setlocal textwidth=100
     autocmd FileType lisp setlocal lispwords+=syntax-rules
     autocmd FileType mail setlocal spell textwidth=72
-    autocmd FileType objc setlocal foldcolumn=4 foldexpr=ObjcFold() foldmethod=expr foldtext=getline(v:foldstart) nolinebreak
+    autocmd FileType objc setlocal foldcolumn=4 foldexpr=ObjcFold() 
+                \ foldmethod=expr foldtext=getline(v:foldstart) nolinebreak
     autocmd FileType vim setlocal foldcolumn=3 foldmethod=marker
     autocmd BufNewFile,BufRead *.gyp setlocal filetype=python
     autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
