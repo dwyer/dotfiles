@@ -66,7 +66,7 @@ set incsearch
 set ignorecase
 set smartcase
 set wildmode=list:longest
-set nowildmenu
+set wildmenu
 
 " Misc {{{1
 
@@ -182,7 +182,7 @@ nnoremap <leader>gs         gs
 nnoremap <leader>h          :help<space>
 nnoremap <leader>ls         :ls<cr>
 nnoremap <leader>m          :make<cr>
-nnoremap <leader>q          q
+nnoremap <leader>q          :quit!<cr>
 nnoremap <leader>r          :source $MYVIMRC<cr>
 nnoremap <leader>s          :split<space>
 nnoremap <leader>t          :tabnew<space>
