@@ -14,10 +14,7 @@ install: $(DOTFILES)
 uninstall:
 	$(RM) $(DOTFILES)
 
-$(HOME)/.gitignore_global: .gitignore
-	$(LN) $(PWD)/$< $@
-
-$(HOME)/.hgignore_global: .gitignore
+$(HOME)/.%ignore_global: .gitignore
 	$(LN) $(PWD)/$< $@
 
 $(HOME)/.%: %
