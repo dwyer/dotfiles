@@ -90,20 +90,20 @@ if has('autocmd')
     autocmd FileType html setlocal nolinebreak shiftwidth=2
     autocmd FileType htmldjango setlocal nolinebreak shiftwidth=2
     autocmd FileType java setlocal textwidth=100
+    autocmd FileType li setlocal lisp
     autocmd FileType lisp setlocal lispwords+=syntax-rules
     autocmd FileType mail setlocal spell textwidth=72
     autocmd FileType objc setlocal foldcolumn=4 foldexpr=ObjcFold() 
                 \ foldmethod=expr foldtext=getline(v:foldstart) nolinebreak
     autocmd FileType vim setlocal foldcolumn=3 foldmethod=marker
-    autocmd BufNewFile,BufRead *.gyp setlocal filetype=python
-    autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
-    autocmd BufNewFile,BufRead *.li setlocal filetype=li lisp
-    autocmd BufNewFile,BufRead *.m setlocal filetype=objc
-    autocmd BufNewFile,BufRead *.muttrc setlocal filetype=muttrc
-    autocmd BufNewFile,BufRead *.sub setlocal filetype=sub lisp
-    autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
-    autocmd BufNewFile,BufRead mutt-* setlocal filetype=mail
-    autocmd BufNewFile,BufRead profile setlocal filetype=sh
+    autocmd BufNewFile,BufRead *.gyp setfiletype python
+    autocmd BufNewFile,BufRead *.json setfiletype javascript
+    autocmd BufNewFile,BufRead *.li,*.sub setfiletype li
+    autocmd BufNewFile,BufRead *.m setfiletype objc
+    autocmd BufNewFile,BufRead *.muttrc setfiletype muttrc
+    autocmd BufNewFile,BufRead gitconfig setfiletype gitconfig
+    autocmd BufNewFile,BufRead mutt-* setfiletype mail
+    autocmd BufNewFile,BufRead profile setfiletype sh
 endif
 
 " Mappings {{{1
