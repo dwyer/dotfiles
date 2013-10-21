@@ -93,7 +93,7 @@ if has('autocmd')
     autocmd FileType lisp setlocal lispwords+=syntax-rules
     autocmd FileType mail setlocal spell textwidth=72
     autocmd FileType objc setlocal foldcolumn=4 foldexpr=ObjcFold() foldmethod=expr foldtext=getline(v:foldstart) nolinebreak
-    autocmd FileType vim setlocal foldcolumn=1 foldmethod=marker
+    autocmd FileType vim setlocal foldcolumn=3 foldmethod=marker
     autocmd BufNewFile,BufRead *.gyp setlocal filetype=python
     autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
     autocmd BufNewFile,BufRead *.li setlocal filetype=li lisp
@@ -105,19 +105,17 @@ if has('autocmd')
     autocmd BufNewFile,BufRead profile setlocal filetype=sh
 endif
 
-" key bindings {{{1
-nnoremap <space>        :write<cr>
+" Mappings {{{1
+
+" Normal mappings {{{2
+" Mappings that clobber default settings can be accessed with <leader>[mapping].
 nnoremap <c-h>          H
 nnoremap <c-j>          J
-nnoremap <c-k>          K
 nnoremap <c-l>          L
+nnoremap <return>       za
+nnoremap <space>        :write<cr>
 nnoremap <tab>          <c-w>
 nnoremap <tab><tab>     <c-w><c-w>
-nnoremap +              za
-nnoremap !              :!
-nnoremap !!             :!!<cr>
-nnoremap ;              :
-nnoremap \q             :nohlsearch<cr>
 nnoremap H              ^
 nnoremap J              <c-d>
 nnoremap K              <c-u>
@@ -126,13 +124,30 @@ nnoremap Q              q
 nnoremap U              <c-r>
 nnoremap cx             :!chmod +x %<cr>
 nnoremap du             :diffupdate<cr>
+nnoremap ga             :Gwrite<cr>
+nnoremap gb             :Gblame<cr>
+nnoremap gc             :Gcommit<cr>
+nnoremap gd             :Gdiff<cr>
+nnoremap gh             :Gbrowse<cr>
+nnoremap gl             :Glog<cr>
+nnoremap gm             :Gmove<space>
+nnoremap gpl            :Git pull<cr>
+nnoremap gpp            :Git push<cr>
+nnoremap gr             :Ggrep<space>
+nnoremap gs             :Gstatus<cr>
+nnoremap gv             :Gvsplit<cr>
 nnoremap q              :quit<cr>
-nnoremap vs             :vsplit<space>
 
-" Leader Bindings {{{1
+" Leader Mappings {{{2
 
+nnoremap <leader><tab>  <tab>
 nnoremap <leader>.      :edit .<cr>
+nnoremap <leader>H      H
+nnoremap <leader>J      J
+nnoremap <leader>K      K
+nnoremap <leader>L      L
 nnoremap <leader>S      :split .<cr>
+nnoremap <leader>U      U
 nnoremap <leader>V      :vsplit .<cr>
 nnoremap <leader>b1     :buffer 1<cr>
 nnoremap <leader>b2     :buffer 2<cr>
@@ -147,21 +162,16 @@ nnoremap <leader>bn     :bnext<cr>
 nnoremap <leader>bs     :buffers<cr>
 nnoremap <leader>bw     :bwipeout!<cr>
 nnoremap <leader>e      :edit<space>
-nnoremap <leader>ga     :Gwrite<cr>
-nnoremap <leader>gb     :Gblame<cr>
-nnoremap <leader>gc     :Gcommit<cr>
-nnoremap <leader>gd     :Gdiff<cr>
-nnoremap <leader>gh     :Gbrowse<cr>
-nnoremap <leader>gl     :Glog<cr>
-nnoremap <leader>gm     :Gmove<space>
-nnoremap <leader>gpp    :Git push<cr>
-nnoremap <leader>gpl    :Git pull<cr>
-nnoremap <leader>gv     :Gvsplit<cr>
-nnoremap <leader>gr     :Ggrep<space>
-nnoremap <leader>gs     :Gstatus<cr>
+nnoremap <leader>ga     ga
+nnoremap <leader>gd     gd
+nnoremap <leader>gh     gh
+nnoremap <leader>gm     gm
+nnoremap <leader>gr     gr
+nnoremap <leader>gs     gs
+nnoremap <leader>gv     gv
 nnoremap <leader>h      :help<space>
 nnoremap <leader>m      :make<cr>
-nnoremap <leader>o      :only<cr>
+nnoremap <leader>q      q
 nnoremap <leader>r      :source $MYVIMRC<cr>
 nnoremap <leader>s      :split<space>
 nnoremap <leader>t      :tabnew<space>
