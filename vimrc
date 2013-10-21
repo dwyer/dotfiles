@@ -66,6 +66,7 @@ set foldlevel=3
 set nohidden
 set nomodeline                  " freebsd paranoia
 set number
+set spelllang=en_us
 
 " Filetypes {{{1
 filetype plugin indent on
