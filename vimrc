@@ -80,6 +80,7 @@ set foldlevel=3
 set nohidden
 set nomodeline
 set number
+set scrolloff=1
 set spelllang=en_us
 
 " Filetypes {{{1
