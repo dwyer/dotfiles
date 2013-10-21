@@ -1,4 +1,4 @@
-" vundle stuff {{{1
+" vundle {{{1
 if !filereadable($HOME.'/.vim/bundle/vundle/README.md')
     silent !mkdir -p ~/.vim/bundle
     silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
@@ -29,7 +29,7 @@ if filereadable($HOME.'/.vim/bundle/vim-colors-solarized/README.mkd')
     call togglebg#map("<F5>")
 endif
 
-" format and indentation {{{1
+" Format and Indentation {{{1
 set autoindent
 set backspace=indent,eol,start  " Intuitive backspacing in insert mode
 set colorcolumn=+0
@@ -41,21 +41,21 @@ set softtabstop=4
 set tabstop=8
 set textwidth=80
 
-" status line {{{1
+" Status Line {{{1
 set laststatus=2
 set ruler
 if filereadable($HOME.'/.vim/bundle/vim-fugitive/README.markdown')
     set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 endif
 
-" search {{{1
+" Search {{{1
 set nohlsearch
 set incsearch
 set ignorecase
 set smartcase
 set wildmode=list:longest
 
-" misc {{{1
+" Misc {{{1
 if !filereadable($HOME.'/.vimtmp')
     silent !mkdir -p ~/.vimtmp
     set backupdir=~/.vimtmp//
@@ -67,10 +67,11 @@ set nohidden
 set nomodeline                  " freebsd paranoia
 set number
 
-" filetypes {{{1
+" Filetypes {{{1
 filetype plugin indent on
 
 function! ObjcFold()
+    " A function for folding Objective-C code.
     let line = getline(v:lnum)
     if line == '@end'
         return 0
