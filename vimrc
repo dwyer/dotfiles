@@ -128,7 +128,9 @@ endif
 " Mappings {{{1
 
 " Normal mappings {{{2
-" Mappings that clobber default settings can be accessed with <leader>[mapping].
+" Note: New mappings that clobber default mappings should be remapped to
+" <leader>[mapping].
+
 nnoremap <c-h>              H
 nnoremap <c-j>              J
 nnoremap <c-l>              L
