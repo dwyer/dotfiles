@@ -180,6 +180,7 @@ nnoremap <leader>gm         gm
 nnoremap <leader>gr         gr
 nnoremap <leader>gs         gs
 nnoremap <leader>h          :help<space>
+nnoremap <leader>ls         :ls<cr>
 nnoremap <leader>m          :make<cr>
 nnoremap <leader>q          q
 nnoremap <leader>r          :source $MYVIMRC<cr>
