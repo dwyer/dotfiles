@@ -171,17 +171,6 @@ nnoremap <leader>J          J
 nnoremap <leader>K          K
 nnoremap <leader>L          L
 nnoremap <leader>U          U
-nnoremap <leader>b1         :buffer 1<cr>
-nnoremap <leader>b2         :buffer 2<cr>
-nnoremap <leader>b3         :buffer 3<cr>
-nnoremap <leader>b4         :buffer 4<cr>
-nnoremap <leader>b5         :buffer 5<cr>
-nnoremap <leader>b6         :buffer 6<cr>
-nnoremap <leader>b7         :buffer 7<cr>
-nnoremap <leader>b8         :buffer 8<cr>
-nnoremap <leader>b9         :buffer 9<cr>
-nnoremap <leader>bn         :bnext<cr>
-nnoremap <leader>bs         :buffers<cr>
 nnoremap <leader>bw         :bwipeout!<cr>
 nnoremap <leader>e          :edit<space>
 nnoremap <leader>ga         ga
