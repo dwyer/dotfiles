@@ -31,12 +31,12 @@ filetype plugin indent on
 " Syntax Highlighting {{{1
 
 syntax on
+highlight Normal ctermbg=none
 set background=dark
 if filereadable($HOME.'/.vim/bundle/vim-colors-solarized/README.mkd')
     colorscheme solarized
     call togglebg#map("<F6>")
 endif
-highlight Normal ctermbg=none
 
 " Format and Indentation {{{1
 
