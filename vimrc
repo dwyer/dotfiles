@@ -163,13 +163,14 @@ nnoremap q                  :quit<cr>
 
 nnoremap <leader><tab>      <tab>
 nnoremap <leader>.          :edit .<cr>
+nnoremap <leader>=          m`=ip``
+nnoremap <leader>\|         :vsplit<cr>
+nnoremap <leader>_          :split<cr>
 nnoremap <leader>H          H
 nnoremap <leader>J          J
 nnoremap <leader>K          K
 nnoremap <leader>L          L
-nnoremap <leader>S          :split .<cr>
 nnoremap <leader>U          U
-nnoremap <leader>V          :vsplit .<cr>
 nnoremap <leader>b1         :buffer 1<cr>
 nnoremap <leader>b2         :buffer 2<cr>
 nnoremap <leader>b3         :buffer 3<cr>
@@ -197,4 +198,3 @@ nnoremap <leader>s          :split<space>
 nnoremap <leader>t          :tabnew<space>
 nnoremap <leader>v          :tabedit $MYVIMRC<cr>
 nnoremap <leader>x          :xit<cr>
-nnoremap <leader>{          =i{
