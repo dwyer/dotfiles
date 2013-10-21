@@ -112,70 +112,70 @@ endif
 
 " Normal mappings {{{2
 " Mappings that clobber default settings can be accessed with <leader>[mapping].
-nnoremap <c-h>          H
-nnoremap <c-j>          J
-nnoremap <c-l>          L
-nnoremap <cr>           za
-nnoremap <f5>           :source $MYVIMRC<cr>
-nnoremap <space>        :write<cr>
-nnoremap <tab>          <c-w>
-nnoremap <tab><tab>     <c-w>w
-nnoremap H              ^
-nnoremap J              <c-d>
-nnoremap K              <c-u>
-nnoremap L              $
-nnoremap Q              q
-nnoremap U              <c-r>
-nnoremap cx             :!chmod +x %<cr>
-nnoremap du             :diffupdate<cr>
-nnoremap ga             :Gwrite<cr>
-nnoremap gb             :Gblame<cr>
-nnoremap gd             :Gdiff<cr>
-nnoremap gh             :Gbrowse<cr>
-nnoremap gl             :Glog<cr>
-nnoremap gm             :Gcommit<cr>
-nnoremap gpl            :Git pull<cr>
-nnoremap gpp            :Git push<cr>
-nnoremap gr             :Ggrep<space>
-nnoremap gs             :Gstatus<cr>
-nnoremap q              :quit<cr>
+nnoremap <c-h>              H
+nnoremap <c-j>              J
+nnoremap <c-l>              L
+nnoremap <cr>               za
+nnoremap <f5>               :source $MYVIMRC<cr>
+nnoremap <space>            :write<cr>
+nnoremap <tab>              <c-w>
+nnoremap <tab><tab>         <c-w>w
+nnoremap H                  ^
+nnoremap J                  <c-d>
+nnoremap K                  <c-u>
+nnoremap L                  $
+nnoremap Q                  q
+nnoremap U                  <c-r>
+nnoremap cx                 :!chmod +x %<cr>
+nnoremap du                 :diffupdate<cr>
+nnoremap ga                 :Gwrite<cr>
+nnoremap gb                 :Gblame<cr>
+nnoremap gd                 :Gdiff<cr>
+nnoremap gh                 :Gbrowse<cr>
+nnoremap gl                 :Glog<cr>
+nnoremap gm                 :Gcommit<cr>
+nnoremap gpl                :Git pull<cr>
+nnoremap gpp                :Git push<cr>
+nnoremap gr                 :Ggrep<space>
+nnoremap gs                 :Gstatus<cr>
+nnoremap q                  :quit<cr>
 
 " Leader Mappings {{{2
 
-nnoremap <leader><tab>  <tab>
-nnoremap <leader>.      :edit .<cr>
-nnoremap <leader>H      H
-nnoremap <leader>J      J
-nnoremap <leader>K      K
-nnoremap <leader>L      L
-nnoremap <leader>S      :split .<cr>
-nnoremap <leader>U      U
-nnoremap <leader>V      :vsplit .<cr>
-nnoremap <leader>b1     :buffer 1<cr>
-nnoremap <leader>b2     :buffer 2<cr>
-nnoremap <leader>b3     :buffer 3<cr>
-nnoremap <leader>b4     :buffer 4<cr>
-nnoremap <leader>b5     :buffer 5<cr>
-nnoremap <leader>b6     :buffer 6<cr>
-nnoremap <leader>b7     :buffer 7<cr>
-nnoremap <leader>b8     :buffer 8<cr>
-nnoremap <leader>b9     :buffer 9<cr>
-nnoremap <leader>bn     :bnext<cr>
-nnoremap <leader>bs     :buffers<cr>
-nnoremap <leader>bw     :bwipeout!<cr>
-nnoremap <leader>e      :edit<space>
-nnoremap <leader>ga     ga
-nnoremap <leader>gd     gd
-nnoremap <leader>gh     gh
-nnoremap <leader>gm     gm
-nnoremap <leader>gr     gr
-nnoremap <leader>gs     gs
-nnoremap <leader>h      :help<space>
-nnoremap <leader>m      :make<cr>
-nnoremap <leader>q      q
-nnoremap <leader>r      :source $MYVIMRC<cr>
-nnoremap <leader>s      :split<space>
-nnoremap <leader>t      :tabnew<space>
-nnoremap <leader>v      :vsplit<space>
-nnoremap <leader>x      :xit<cr>
-nnoremap <leader>{      =i{
+nnoremap <leader><tab>      <tab>
+nnoremap <leader>.          :edit .<cr>
+nnoremap <leader>H          H
+nnoremap <leader>J          J
+nnoremap <leader>K          K
+nnoremap <leader>L          L
+nnoremap <leader>S          :split .<cr>
+nnoremap <leader>U          U
+nnoremap <leader>V          :vsplit .<cr>
+nnoremap <leader>b1         :buffer 1<cr>
+nnoremap <leader>b2         :buffer 2<cr>
+nnoremap <leader>b3         :buffer 3<cr>
+nnoremap <leader>b4         :buffer 4<cr>
+nnoremap <leader>b5         :buffer 5<cr>
+nnoremap <leader>b6         :buffer 6<cr>
+nnoremap <leader>b7         :buffer 7<cr>
+nnoremap <leader>b8         :buffer 8<cr>
+nnoremap <leader>b9         :buffer 9<cr>
+nnoremap <leader>bn         :bnext<cr>
+nnoremap <leader>bs         :buffers<cr>
+nnoremap <leader>bw         :bwipeout!<cr>
+nnoremap <leader>e          :edit<space>
+nnoremap <leader>ga         ga
+nnoremap <leader>gd         gd
+nnoremap <leader>gh         gh
+nnoremap <leader>gm         gm
+nnoremap <leader>gr         gr
+nnoremap <leader>gs         gs
+nnoremap <leader>h          :help<space>
+nnoremap <leader>m          :make<cr>
+nnoremap <leader>q          q
+nnoremap <leader>r          :source $MYVIMRC<cr>
+nnoremap <leader>s          :split<space>
+nnoremap <leader>t          :tabnew<space>
+nnoremap <leader>v          :tabedit $MYVIMRC<cr>
+nnoremap <leader>x          :xit<cr>
+nnoremap <leader>{          =i{
