@@ -117,7 +117,7 @@ nnoremap <c-l>          L
 nnoremap <return>       za
 nnoremap <space>        :write<cr>
 nnoremap <tab>          <c-w>
-nnoremap <tab><tab>     <c-w><c-w>
+nnoremap <tab><tab>     <c-w>w
 nnoremap H              ^
 nnoremap J              <c-d>
 nnoremap K              <c-u>
