@@ -9,7 +9,7 @@ export EDITOR=vim
 export BROWSER=w3m
 
 # pager
-export PAGER=less
+export PAGER='col -b | view -c "setf man" -'
 export LESSHISTFILE=/dev/null
 
 # news
