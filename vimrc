@@ -185,6 +185,7 @@ nnoremap <leader>gs         gs
 nnoremap <leader>h          :help<space>
 nnoremap <leader>ls         :ls<cr>
 nnoremap <leader>m          :make<cr>
+nnoremap <leader>p          :set paste<cr>
 nnoremap <leader>q          :quit!<cr>
 nnoremap <leader>r          :source $MYVIMRC<cr>
 nnoremap <leader>s          :split<space>
