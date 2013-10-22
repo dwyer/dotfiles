@@ -25,6 +25,7 @@ Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-rhubarb'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 
