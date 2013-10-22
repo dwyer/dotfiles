@@ -73,7 +73,7 @@ set wildmenu
 
 " Misc {{{1
 
-if !filereadable($HOME.'/.vimtmp')
+if !isdirectory($HOME.'/.vimtmp')
     silent !mkdir -p ~/.vimtmp
 endif
 set backupdir=~/.vimtmp//
