@@ -30,4 +30,4 @@
 [web]
 	browser = open
 [push]
-	default = simple
+	default = matching
