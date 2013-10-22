@@ -9,7 +9,7 @@ export EDITOR=vim
 export BROWSER=w3m
 
 # pager
-export PAGER='col -b | view -M -c "setf man" -'
+export PAGER=less
 export LESSHISTFILE=/dev/null
 
 # news
@@ -122,6 +122,7 @@ ta() {
 # platform specific
 UNAME=`uname`
 if [ $UNAME = 'Darwin' ]; then
+    export PAGER='col -b | view -M -c "setf man" -'
     alias gradlew='/Applications/Android Studio.app/sdk/tools/templates/gradle/wrapper/gradlew'
     alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
     alias md5sum='md5 -r'
