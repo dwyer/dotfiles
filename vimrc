@@ -153,14 +153,16 @@ nnoremap K                  <c-u>
 nnoremap L                  $
 
 " Undo/Redo {{{3
-" Use U to redo, CTRL-u to toggle undo the current line. K replaces CTRL-u.
+" Use U to redo, CTRL-u to toggle undo the current line. K replaces CTRL-u (see
+" Navigation).
 nnoremap <c-r>              :echo "Use U instead."<cr>
 nnoremap <c-u>              U
 nnoremap U                  <c-r>
 
 " Windows {{{3
-" Use TAB to prefix the window functions, LEADER-TAB is the new jump button.
-nnoremap <leader><tab>      <tab>
+" Use TAB as the window prefix. Use CTRL-p to move forward through the jump
+" list. Since CTRL-p is the same as k, don't bother mapping it to a LEADER key.
+nnoremap <c-p>              <tab>
 nnoremap <tab>              <c-w>
 nnoremap <tab><tab>         <c-w>w
 
