@@ -65,7 +65,6 @@ if filereadable($HOME.'/.vim/bundle/vim-fugitive/README.markdown')
 endif
 
 " Search {{{1
-
 set nohlsearch
 set incsearch
 set ignorecase
@@ -89,8 +88,6 @@ set scrolloff=1
 set spelllang=en_us
 
 " Filetypes {{{1
-
-" filetype plugin indent on
 
 function! ObjcFold()
     " A function for folding Objective-C code.
@@ -119,13 +116,12 @@ if has('autocmd')
     autocmd FileType mail setlocal spell textwidth=72
     autocmd FileType objc setlocal foldcolumn=4 foldexpr=ObjcFold() 
                 \ foldmethod=expr foldtext=getline(v:foldstart) nolinebreak
-    autocmd FileType vim setlocal foldcolumn=3 foldmethod=marker
+    autocmd FileType vim setlocal foldcolumn=4 foldmethod=marker
     autocmd BufNewFile,BufRead *.gyp setfiletype python
     autocmd BufNewFile,BufRead *.json setfiletype javascript
     autocmd BufNewFile,BufRead *.li,*.sub setfiletype li
     autocmd BufNewFile,BufRead *.m setfiletype objc
     autocmd BufNewFile,BufRead *.muttrc setfiletype muttrc
-    autocmd BufNewFile,BufRead *.txt setlocal formatoptions+=a
     autocmd BufNewFile,BufRead gitconfig setfiletype gitconfig
     autocmd BufNewFile,BufRead mutt-* setfiletype mail
     autocmd BufNewFile,BufRead profile setlocal filetype=sh
@@ -134,31 +130,56 @@ endif
 " Mappings {{{1
 
 " Normal mappings {{{2
-" Note: New mappings that clobber default mappings should be remapped to
-" <leader>[mapping].
 
-" the following four keys have not been remapped to LEADER because they're not
-" useful
+" Quit {{{3
+" Use q to quit, Q to record and bring up command windows, LEADER-Q to bring up
+" ex mode. 
+nnoremap <leader>Q          Q
+nnoremap <leader>q          :quit!<cr>
+nnoremap Q                  q
+nnoremap q                  :quit<cr>
+
+" Navigation {{{3
+" Use H and L to go to beginning and end of a line. J and K to go up and down
+" (half) a page. These keys have been remapped to CTRL. I didn't remap the CTRL
+" keys to LEADER because they're not very useful.
 nnoremap <c-h>              H
 nnoremap <c-j>              J
 nnoremap <c-k>              K
 nnoremap <c-l>              L
-nnoremap <cr>               za
-nnoremap <f5>               :source $MYVIMRC<cr>
-nnoremap <space>            :write<cr>
-nnoremap <tab>              <c-w>
-nnoremap <tab><tab>         <c-w>w
-nnoremap !                  :!
-nnoremap !!                 :!!<cr>
-" the following four keys have been remapped to CTRL, not LEADER.
 nnoremap H                  ^
 nnoremap J                  <c-d>
 nnoremap K                  <c-u>
 nnoremap L                  $
-nnoremap Q                  q
+
+" Undo/Redo {{{3
+" Use U to redo, CTRL-u to toggle undo the current line. K replaces CTRL-u.
+nnoremap <c-r>              :echo "Use U instead."<cr>
+nnoremap <c-u>              U
 nnoremap U                  <c-r>
-nnoremap cx                 :!chmod +x %<cr>
-nnoremap du                 :diffupdate<cr>
+
+" Windows {{{3
+" Use TAB to prefix the window functions, LEADER-TAB is the new jump button.
+nnoremap <leader><tab>      <tab>
+nnoremap <tab>              <c-w>
+nnoremap <tab><tab>         <c-w>w
+
+" Shell {{{3
+" Use ! to execute a shell command. !! to execute the last command. Filter shell
+" commands have been remapped t LEADER-!.
+nnoremap <leader>!          !
+nnoremap !                  :!
+nnoremap !!                 :!!<cr>
+
+" Git {{{3
+" All fugitive commands are prefixed with the g key. Overridden g keys have been
+" remapped to LEADER." TODO: check that fugitive is installed before doing this.
+nnoremap <leader>ga         ga
+nnoremap <leader>gd         gd
+nnoremap <leader>gh         gh
+nnoremap <leader>gm         gm
+nnoremap <leader>gr         gr
+nnoremap <leader>gs         gs
 nnoremap ga                 :Gwrite<cr>
 nnoremap gb                 :Gblame<cr>
 nnoremap gd                 :Gdiff<cr><c-w>h
@@ -169,32 +190,26 @@ nnoremap gpl                :Git pull<cr>
 nnoremap gpp                :Git push<cr>
 nnoremap gr                 :Ggrep<space>
 nnoremap gs                 :Gstatus<cr>
-nnoremap q                  :quit<cr>
 
-" Leader Mappings {{{2
-
-nnoremap <leader><tab>      <tab>
-nnoremap <leader>!          !
+" Other {{{3
 nnoremap <leader>.          :edit .<cr>
 nnoremap <leader>=          m`=ip``
 nnoremap <leader>\|         :vsplit<cr>
 nnoremap <leader>_          :split<cr>
-nnoremap <leader>U          U
 nnoremap <leader>bw         :bwipeout!<cr>
 nnoremap <leader>e          :edit<space>
-nnoremap <leader>ga         ga
-nnoremap <leader>gd         gd
-nnoremap <leader>gh         gh
-nnoremap <leader>gm         gm
-nnoremap <leader>gr         gr
-nnoremap <leader>gs         gs
 nnoremap <leader>h          :help<space>
 nnoremap <leader>ls         :ls<cr>
 nnoremap <leader>m          :make<cr>
 nnoremap <leader>p          :set paste<cr>
-nnoremap <leader>q          :quit!<cr>
 nnoremap <leader>r          :source $MYVIMRC<cr>
 nnoremap <leader>s          :split<space>
 nnoremap <leader>t          :tabnew<space>
 nnoremap <leader>v          :tabedit $MYVIMRC<cr>
 nnoremap <leader>x          :xit<cr>
+nnoremap <cr>               za
+nnoremap <f5>               :source $MYVIMRC<cr>
+nnoremap <space>            :write<cr>
+nnoremap cx                 :!chmod +x %<cr>
+nnoremap du                 :diffupdate<cr>
+nnoremap zz                 za
