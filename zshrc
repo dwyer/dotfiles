@@ -19,6 +19,7 @@ bindkey '[C' emacs-forward-word
 bindkey '[D' emacs-backward-word
 bindkey '^U' backward-kill-line         # delete everything to the left.
 
+HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
 
