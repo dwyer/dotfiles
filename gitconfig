@@ -22,10 +22,10 @@
 [color]
 	ui = true
 [core]
-	editor = vim
 	autocrlf = input
-	safecrlf = false
+	editor = vim
 	excludesfile = ~/.gitignore_global
+	safecrlf = false
 [push]
 	default = matching
 [user]
