@@ -109,6 +109,7 @@ endfunction
 if has('autocmd')
     autocmd FileType c setlocal cin cino=(0 cino=:0
     autocmd FileType gitcommit setlocal spell
+    autocmd FileType gitconfig setlocal noexpandtab shiftwidth=8
     autocmd FileType html setlocal nolinebreak
     autocmd FileType htmldjango setlocal nolinebreak
     autocmd FileType java setlocal textwidth=100
