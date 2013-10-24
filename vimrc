@@ -144,6 +144,8 @@ nnoremap <f5>               :source $MYVIMRC<cr>
 nnoremap <space>            :write<cr>
 nnoremap <tab>              <c-w>
 nnoremap <tab><tab>         <c-w>w
+nnoremap !                  :!
+nnoremap !!                 :!!<cr>
 nnoremap H                  ^
 nnoremap J                  <c-d>
 nnoremap K                  <c-u>
@@ -167,6 +169,7 @@ nnoremap q                  :quit<cr>
 " Leader Mappings {{{2
 
 nnoremap <leader><tab>      <tab>
+nnoremap <leader>!          !
 nnoremap <leader>.          :edit .<cr>
 nnoremap <leader>=          m`=ip``
 nnoremap <leader>\|         :vsplit<cr>
