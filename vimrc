@@ -137,8 +137,11 @@ endif
 " Note: New mappings that clobber default mappings should be remapped to
 " <leader>[mapping].
 
+" the following four keys have not been remapped to LEADER because they're not
+" useful
 nnoremap <c-h>              H
 nnoremap <c-j>              J
+nnoremap <c-k>              K
 nnoremap <c-l>              L
 nnoremap <cr>               za
 nnoremap <f5>               :source $MYVIMRC<cr>
@@ -147,6 +150,7 @@ nnoremap <tab>              <c-w>
 nnoremap <tab><tab>         <c-w>w
 nnoremap !                  :!
 nnoremap !!                 :!!<cr>
+" the following four keys have been remapped to CTRL, not LEADER.
 nnoremap H                  ^
 nnoremap J                  <c-d>
 nnoremap K                  <c-u>
@@ -175,10 +179,6 @@ nnoremap <leader>.          :edit .<cr>
 nnoremap <leader>=          m`=ip``
 nnoremap <leader>\|         :vsplit<cr>
 nnoremap <leader>_          :split<cr>
-nnoremap <leader>H          H
-nnoremap <leader>J          J
-nnoremap <leader>K          K
-nnoremap <leader>L          L
 nnoremap <leader>U          U
 nnoremap <leader>bw         :bwipeout!<cr>
 nnoremap <leader>e          :edit<space>
