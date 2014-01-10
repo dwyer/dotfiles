@@ -125,7 +125,6 @@ if [ $UNAME = 'Darwin' ]; then
     export PAGER='col -b | vim -MR -'
     export GITPAGER='col -b | vim -MR -c "setf diff" -'
     export MANPAGER='col -b | vim -MR -c "setf man" -'
-    alias gradlew='/Applications/Android Studio.app/sdk/tools/templates/gradle/wrapper/gradlew'
     alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
     alias md5sum='md5 -r'
 elif [ $UNAME = 'Linux' ]; then
