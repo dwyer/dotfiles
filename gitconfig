@@ -29,5 +29,3 @@
 	t = log --graph --oneline --all
 [web]
 	browser = open
-[push]
-	default = simple
