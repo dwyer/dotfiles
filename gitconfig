@@ -1,11 +1,3 @@
-[core]
-	editor = vim
-	autocrlf = input
-	safecrlf = false
-	excludesfile = ~/.gitignore_global
-[user]
-	name = Casey Dwyer
-	email = caseydwyer@gmail.com
 [alias]
 	a = add
 	ap = add -p
@@ -27,5 +19,17 @@
 	rh = reset --hard
 	s = status
 	t = log --graph --oneline --all
+[color]
+	ui = true
+[core]
+	autocrlf = input
+	editor = vim
+	excludesfile = ~/.gitignore_global
+	safecrlf = false
+[push]
+	default = matching
+[user]
+	name = Casey Dwyer
+	email = caseydwyer@gmail.com
 [web]
 	browser = open

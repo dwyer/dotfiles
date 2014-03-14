@@ -1,4 +1,4 @@
-LN=ln -s
+INSTALL=ln -s
 RM=rm -f
 
 SRCFILES=$(shell ls -d [a-z]*)
@@ -14,11 +14,8 @@ install: $(DOTFILES)
 uninstall:
 	$(RM) $(DOTFILES)
 
-$(HOME)/.gitignore_global: .gitignore
-	$(LN) $(PWD)/$< $@
-
-$(HOME)/.hgignore_global: .gitignore
-	$(LN) $(PWD)/$< $@
+$(HOME)/.%ignore_global: .gitignore
+	$(INSTALL) $(PWD)/$< $@
 
 $(HOME)/.%: %
-	$(LN) $(PWD)/$< $@
+	$(INSTALL) $(PWD)/$< $@

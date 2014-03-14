@@ -22,7 +22,6 @@ export MPD_PORT=6600
 # dev tools
 export ANDROIDPATH=/usr/local/android-sdk
 export APPENGINEPATH=/usr/local/google_appengine
-export GSUTILPATH=/usr/local/gsutil
 export HOMEBIN=$HOME/bin
 
 # Add ~/bin to path
@@ -40,11 +39,6 @@ fi
 # Add App Engine SDK to path
 if [ -e $APPENGINEPATH ]; then
     PATH=$APPENGINEPATH:$PATH
-fi
-
-# Add gsutil to path
-if [ -e $GSUTILPATH ]; then
-    PATH=$GSUTILPATH:$PATH
 fi
 
 export PATH
@@ -66,13 +60,14 @@ if [ $? != 0 ]; then
 fi
 
 # shortcuts
-alias ac='apt-cache'
+alias appcfg.py='appcfg.py --oath2'
 alias cx='chmod +x'
 alias g='git'
 alias ga='git add'
 alias gap='git add -p'
 alias gb='git branch'
 alias gba='git branch -a'
+alias gbd='git branch -D'
 alias gc='git commit'
 alias gcl='git clone'
 alias gcm='git commit -m'
@@ -127,10 +122,13 @@ ta() {
 # platform specific
 UNAME=`uname`
 if [ $UNAME = 'Darwin' ]; then
-    alias gradlew='/Applications/Android Studio.app/sdk/tools/templates/gradle/wrapper/gradlew'
+    export PAGER='col -b | vim -MR -'
+    export GITPAGER='col -b | vim -MR -c "setf diff" -'
+    export MANPAGER='col -b | vim -MR -c "setf man" -'
     alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
     alias md5sum='md5 -r'
 elif [ $UNAME = 'Linux' ]; then
+    alias ac='apt-cache'
     alias pbcopy='xsel --clipboard --input'
     alias pbpaste='xsel --clipboard --output'
     # stfu: force certain processes to run silently in the background
