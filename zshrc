@@ -30,7 +30,7 @@ PROMPT='\
 %{$fg[blue]%}%~%{$reset_color%} \
 %{$fg[none]%}${vcs_info_msg_0_}%{$reset_color%}\
 %# '
-RPROMPT='${vcs_info_msg_0_}[%D %*]'
+RPROMPT='[%D %*]'
 
 # Modify arrow keys to navigate words.
 # TODO: learn emacs bindings and delete these.
