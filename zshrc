@@ -1,14 +1,32 @@
 source ~/.profile # load options shared between bash and zsh
 
+# Autocomplete.
 autoload -Uz compinit; compinit
-autoload -Uz promptinit; promptinit
+# setopt menu_complete # start completing right away
+setopt nolistbeep # don't beep while completing
+
+# History.
+# setopt histignorealldups 
+# setopt sharehistory
+export HISTFILE=~/.history
+export HISTSIZE=1000
+# export SAVEHIST=$HISTSIZE
+
+# Prompt.
+# autoload -Uz promptinit; promptinit
 autoload -Uz vcs_info
-
-setopt histignorealldups 
 setopt prompt_subst
-setopt sharehistory
+zstyle ':vcs_info:*' enable hg git svn
+zstyle ':vcs_info:*' actionformats '[%s(%b|%a)] '
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' formats       '[%s(%b)] '
+# zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b:%r'
+precmd () { vcs_info }
+PROMPT='%n@%m:%~ ${vcs_info_msg_0_}%# '
+RPROMPT='${vcs_info_msg_0_}[%D %*]'
 
-# Key bindings.
+# Modify arrow keys to navigate words.
+# TODO: learn emacs bindings and delete these.
 bindkey -e      # Use emacs keybindings even if our EDITOR is set to vi.
 bindkey ';5C' emacs-forward-word        # alt+right in Gnome terminal.
 bindkey ';5D' emacs-backward-word       # alt+left in Gnome terminal.
@@ -18,14 +36,7 @@ bindkey '[C' emacs-forward-word
 bindkey '[D' emacs-backward-word
 bindkey '^U' backward-kill-line         # delete everything to the left.
 
-HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
-
-# Prompt.
-zstyle ':vcs_info:*' actionformats '[%s(%b|%a)] '
-zstyle ':vcs_info:*' formats       '[%s(%b)] '
-zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b:%r'
-precmd () { vcs_info }
-PROMPT='%n@%m %3~ ${vcs_info_msg_0_}%# '
-RPROMPT='[%D %*]'
+# <c-x><c-e> to edit command line (like in bash)
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\C-x\C-e' edit-command-line
