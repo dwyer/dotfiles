@@ -4,7 +4,6 @@ autoload -Uz compinit; compinit
 autoload -Uz promptinit; promptinit
 autoload -Uz vcs_info
 
-setopt bash_autolist
 setopt histignorealldups 
 setopt prompt_subst
 setopt sharehistory
