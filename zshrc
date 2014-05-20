@@ -1,7 +1,7 @@
 source ~/.profile # load options shared between bash and zsh
 
 # Autocomplete.
-autoload -Uz compinit; compinit
+autoload -Uz compinit && compinit
 # setopt menu_complete # start completing right away
 setopt nolistbeep # don't beep while completing
 
@@ -13,16 +13,16 @@ export HISTSIZE=1000
 # export SAVEHIST=$HISTSIZE
 
 # Prompt.
-# autoload -Uz promptinit; promptinit
-autoload -Uz vcs_info
+# autoload -Uz promptinit && promptinit
+autoload -Uz colors && colors
+autoload -Uz vcs_info && precmd () { vcs_info }
 setopt prompt_subst
 zstyle ':vcs_info:*' enable hg git svn
-zstyle ':vcs_info:*' actionformats '[%s(%b|%a)] '
 zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' actionformats '[%s(%b|%a)] '
 zstyle ':vcs_info:*' formats       '[%s(%b)] '
-# zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b:%r'
-precmd () { vcs_info }
-PROMPT='%n@%m:%~ ${vcs_info_msg_0_}%# '
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b:%r'
+PROMPT='%n@%M:%{$fg[blue]%}%~%{$reset_color%} ${vcs_info_msg_0_}%# '
 RPROMPT='${vcs_info_msg_0_}[%D %*]'
 
 # Modify arrow keys to navigate words.
@@ -37,6 +37,6 @@ bindkey '[D' emacs-backward-word
 bindkey '^U' backward-kill-line         # delete everything to the left.
 
 # <c-x><c-e> to edit command line (like in bash)
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey '\C-x\C-e' edit-command-line
+autoload -Uz edit-command-line \
+    && zle -N edit-command-line \
+    && bindkey '\C-x\C-e' edit-command-line
