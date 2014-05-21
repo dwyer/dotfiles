@@ -44,7 +44,6 @@ fi
 export PATH
 
 # overrides
-alias apt-get='aptitude'
 alias cp='cp -i'
 alias df='df -h'
 alias du='du -h'
