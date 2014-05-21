@@ -215,3 +215,4 @@ nnoremap <space>            :write<cr>
 nnoremap cx                 :!chmod +x %<cr>
 nnoremap du                 :diffupdate<cr>
 nnoremap zz                 za
+inoremap {<cr>              {<cr>}<esc>O
