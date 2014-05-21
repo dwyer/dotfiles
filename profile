@@ -59,7 +59,7 @@ if [ $? != 0 ]; then
 fi
 
 # shortcuts
-alias appcfg.py='appcfg.py --oath2'
+# alias appcfg.py='appcfg.py --oath2'
 alias cx='chmod +x'
 alias g='git'
 alias ga='git add'
@@ -71,8 +71,8 @@ alias gc='git commit'
 alias gcl='git clone'
 alias gcm='git commit -m'
 alias gco='git checkout'
-alias gd='git diff'
-alias gdc='git diff --cached'
+alias gd='git diff --color=never'
+alias gdc='git diff --color=never --cached'
 alias gg='git grep'
 alias gi='git init'
 alias gl='git log'
@@ -122,7 +122,7 @@ ta() {
 UNAME=`uname`
 if [ $UNAME = 'Darwin' ]; then
     export PAGER='col -b | vim -MR -'
-    export GITPAGER='col -b | vim -MR -c "setf diff" -'
+    # export GITPAGER='col -b | vim -MR -c "setf diff" -'
     export MANPAGER='col -b | vim -MR -c "setf man" -'
     alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
     alias md5sum='md5 -r'

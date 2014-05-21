@@ -35,13 +35,13 @@ filetype plugin indent on
 " Syntax Highlighting {{{1
 
 syntax on
-highlight Normal ctermbg=none
-set background=dark
 set t_Co=256
 if filereadable($HOME.'/.vim/bundle/vim-colors-solarized/README.mkd')
     colorscheme solarized
     call togglebg#map("<F6>")
+    set background=dark
 endif
+highlight Normal ctermbg=none
 
 " Format and Indentation {{{1
 
@@ -51,7 +51,6 @@ set colorcolumn=+0
 set expandtab
 set linebreak
 set shiftwidth=4
-set smartindent
 set softtabstop=4
 set tabstop=8
 set textwidth=80
@@ -195,6 +194,7 @@ nnoremap gr                 :Ggrep<space>
 nnoremap gs                 :Gstatus<cr>
 
 " Other {{{3
+set pastetoggle=<leader>p
 nnoremap <leader>.          :edit .<cr>
 nnoremap <leader>=          m`=ip``
 nnoremap <leader>\|         :vsplit<cr>
@@ -204,7 +204,6 @@ nnoremap <leader>e          :edit<space>
 nnoremap <leader>h          :help<space>
 nnoremap <leader>ls         :ls<cr>
 nnoremap <leader>m          :make<cr>
-nnoremap <leader>p          :set paste<cr>
 nnoremap <leader>r          :source $MYVIMRC<cr>
 nnoremap <leader>s          :split<space>
 nnoremap <leader>t          :tabnew<space>
