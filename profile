@@ -3,7 +3,7 @@ export TERM=xterm-256color
 #export LS_COLORS='di=38;5;108:fi=00:ln=38;5;116:ex=38;5;186'
 
 # editor
-export EDITOR=vim
+export EDITOR=vi
 
 # browser
 export BROWSER=w3m
@@ -109,6 +109,7 @@ alias t='tmux'
 #alias ta='tmux a'
 alias tls='tmux ls'
 alias tx='tar xzf'
+alias vim='echo Did you mean vi\?'
 
 ta() {
     if [ $# -gt 0 ]; then
