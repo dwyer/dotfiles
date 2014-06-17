@@ -34,14 +34,15 @@ filetype plugin indent on
 
 " Syntax Highlighting {{{1
 
-syntax on
+syntax enable
 set t_Co=256
 if filereadable($HOME.'/.vim/bundle/vim-colors-solarized/README.mkd')
+    let g:solarized_termcolors=256
+    set background=dark
     colorscheme solarized
     call togglebg#map("<F6>")
-    set background=dark
+    highlight Normal ctermbg=none
 endif
-highlight Normal ctermbg=none
 
 " Format and Indentation {{{1
 
