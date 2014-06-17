@@ -12,4 +12,4 @@ function col_end() {
     echo -ne '\[\e[m\]';
 }
 
-export PS1="\u@\h \w \$(parse_git_status)\$ "
+export PS1="\u@\h:\w \$(parse_git_status)\$ "
