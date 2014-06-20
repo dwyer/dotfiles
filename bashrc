@@ -1,5 +1,15 @@
 source ~/.profile
 
-function col_begin() { echo -ne "\[\e[38;5;$1m\]"; }
-function col_end() { echo -ne '\[\e[m\]'; }
-PS1="`col_begin 187`\u@\h `col_begin 174`\w \$`col_end` "
+function parse_git_status() {
+    git branch 2>/dev/null | sed 's/\* \(.*\)/[git(\1)] /'
+}
+
+function col_begin() {
+    echo -ne "\[\e[38;5;$1m\]";
+}
+
+function col_end() {
+    echo -ne '\[\e[m\]';
+}
+
+export PS1="\u@\h:\w \$(parse_git_status)\$ "

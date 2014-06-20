@@ -3,7 +3,7 @@ export TERM=xterm-256color
 #export LS_COLORS='di=38;5;108:fi=00:ln=38;5;116:ex=38;5;186'
 
 # editor
-export EDITOR=vim
+export EDITOR=vi
 
 # browser
 export BROWSER=w3m
@@ -44,7 +44,6 @@ fi
 export PATH
 
 # overrides
-alias apt-get='aptitude'
 alias cp='cp -i'
 alias df='df -h'
 alias du='du -h'
@@ -60,7 +59,7 @@ if [ $? != 0 ]; then
 fi
 
 # shortcuts
-alias appcfg.py='appcfg.py --oath2'
+# alias appcfg.py='appcfg.py --oath2'
 alias cx='chmod +x'
 alias g='git'
 alias ga='git add'
@@ -68,9 +67,9 @@ alias gap='git add -p'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gbd='git branch -D'
-alias gc='git commit'
+alias gc='git commit -s'
 alias gcl='git clone'
-alias gcm='git commit -m'
+alias gcm='git commit -s -m'
 alias gco='git checkout'
 alias gd='git diff'
 alias gdc='git diff --cached'
@@ -80,7 +79,7 @@ alias gl='git log'
 alias glo='git log --oneline'
 alias glog='git log --oneline --graph'
 alias gls='git ls-files'
-alias gm='git commit -m'
+alias gm='git commit -s -m'
 alias gp='git push'
 alias gpl='git pull'
 alias gr='git reset'
@@ -110,6 +109,7 @@ alias t='tmux'
 #alias ta='tmux a'
 alias tls='tmux ls'
 alias tx='tar xzf'
+alias vim='echo Did you mean vi\?'
 
 ta() {
     if [ $# -gt 0 ]; then
@@ -123,7 +123,7 @@ ta() {
 UNAME=`uname`
 if [ $UNAME = 'Darwin' ]; then
     export PAGER='col -b | vim -MR -'
-    export GITPAGER='col -b | vim -MR -c "setf diff" -'
+    # export GITPAGER='col -b | vim -MR -c "setf diff" -'
     export MANPAGER='col -b | vim -MR -c "setf man" -'
     alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
     alias md5sum='md5 -r'
