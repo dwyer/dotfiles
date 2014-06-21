@@ -26,6 +26,8 @@
 	editor = vim
 	excludesfile = ~/.gitignore_global
 	safecrlf = false
+[diff]
+	color = never
 [push]
 	default = matching
 [user]
