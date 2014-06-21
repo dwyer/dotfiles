@@ -11,7 +11,6 @@ filetype off
 set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'Rip-Rip/clang_complete'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'dwyer/li.vim'
 Bundle 'godlygeek/tabular'
@@ -19,7 +18,6 @@ Bundle 'gmarik/vundle'
 Bundle 'sjl/gundo.vim'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'mattn/emmet-vim'
-" Bundle 'msanders/cocoa.vim'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-eunuch'
