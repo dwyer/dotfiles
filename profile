@@ -95,14 +95,12 @@ alias la='ls -A'
 alias lc='wc -l'
 alias ll='ls -lh'
 alias lla='ls -Alh'
-alias li='rl li'
 alias md='mkdir'
 alias p='mpc toggle'
 alias pa='ps -A'
 alias pag='ps -A | grep'
 alias pp='echo hehehe'
 alias py='python'
-alias rl='rlwrap'
 alias src='source'
 alias sl='ls' # this typo happens a lot
 alias t='tmux'
@@ -110,6 +108,11 @@ alias t='tmux'
 alias tls='tmux ls'
 alias tx='tar xzf'
 alias vim='echo Did you mean vi\?'
+
+# rlwrap aliases
+if [ -n `which rlwrap` ]; then
+    alias li='rlwrap li'
+fi
 
 ta() {
     if [ $# -gt 0 ]; then
