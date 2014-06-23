@@ -1,4 +1,5 @@
 # colors
+export CLICOLOR=1
 export TERM=xterm-256color
 #export LS_COLORS='di=38;5;108:fi=00:ln=38;5;116:ex=38;5;186'
 
@@ -48,15 +49,8 @@ alias cp='cp -i'
 alias df='df -h'
 alias du='du -h'
 alias grep='grep --color=auto'
-alias ls='ls --color=auto'
 alias mkdir='mkdir -p'
 alias mv='mv -i'
-
-# if we're using BSD userland, change ls alias
-ls >/dev/null 2>/dev/null
-if [ $? != 0 ]; then
-    alias ls='ls -G'
-fi
 
 # shortcuts
 # alias appcfg.py='appcfg.py --oath2'
