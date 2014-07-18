@@ -108,12 +108,6 @@ alias tls='tmux ls'
 alias tx='tar xzf'
 alias vim='echo Did you mean vi\?'
 
-# if rlwrap is installed, go ahead and use it to wrap certain commands.
-rlwrap=`which rlwrap`
-if [ -n $rlwrap ]; then
-    alias li='rlwrap li'
-fi
-
 ta() {
     if [ $# -gt 0 ]; then
         tmux attach -t $@
