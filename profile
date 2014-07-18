@@ -106,7 +106,6 @@ alias t='tmux'
 #alias ta='tmux a'
 alias tls='tmux ls'
 alias tx='tar xzf'
-alias vim='echo Did you mean vi\?'
 
 ta() {
     if [ $# -gt 0 ]; then
