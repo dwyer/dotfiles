@@ -115,6 +115,7 @@ if has('autocmd')
     autocmd FileType mail setlocal spell textwidth=72
     autocmd FileType objc setlocal foldcolumn=4 foldexpr=ObjcFold() 
                 \ foldmethod=expr foldtext=getline(v:foldstart) nolinebreak
+    autocmd FileType python setlocal textwidth=79
     autocmd FileType vim setlocal foldcolumn=4 foldmethod=marker
     autocmd BufNewFile,BufRead *.gyp setfiletype python
     autocmd BufNewFile,BufRead *.json setfiletype javascript
