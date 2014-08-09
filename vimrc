@@ -103,6 +103,11 @@ function! ObjcFold()
     return '='
 endfunction
 
+function! DjangoTagCleanup()
+    :%s/{%\s*\(.\{-}\)\s*%}/{% \1 %}/g
+    :%s/{{\s*\(.\{-}\)\s*}}/{{ \1 }}/g
+endfunction
+
 if has('autocmd')
     autocmd FileType c setlocal cin cino=(0 cino=:0
     autocmd FileType gitcommit setlocal spell
