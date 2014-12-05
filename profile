@@ -125,6 +125,7 @@ if [ $UNAME = 'Darwin' ]; then
     alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
     alias md5sum='md5 -r'
 elif [ $UNAME = 'Linux' ]; then
+    alias ls='ls -F'
     alias ac='apt-cache'
     alias pbcopy='xsel --clipboard --input'
     alias pbpaste='xsel --clipboard --output'
