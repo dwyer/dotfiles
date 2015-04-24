@@ -41,6 +41,8 @@ if filereadable($HOME.'/.vim/bundle/vim-colors-solarized/README.mkd')
     colorscheme solarized
     call togglebg#map("<F6>")
     highlight Normal ctermbg=none
+    highlight ExtraWhitespace ctermbg=red guibg=red
+    match ExtraWhitespace /\s\+$/
 endif
 
 " Format and Indentation {{{1
