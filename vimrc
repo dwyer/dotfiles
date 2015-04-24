@@ -106,8 +106,10 @@ function! ObjcFold()
 endfunction
 
 function! DjangoTagCleanup()
-    :%s/{%\s*\(.\{-}\)\s*%}/{% \1 %}/g
-    :%s/{{\s*\(.\{-}\)\s*}}/{{ \1 }}/g
+    :%s/{%\s*/{% /g
+    :%s/\s*%}/ %}/g
+    :%s/{{\s*/{{ /g
+    :%s/\s*}}/ }}/g
 endfunction
 
 if has('autocmd')
