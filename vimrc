@@ -1,5 +1,8 @@
 " vundle {{{1
 
+set encoding=utf-8
+set fileencoding=utf-8
+
 if !filereadable($HOME.'/.vim/bundle/vundle/README.md')
     silent !mkdir -p ~/.vim/bundle
     silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
