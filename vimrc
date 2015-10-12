@@ -44,8 +44,8 @@ if filereadable($HOME.'/.vim/bundle/vim-colors-solarized/README.mkd')
     colorscheme solarized
     call togglebg#map("<F6>")
     highlight Normal ctermbg=none
-    highlight ExtraWhitespace ctermbg=red guibg=red
-    match ExtraWhitespace /\s\+$/
+    highlight default link EndOfLineSpace ErrorMsg
+    match EndOfLineSpace / \+$/
 endif
 
 " Format and Indentation {{{1
@@ -140,6 +140,8 @@ if has('autocmd')
     autocmd BufNewFile,BufRead gitconfig setfiletype gitconfig
     autocmd BufNewFile,BufRead mutt-* setfiletype mail
     autocmd BufNewFile,BufRead profile setlocal filetype=sh
+    autocmd InsertEnter * hi link EndOfLineSpace Normal
+    autocmd InsertLeave * hi link EndOfLineSpace ErrorMsg
 endif
 
 " Mappings {{{1
