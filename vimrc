@@ -71,7 +71,6 @@ endif
 " Search {{{1
 set nohlsearch
 set incsearch
-set ignorecase
 set smartcase
 set wildmode=list:longest
 set wildmenu
