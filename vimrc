@@ -119,8 +119,10 @@ if has('autocmd')
     autocmd FileType c setlocal cin cino=(0 cino=:0
     autocmd FileType gitcommit setlocal spell
     autocmd FileType gitconfig setlocal noexpandtab shiftwidth=8
-    autocmd FileType html setlocal nolinebreak
-    autocmd FileType htmldjango setlocal nolinebreak
+    autocmd FileType html setlocal nolinebreak shiftwidth=2 softtabstop=2
+                \ textwidth=0
+    autocmd FileType htmldjango setlocal nolinebreak shiftwidth=2 softtabstop=2
+                \ textwidth=0
     autocmd FileType java setlocal textwidth=100
     autocmd FileType li setlocal lisp
     autocmd FileType lisp setlocal lispwords+=syntax-rules
