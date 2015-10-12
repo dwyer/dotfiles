@@ -124,6 +124,7 @@ if has('autocmd')
     autocmd FileType htmldjango setlocal nolinebreak shiftwidth=2 softtabstop=2
                 \ textwidth=0
     autocmd FileType java setlocal textwidth=100
+    autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2
     autocmd FileType li setlocal lisp
     autocmd FileType lisp setlocal lispwords+=syntax-rules
     autocmd FileType mail setlocal spell textwidth=72
