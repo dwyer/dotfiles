@@ -149,7 +149,7 @@ endif
 
 " Quit {{{3
 " Use q to quit, Q to record and bring up command windows, LEADER-Q to bring up
-" ex mode. 
+" ex mode.
 nnoremap <leader>Q          Q
 nnoremap <leader>q          :quit!<cr>
 nnoremap Q                  q
