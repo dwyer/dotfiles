@@ -117,14 +117,18 @@ endfunction
 
 if has('autocmd')
     autocmd FileType c setlocal cin cino=(0 cino=:0
+    autocmd FileType css setlocal shiftwidth=2 softtabstop=2
+    autocmd FileType dart setlocal shiftwidth=2 softtabstop=2
     autocmd FileType gitcommit setlocal spell
     autocmd FileType gitconfig setlocal noexpandtab shiftwidth=8
+    autocmd FileType go setlocal noexpandtab shiftwidth=8
     autocmd FileType html setlocal nolinebreak shiftwidth=2 softtabstop=2
                 \ textwidth=0
     autocmd FileType htmldjango setlocal nolinebreak shiftwidth=2 softtabstop=2
                 \ textwidth=0
     autocmd FileType java setlocal textwidth=100
     autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2
+    autocmd FileType json setlocal nolinebreak shiftwidth=2 softtabstop=2
     autocmd FileType li setlocal lisp
     autocmd FileType lisp setlocal lispwords+=syntax-rules
     autocmd FileType mail setlocal spell textwidth=72
