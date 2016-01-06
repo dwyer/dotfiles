@@ -24,15 +24,13 @@ if [ -d "$HOME/.profile.d" ]; then
     for filename in "$HOME"/.profile.d/*.sh; do
         source "$filename"
     done
+    unset filename
 fi
 
-# Local profile (if present) is loaded last so things can be overridden.
-LOCALPROFILE=$HOME/.profile.local
-
-if [ -e $LOCALPROFILE ]; then
-    source $LOCALPROFILE
+if [ -f "$HOME/.profile.local" ]; then
+    source "$HOME/.profile.local"
 fi
 
-if [ -e "$HOME/bin" ]; then
+if [ -d "$HOME/bin" ]; then
     PATH="$HOME/bin:$PATH"
 fi
