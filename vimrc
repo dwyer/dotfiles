@@ -15,13 +15,16 @@ set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'dart-lang/dart-vim-plugin'
 Bundle 'dwyer/li.vim'
 Bundle 'gmarik/vundle'
 Bundle 'godlygeek/tabular'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'jamessan/vim-gnupg'
 Bundle 'mattn/emmet-vim'
+Plugin 'mxw/vim-jsx'
 Bundle 'othree/html5.vim'
+" Bundle 'scrooloose/syntastic'
 Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-commentary'
@@ -32,6 +35,9 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-rhubarb'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'vim-jp/vim-go-extra'
+
+" let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 filetype plugin indent on
 
