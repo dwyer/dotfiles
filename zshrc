@@ -1,12 +1,10 @@
-source ~/.profile # load options shared between bash and zsh
-
 # Autocomplete.
 autoload -Uz compinit && compinit
 # setopt menu_complete # start completing right away
 setopt nolistbeep # don't beep while completing
 
 # History.
-# setopt histignorealldups 
+# setopt histignorealldups
 # setopt sharehistory
 export HISTFILE=~/.history
 export HISTSIZE=1000
@@ -47,3 +45,9 @@ bindkey '^U' backward-kill-line         # delete everything to the left.
 autoload -Uz edit-command-line \
     && zle -N edit-command-line \
     && bindkey '\C-x\C-e' edit-command-line
+
+for filename in .aliases .profile; do
+    if [ -f ~/$filename ]; then
+        source ~/$filename
+    fi
+done

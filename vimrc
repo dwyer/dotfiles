@@ -148,6 +148,7 @@ if has('autocmd')
     autocmd BufNewFile,BufRead *.m setfiletype objc
     autocmd BufNewFile,BufRead *.muttrc setfiletype muttrc
     autocmd BufNewFile,BufRead *.pch setfiletype objc
+    autocmd BufNewFile,BufRead aliases setlocal filetype=sh
     autocmd BufNewFile,BufRead gitconfig setfiletype gitconfig
     autocmd BufNewFile,BufRead mutt-* setfiletype mail
     autocmd BufNewFile,BufRead profile setlocal filetype=sh
