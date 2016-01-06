@@ -56,37 +56,11 @@ alias du='du -h'
 alias grep='grep --color=auto'
 alias mkdir='mkdir -p'
 alias mv='mv -i'
+alias tx='tar xzf'
 
 # shortcuts
 # alias appcfg.py='appcfg.py --oath2'
 alias cx='chmod +x'
-alias g='git'
-alias ga='git add'
-alias gap='git add -p'
-alias gb='git branch'
-alias gba='git branch -a'
-alias gbd='git branch -D'
-alias gc='git commit -s'
-alias gcl='git clone'
-alias gcm='git commit -s -m'
-alias gco='git checkout'
-alias gd='git diff'
-alias gdc='git diff --cached'
-alias gg='git grep'
-alias gi='git init'
-alias gl='git log'
-alias glo='git log --oneline'
-alias glog='git log --oneline --graph'
-alias gls='git ls-files'
-alias gm='git commit -s -m'
-alias gp='git push'
-alias gpl='git pull'
-alias gr='git reset'
-alias grh='git reset --hard'
-alias gs='git status'
-alias gss='git status -s'
-alias gt='git log --oneline --graph --all'
-alias ipy='ipython --pylab --no-confirm-exit'
 alias k9='kill -9'
 alias ka='killall'
 alias l='ls'
@@ -95,25 +69,62 @@ alias lc='wc -l'
 alias ll='ls -lh'
 alias lla='ls -Alh'
 alias md='mkdir'
-alias p='mpc toggle'
 alias pa='ps -A'
 alias pag='ps -A | grep'
 alias pp='echo hehehe'
 alias py='python'
 alias src='source'
 alias sl='ls' # this typo happens a lot
-alias t='tmux'
-#alias ta='tmux a'
-alias tls='tmux ls'
-alias tx='tar xzf'
 
-ta() {
-    if [ $# -gt 0 ]; then
-        tmux attach -t $@
-    else
-        tmux attach
-    fi
-}
+which git &>/dev/null
+if [ $? = 0 ]; then
+    alias g='git'
+    alias ga='git add'
+    alias gap='git add -p'
+    alias gb='git branch'
+    alias gba='git branch -a'
+    alias gbd='git branch -D'
+    alias gc='git commit -s'
+    alias gcl='git clone'
+    alias gcm='git commit -s -m'
+    alias gco='git checkout'
+    alias gd='git diff'
+    alias gdc='git diff --cached'
+    alias gg='git grep'
+    alias gi='git init'
+    alias gl='git log'
+    alias glo='git log --oneline'
+    alias glog='git log --oneline --graph'
+    alias gls='git ls-files'
+    alias gm='git commit -s -m'
+    alias gp='git push'
+    alias gpl='git pull'
+    alias gr='git reset'
+    alias grh='git reset --hard'
+    alias gs='git status'
+    alias gss='git status -s'
+    alias gt='git log --oneline --graph --all'
+fi
+
+which mpc &>/dev/null
+if [ $? = 0 ]; then
+    alias p='mpc toggle'
+fi
+
+which tmux &>/dev/null
+if [ $? = 0 ]; then
+    alias t='tmux'
+    # alias ta='tmux a'
+    alias tls='tmux ls'
+    ta() {
+        if [ $# -gt 0 ]; then
+            tmux attach -t $@
+        else
+            tmux attach
+        fi
+    }
+fi
+
 
 # platform specific
 UNAME=`uname`
