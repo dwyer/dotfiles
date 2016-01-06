@@ -20,10 +20,6 @@ export NNTPSERVER=nntp.aioe.org
 export MPD_HOST=d.local
 export MPD_PORT=6600
 
-if [ -e "$HOME/bin" ]; then
-    PATH="$HOME/bin:$PATH"
-fi
-
 # overrides
 alias cp='cp -i'
 alias df='df -h'
@@ -140,4 +136,8 @@ LOCALPROFILE=$HOME/.profile.local
 
 if [ -e $LOCALPROFILE ]; then
     source $LOCALPROFILE
+fi
+
+if [ -e "$HOME/bin" ]; then
+    PATH="$HOME/bin:$PATH"
 fi
