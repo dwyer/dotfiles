@@ -20,34 +20,9 @@ export NNTPSERVER=nntp.aioe.org
 export MPD_HOST=d.local
 export MPD_PORT=6600
 
-# dev tools
-export ANDROIDPATH=/usr/local/android-sdk
-export APPENGINEPATH=/usr/local/google_appengine
-export HOMEBIN=$HOME/bin
-
-# Add ~/bin to path
-if [ -e $HOMEBIN ]; then
-    PATH=$HOMEBIN:$PATH
+if [ -e "$HOME/bin" ]; then
+    PATH="$HOME/bin:$PATH"
 fi
-
-# Add Android SDK to path.
-if [ -e $ANDROIDPATH ]; then
-    # Android's sqlite3 doesn't have readline support, so make sure we're using
-    # an installed version before adding Android to PATH.
-    sqlite3=`which sqlite3`
-    if [ -f "$sqlite3" ]; then
-        alias sqlite3="$sqlite3"
-    fi
-    PATH=$ANDROIDPATH/platform-tools:$PATH
-    PATH=$ANDROIDPATH/tools:$PATH
-fi
-
-# Add App Engine SDK to path
-if [ -e $APPENGINEPATH ]; then
-    PATH=$APPENGINEPATH:$PATH
-fi
-
-export PATH
 
 # overrides
 alias cp='cp -i'
@@ -152,6 +127,12 @@ elif [ $UNAME = 'Linux' ]; then
     alias picard='stfu picard'
     alias ristretto='stfu ristretto'
     alias totem='stfu totem'
+fi
+
+if [ -d "$HOME/.profile.d" ]; then
+    for filename in "$HOME"/.profile.d/*.sh; do
+        source "$filename"
+    done
 fi
 
 # Local profile (if present) is loaded last so things can be overridden.
