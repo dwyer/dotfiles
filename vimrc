@@ -143,6 +143,7 @@ if has('autocmd')
                 \ foldmethod=expr foldtext=getline(v:foldstart) nolinebreak
     autocmd FileType python setlocal textwidth=79
     autocmd FileType vim setlocal foldcolumn=4 foldmethod=marker
+    autocmd FileType yaml setlocal nolinebreak shiftwidth=2 softtabstop=2
     autocmd BufNewFile,BufRead *.gyp setfiletype python
     autocmd BufNewFile,BufRead *.json setfiletype javascript
     autocmd BufNewFile,BufRead *.li,*.sub setfiletype li
