@@ -16,16 +16,19 @@ call vundle#rc()
 
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'dart-lang/dart-vim-plugin'
+Bundle 'davidhalter/jedi-vim'
 Bundle 'dwyer/li.vim'
+Bundle 'dwyer/vim-swift'
 Bundle 'gmarik/vundle'
 Bundle 'godlygeek/tabular'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'jamessan/vim-gnupg'
 Bundle 'mattn/emmet-vim'
-Plugin 'mxw/vim-jsx'
+Bundle 'maxbane/vim-asm_ca65'
+Bundle 'mxw/vim-jsx'
 Bundle 'othree/html5.vim'
 Bundle 'pangloss/vim-javascript'
-" Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/syntastic'
 Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-commentary'
@@ -38,7 +41,13 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-jp/vim-go-extra'
 
+if v:version >= 800
+    Bundle 'w0rp/ale'
+endif
+
 " let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+let g:syntastic_disabled_filetypes=['java']
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': ['java'] }
 
 filetype plugin indent on
 
@@ -124,6 +133,7 @@ endfunction
 
 if has('autocmd')
     autocmd FileType c setlocal cin cino=(0 cino=:0
+    autocmd FileType crontab setlocal backupcopy=yes
     autocmd FileType css setlocal shiftwidth=2 softtabstop=2
     autocmd FileType dart setlocal shiftwidth=2 softtabstop=2
     autocmd FileType gitcommit setlocal spell
@@ -141,6 +151,8 @@ if has('autocmd')
     autocmd FileType mail setlocal spell textwidth=72
     autocmd FileType objc setlocal foldcolumn=4 foldexpr=ObjcFold()
                 \ foldmethod=expr foldtext=getline(v:foldstart) nolinebreak
+    autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
+    autocmd FileType python nnoremap <LocalLeader>i :!isort %<CR><CR>
     autocmd FileType python setlocal textwidth=79
     autocmd FileType vim setlocal foldcolumn=4 foldmethod=marker
     autocmd FileType yaml setlocal nolinebreak shiftwidth=2 softtabstop=2
@@ -150,6 +162,7 @@ if has('autocmd')
     autocmd BufNewFile,BufRead *.m setfiletype objc
     autocmd BufNewFile,BufRead *.muttrc setfiletype muttrc
     autocmd BufNewFile,BufRead *.pch setfiletype objc
+    autocmd BufNewFile,BufRead *.s,*.inc set ft=asm_ca65
     autocmd BufNewFile,BufRead aliases setlocal filetype=sh
     autocmd BufNewFile,BufRead gitconfig setfiletype gitconfig
     autocmd BufNewFile,BufRead mutt-* setfiletype mail
