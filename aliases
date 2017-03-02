@@ -8,6 +8,7 @@ alias grep='grep --color=auto'
 alias mkdir='mkdir -p'
 alias mv='mv -i'
 alias tx='tar xzf'
+alias vi='vim'
 
 # shortcuts
 # alias appcfg.py='appcfg.py --oath2'
