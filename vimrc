@@ -2,6 +2,8 @@
 
 set encoding=utf-8
 set fileencoding=utf-8
+set exrc
+set secure
 
 if !filereadable($HOME.'/.vim/bundle/vundle/README.md')
     silent !mkdir -p ~/.vim/bundle
@@ -16,8 +18,8 @@ call vundle#rc()
 
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'dart-lang/dart-vim-plugin'
-Bundle 'davidhalter/jedi-vim'
-Bundle 'dwyer/li.vim'
+" Bundle 'davidhalter/jedi-vim'
+" Bundle 'dwyer/li.vim'
 Bundle 'dwyer/vim-swift'
 Bundle 'gmarik/vundle'
 Bundle 'godlygeek/tabular'
@@ -42,12 +44,13 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-jp/vim-go-extra'
 
 if v:version >= 800
-    Bundle 'w0rp/ale'
+    " Bundle 'w0rp/ale'
 endif
 
 " let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:syntastic_disabled_filetypes=['java']
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': ['java'] }
+let g:syntastic_full_redraws=0
 
 filetype plugin indent on
 
@@ -131,6 +134,8 @@ function! DjangoTagCleanup()
     :%s/\s*}}/ }}/g
 endfunction
 
+set lispwords+=syntax-case,syntax-rules,define-record-type
+
 if has('autocmd')
     autocmd FileType c setlocal cin cino=(0 cino=:0
     autocmd FileType crontab setlocal backupcopy=yes
@@ -145,9 +150,9 @@ if has('autocmd')
                 \ textwidth=0
     autocmd FileType java setlocal textwidth=100
     autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2
+    autocmd FileType javascript nnoremap <LocalLeader>= :0,$!clang-format -assume-filename=.js<CR>
     autocmd FileType json setlocal nolinebreak shiftwidth=2 softtabstop=2
     autocmd FileType li setlocal lisp
-    autocmd FileType lisp setlocal lispwords+=syntax-rules
     autocmd FileType mail setlocal spell textwidth=72
     autocmd FileType objc setlocal foldcolumn=4 foldexpr=ObjcFold()
                 \ foldmethod=expr foldtext=getline(v:foldstart) nolinebreak
@@ -158,11 +163,11 @@ if has('autocmd')
     autocmd FileType yaml setlocal nolinebreak shiftwidth=2 softtabstop=2
     autocmd BufNewFile,BufRead *.gyp setfiletype python
     autocmd BufNewFile,BufRead *.json setfiletype javascript
-    autocmd BufNewFile,BufRead *.li,*.sub setfiletype li
+    autocmd BufNewFile,BufRead *.li,*.sub setfiletype scheme
     autocmd BufNewFile,BufRead *.m setfiletype objc
     autocmd BufNewFile,BufRead *.muttrc setfiletype muttrc
     autocmd BufNewFile,BufRead *.pch setfiletype objc
-    autocmd BufNewFile,BufRead *.s,*.inc set ft=asm_ca65
+    autocmd BufNewFile,BufRead *.s,*.inc,*.s65 set ft=asm_ca65
     autocmd BufNewFile,BufRead aliases setlocal filetype=sh
     autocmd BufNewFile,BufRead gitconfig setfiletype gitconfig
     autocmd BufNewFile,BufRead mutt-* setfiletype mail
