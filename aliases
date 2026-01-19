@@ -58,25 +58,6 @@ if [ $? = 0 ]; then
     alias gt='git log --oneline --graph --all'
 fi
 
-which mpc &>/dev/null
-if [ $? = 0 ]; then
-    alias p='mpc toggle'
-fi
-
-which tmux &>/dev/null
-if [ $? = 0 ]; then
-    alias t='tmux'
-    # alias ta='tmux a'
-    alias tls='tmux ls'
-    ta() {
-        if [ $# -gt 0 ]; then
-            tmux attach -t $@
-        else
-            tmux attach
-        fi
-    }
-fi
-
 # platform specific
 UNAME=`uname`
 if [ $UNAME = 'Darwin' ]; then
