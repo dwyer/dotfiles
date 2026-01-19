@@ -12,7 +12,7 @@ function col_end() {
 
 export PS1="\u@\h:\w \$(parse_git_status)\$ "
 
-for filename in .aliases .profile; do
+for filename in .aliases .profile .bashrc.orig; do
     if [ -f ~/$filename ]; then
         source ~/$filename
     fi
