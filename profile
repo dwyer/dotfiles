@@ -6,19 +6,9 @@ export TERM=xterm-256color
 # editor
 export EDITOR=vim
 
-# browser
-export BROWSER=w3m
-
 # pager
 export PAGER=less
 export LESSHISTFILE=/dev/null
-
-# news
-export NNTPSERVER=nntp.aioe.org
-
-# mpd
-export MPD_HOST=d.local
-export MPD_PORT=6600
 
 if [ -d "$HOME/.profile.d" ]; then
     for filename in "$HOME"/.profile.d/*.sh; do
