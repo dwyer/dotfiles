@@ -36,3 +36,5 @@
 	email = caseydwyer@gmail.com
 [web]
 	browser = open
+[pull]
+	rebase = true
