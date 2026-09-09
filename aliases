@@ -1,4 +1,4 @@
-# alises shared between bash and zsh
+# aliases shared between bash and zsh
 
 # overrides
 alias cp='cp -i'
@@ -7,7 +7,6 @@ alias du='du -h'
 alias grep='grep --color=auto'
 alias mkdir='mkdir -p'
 alias mv='mv -i'
-alias tx='tar xzf'
 alias vi='vim'
 
 # shortcuts
@@ -26,8 +25,7 @@ alias pp='echo hehehe'
 alias src='source'
 alias sl='ls' # this typo happens a lot
 
-which git &>/dev/null
-if [ $? = 0 ]; then
+if command -v git >/dev/null 2>&1; then
     alias g='git'
     alias ga='git add'
     alias gap='git add -p'
@@ -57,29 +55,12 @@ if [ $? = 0 ]; then
 fi
 
 # platform specific
-UNAME=`uname`
-if [ $UNAME = 'Darwin' ]; then
-    # export PAGER='col -b | vim -MR -'
-    # export GITPAGER='col -b | vim -MR -c "setf diff" -'
-    # export MANPAGER='col -b | vim -MR -c "setf man" -'
-    alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc'
+UNAME=$(uname)
+if [ "$UNAME" = 'Darwin' ]; then
     alias md5sum='md5 -r'
-elif [ $UNAME = 'Linux' ]; then
+elif [ "$UNAME" = 'Linux' ]; then
     alias ls='ls -F'
-    alias ac='apt-cache'
     alias xcopy='xsel --clipboard --input'
     alias xpaste='xsel --clipboard --output'
-    # stfu: force certain processes to run silently in the background
-    stfu() {
-        exec "$@" 1>/dev/null 2>/dev/null &
-    }
-    alias eog='stfu eog'
-    alias evince='stfu evince'
-    alias gimp='stfu gimp'
-    alias lyx='stfu lyx'
-    alias nautilus='stfu nautilus'
-    alias parole='stfu parole'
-    alias picard='stfu picard'
-    alias ristretto='stfu ristretto'
-    alias totem='stfu totem'
 fi
+unset UNAME
