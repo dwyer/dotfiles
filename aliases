@@ -71,6 +71,8 @@ elif [ $UNAME = 'Linux' ]; then
     alias ac='apt-cache'
     alias pbcopy='xsel --clipboard --input'
     alias pbpaste='xsel --clipboard --output'
+    alias xcopy='xclip -selection clipboard'
+    alias xpaste='xclip -selection clipboard -o'
     # stfu: force certain processes to run silently in the background
     stfu() {
         exec "$@" 1>/dev/null 2>/dev/null &
