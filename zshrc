@@ -40,7 +40,7 @@ autoload -Uz edit-command-line \
     && zle -N edit-command-line \
     && bindkey '\C-x\C-e' edit-command-line
 
-for filename in .aliases .profile; do
+for filename in .aliases .profile .zshrc.local; do
     if [ -f ~/$filename ]; then
         source ~/$filename
     fi
