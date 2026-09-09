@@ -1,5 +1,9 @@
 function parse_git_status() {
-    git branch 2>/dev/null | sed 's/\* \(.*\)/[git(\1)] /'
+    local ref
+    ref=$(git symbolic-ref --short -q HEAD 2>/dev/null) \
+        || ref=$(git rev-parse --short HEAD 2>/dev/null) \
+        || return
+    printf '[git(%s)] ' "$ref"
 }
 
 function col_begin() {
