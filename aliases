@@ -59,7 +59,7 @@ UNAME=$(uname)
 if [ "$UNAME" = 'Darwin' ]; then
     alias md5sum='md5 -r'
 elif [ "$UNAME" = 'Linux' ]; then
-    alias ls='ls -F'
+    alias ls='ls -F --color=auto'
     alias xcopy='xsel --clipboard --input'
     alias xpaste='xsel --clipboard --output'
 fi
