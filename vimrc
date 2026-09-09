@@ -24,7 +24,6 @@ Plug 'mattn/emmet-vim'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -33,6 +32,10 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 
 call plug#end()
+
+" Vim ships a comment operator (gc/gcc, plus the ac/ic text objects) as an
+" optional package, which replaces tpope/vim-commentary.
+packadd comment
 
 " Colors {{{1
 
