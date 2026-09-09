@@ -23,7 +23,6 @@ alias lla='ls -Alh'
 alias pa='ps -A'
 alias pag='ps -A | grep'
 alias pp='echo hehehe'
-alias py='python'
 alias src='source'
 alias sl='ls' # this typo happens a lot
 
@@ -48,7 +47,6 @@ if [ $? = 0 ]; then
     alias glo='git log --oneline'
     alias glog='git log --oneline --graph'
     alias gls='git ls-files'
-    alias gm='git commit -m'
     alias gp='git push'
     alias gpl='git pull'
     alias gr='git reset'
@@ -69,10 +67,8 @@ if [ $UNAME = 'Darwin' ]; then
 elif [ $UNAME = 'Linux' ]; then
     alias ls='ls -F'
     alias ac='apt-cache'
-    alias pbcopy='xsel --clipboard --input'
-    alias pbpaste='xsel --clipboard --output'
-    alias xcopy='xclip -selection clipboard'
-    alias xpaste='xclip -selection clipboard -o'
+    alias xcopy='xsel --clipboard --input'
+    alias xpaste='xsel --clipboard --output'
     # stfu: force certain processes to run silently in the background
     stfu() {
         exec "$@" 1>/dev/null 2>/dev/null &
