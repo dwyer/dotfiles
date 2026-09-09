@@ -1,61 +1,62 @@
-" vundle {{{1
+" Plugins {{{1
 
 set encoding=utf-8
 set exrc
 set secure
 
-if !filereadable($HOME.'/.vim/bundle/vundle/README.md')
-    silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+" vim-plug installs itself on a new machine, then installs the plugins on the
+" first launch. https://github.com/junegunn/vim-plug
+let s:plug = expand('~/.vim/autoload/plug.vim')
+if !filereadable(s:plug)
+    silent execute '!curl -fLo ' . shellescape(s:plug) . ' --create-dirs'
+                \ . ' https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-filetype off
+" plug#end() runs "filetype plugin indent on" and "syntax enable" for us.
+call plug#begin('~/.vim/plugged')
 
-set runtimepath+=~/.vim/bundle/vundle/
-call vundle#rc()
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'dwyer/vim-swift'
+Plug 'godlygeek/tabular'
+Plug 'jamessan/vim-gnupg'
+Plug 'lifepillar/vim-solarized8'
+Plug 'mattn/emmet-vim'
+Plug 'maxbane/vim-asm_ca65'
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'dart-lang/dart-vim-plugin'
-" Bundle 'davidhalter/jedi-vim'
-" Bundle 'dwyer/li.vim'
-Bundle 'dwyer/vim-swift'
-Bundle 'gmarik/vundle'
-Bundle 'godlygeek/tabular'
-Bundle 'hynek/vim-python-pep8-indent'
-Bundle 'jamessan/vim-gnupg'
-Bundle 'mattn/emmet-vim'
-Bundle 'maxbane/vim-asm_ca65'
-Bundle 'mxw/vim-jsx'
-Bundle 'othree/html5.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'scrooloose/syntastic'
-Bundle 'sjl/gundo.vim'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-rhubarb'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'vim-jp/vim-go-extra'
+call plug#end()
 
-" let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': ['java'] }
-let g:syntastic_full_redraws=0
+" Colors {{{1
 
-filetype plugin indent on
-
-" Syntax Highlighting {{{1
-
+" Also enabled by plug#end(), but repeated so colours still work if vim-plug
+" has not bootstrapped yet.
 syntax enable
-if filereadable($HOME.'/.vim/bundle/vim-colors-solarized/README.mkd')
-    set background=dark
-    colorscheme solarized
-    call togglebg#map("<F6>")
-    highlight Normal ctermbg=none
+
+if has('termguicolors') && ($COLORTERM ==# 'truecolor' || $COLORTERM ==# '24bit')
+    set termguicolors
 endif
+
+" Keep the terminal's own background showing through across colourscheme
+" reloads, including the light/dark toggle below.
+augroup vimrc_colors
+    autocmd!
+    autocmd ColorScheme * highlight Normal ctermbg=none guibg=none
+augroup END
+
+set background=dark
+silent! colorscheme solarized8
+nnoremap <F6> :let &background = &background ==# 'dark' ? 'light' : 'dark'<cr>
 
 " Highlight trailing whitespace. :match is window-local and is not inherited by
 " new windows, so (re)apply it per window rather than once at startup.
@@ -83,9 +84,9 @@ set textwidth=80
 
 set laststatus=2 " always show the status line
 set ruler
-if filereadable($HOME.'/.vim/bundle/vim-fugitive/README.markdown')
-    set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
-endif
+" Guarded inline rather than at vimrc time: vim-plug only extends
+" 'runtimepath' here, so fugitive is not sourced until after this file runs.
+set statusline=%<%f\ %h%m%r%{exists('*FugitiveStatusline')?FugitiveStatusline():''}%=%-14.(%l,%c%V%)\ %P
 
 " Search {{{1
 set nohlsearch
