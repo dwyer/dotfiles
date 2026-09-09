@@ -37,6 +37,10 @@ call plug#end()
 " optional package, which replaces tpope/vim-commentary.
 packadd comment
 
+" Extend % to matching keywords (if/else/endif, HTML tags) via b:match_words,
+" and add g%, [% and ]%.
+packadd matchit
+
 " Colors {{{1
 
 " Also enabled by plug#end(), but repeated so colours still work if vim-plug
