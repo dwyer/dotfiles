@@ -1,7 +1,6 @@
 " vundle {{{1
 
 set encoding=utf-8
-set fileencoding=utf-8
 set exrc
 set secure
 
@@ -10,7 +9,6 @@ if !filereadable($HOME.'/.vim/bundle/vundle/README.md')
     silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
 endif
 
-set nocompatible
 filetype off
 
 set runtimepath+=~/.vim/bundle/vundle/
@@ -43,12 +41,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-jp/vim-go-extra'
 
-if v:version >= 800
-    " Bundle 'w0rp/ale'
-endif
-
 " let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-let g:syntastic_disabled_filetypes=['java']
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': ['java'] }
 let g:syntastic_full_redraws=0
 
@@ -57,9 +50,7 @@ filetype plugin indent on
 " Syntax Highlighting {{{1
 
 syntax enable
-set t_Co=256
 if filereadable($HOME.'/.vim/bundle/vim-colors-solarized/README.mkd')
-    let g:solarized_termcolors=256
     set background=dark
     colorscheme solarized
     call togglebg#map("<F6>")
@@ -106,12 +97,11 @@ set wildmenu
 " Misc {{{1
 
 if !isdirectory($HOME.'/.vimtmp')
-    silent !mkdir -p ~/.vimtmp
+    call mkdir($HOME.'/.vimtmp', 'p', 0700)
 endif
 set backupdir=~/.vimtmp//
 set directory=~/.vimtmp//
 set foldlevel=3
-set nohidden
 set nomodeline
 set number
 set scrolloff=1
@@ -134,20 +124,16 @@ function! ObjcFold()
     return '='
 endfunction
 
-function! DjangoTagCleanup()
-    :%s/{%\s*/{% /g
-    :%s/\s*%}/ %}/g
-    :%s/{{\s*/{{ /g
-    :%s/\s*}}/ }}/g
-endfunction
-
 set lispwords+=syntax-case,syntax-rules,define-record-type
 
 " Vim's own *.m detection resolves to matlab and marks the filetype as decided,
 " which makes a later :setfiletype objc a no-op. This is the supported override.
 let g:filetype_m = 'objc'
 
-if has('autocmd')
+" Grouped so that re-sourcing this file (<leader>r, <F5>) replaces these
+" autocmds instead of stacking another copy of each one.
+augroup vimrc
+    autocmd!
     autocmd FileType c setlocal cin cino=(0,:0
     autocmd FileType crontab setlocal backupcopy=yes
     autocmd FileType css setlocal shiftwidth=2 softtabstop=2
@@ -172,8 +158,6 @@ if has('autocmd')
     autocmd FileType python setlocal textwidth=79
     autocmd FileType vim setlocal foldcolumn=4 foldmethod=marker
     autocmd FileType yaml setlocal nolinebreak shiftwidth=2 softtabstop=2
-    autocmd BufNewFile,BufRead *.gyp setfiletype python
-    autocmd BufNewFile,BufRead *.json setfiletype javascript
     " *.sub is detected as krl, so force rather than :setfiletype here.
     autocmd BufNewFile,BufRead *.li,*.sub set filetype=scheme
     autocmd BufNewFile,BufRead *.muttrc setfiletype muttrc
@@ -186,7 +170,7 @@ if has('autocmd')
     autocmd VimEnter,WinEnter * call s:MatchTrailingSpace()
     autocmd InsertEnter * hi link EndOfLineSpace Normal
     autocmd InsertLeave * hi link EndOfLineSpace ErrorMsg
-endif
+augroup END
 
 " Mappings {{{1
 
@@ -216,7 +200,6 @@ nnoremap L                  $
 " Undo/Redo {{{3
 " Use U to redo, CTRL-u to toggle undo the current line. K replaces CTRL-u (see
 " Navigation).
-nnoremap <c-r>              :echo "Use U instead."<cr>
 nnoremap <c-u>              U
 nnoremap U                  <c-r>
 
