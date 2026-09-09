@@ -64,9 +64,17 @@ if filereadable($HOME.'/.vim/bundle/vim-colors-solarized/README.mkd')
     colorscheme solarized
     call togglebg#map("<F6>")
     highlight Normal ctermbg=none
-    highlight default link EndOfLineSpace ErrorMsg
-    match EndOfLineSpace / \+$/
 endif
+
+" Highlight trailing whitespace. :match is window-local and is not inherited by
+" new windows, so (re)apply it per window rather than once at startup.
+function! s:MatchTrailingSpace()
+    if !exists('w:trailing_space_match')
+        let w:trailing_space_match = matchadd('EndOfLineSpace', '\s\+$')
+    endif
+endfunction
+
+highlight default link EndOfLineSpace ErrorMsg
 
 " Format and Indentation {{{1
 
@@ -85,7 +93,7 @@ set textwidth=80
 set laststatus=2 " always show the status line
 set ruler
 if filereadable($HOME.'/.vim/bundle/vim-fugitive/README.markdown')
-    set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+    set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
 endif
 
 " Search {{{1
@@ -101,7 +109,6 @@ if !isdirectory($HOME.'/.vimtmp')
     silent !mkdir -p ~/.vimtmp
 endif
 set backupdir=~/.vimtmp//
-set cryptmethod=blowfish
 set directory=~/.vimtmp//
 set foldlevel=3
 set nohidden
@@ -136,8 +143,12 @@ endfunction
 
 set lispwords+=syntax-case,syntax-rules,define-record-type
 
+" Vim's own *.m detection resolves to matlab and marks the filetype as decided,
+" which makes a later :setfiletype objc a no-op. This is the supported override.
+let g:filetype_m = 'objc'
+
 if has('autocmd')
-    autocmd FileType c setlocal cin cino=(0 cino=:0
+    autocmd FileType c setlocal cin cino=(0,:0
     autocmd FileType crontab setlocal backupcopy=yes
     autocmd FileType css setlocal shiftwidth=2 softtabstop=2
     autocmd FileType dart setlocal shiftwidth=2 softtabstop=2
@@ -163,8 +174,8 @@ if has('autocmd')
     autocmd FileType yaml setlocal nolinebreak shiftwidth=2 softtabstop=2
     autocmd BufNewFile,BufRead *.gyp setfiletype python
     autocmd BufNewFile,BufRead *.json setfiletype javascript
-    autocmd BufNewFile,BufRead *.li,*.sub setfiletype scheme
-    autocmd BufNewFile,BufRead *.m setfiletype objc
+    " *.sub is detected as krl, so force rather than :setfiletype here.
+    autocmd BufNewFile,BufRead *.li,*.sub set filetype=scheme
     autocmd BufNewFile,BufRead *.muttrc setfiletype muttrc
     autocmd BufNewFile,BufRead *.pch setfiletype objc
     autocmd BufNewFile,BufRead *.s,*.inc,*.s65 set ft=asm_ca65
@@ -172,6 +183,7 @@ if has('autocmd')
     autocmd BufNewFile,BufRead gitconfig setfiletype gitconfig
     autocmd BufNewFile,BufRead mutt-* setfiletype mail
     autocmd BufNewFile,BufRead profile setlocal filetype=sh
+    autocmd VimEnter,WinEnter * call s:MatchTrailingSpace()
     autocmd InsertEnter * hi link EndOfLineSpace Normal
     autocmd InsertLeave * hi link EndOfLineSpace ErrorMsg
 endif
@@ -232,15 +244,15 @@ nnoremap <leader>gm         gm
 nnoremap <leader>gr         gr
 nnoremap <leader>gs         gs
 nnoremap ga                 :Gwrite<cr>
-nnoremap gb                 :Gblame<cr>
-nnoremap gd                 :Gdiff<cr><c-w>h
-nnoremap gh                 :Gbrowse<cr>
-nnoremap gl                 :Glog<cr>
+nnoremap gb                 :Git blame<cr>
+nnoremap gd                 :Gdiffsplit<cr><c-w>h
+nnoremap gh                 :GBrowse<cr>
+nnoremap gl                 :Gclog<cr>
 nnoremap gm                 :Git commit<cr>i
 nnoremap gpl                :Git pull<cr>
 nnoremap gpp                :Git push<cr>
 nnoremap gr                 :Ggrep<space>
-nnoremap gs                 :Gstatus<cr>
+nnoremap gs                 :Git<cr>
 
 " Other {{{3
 set pastetoggle=<leader>p
