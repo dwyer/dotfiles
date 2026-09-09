@@ -10,21 +10,26 @@ export EDITOR=vim
 export PAGER=less
 export LESSHISTFILE=/dev/null
 
-if [ -d "$HOME/.profile.d" ]; then
-    for filename in "$HOME"/.profile.d/*.sh; do
-        source "$filename"
-    done
-    unset filename
-fi
+# Prepend a directory to PATH, skipping it if missing or already present.
+path_prepend() {
+    [ -d "$1" ] || return 0
+    case ":${PATH}:" in
+        *":$1:"*) ;;
+        *) PATH="$1:${PATH}" ;;
+    esac
+}
+
+for filename in "$HOME"/.profile.d/*.sh; do
+    [ -e "$filename" ] || continue
+    . "$filename"
+done
+unset filename
 
 if [ -f "$HOME/.profile.local" ]; then
-    source "$HOME/.profile.local"
+    . "$HOME/.profile.local"
 fi
 
-if [ -d "$HOME/bin" ]; then
-    PATH="$HOME/bin:$PATH"
-fi
-
-if [ -d "$HOME/.local/bin" ]; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
+path_prepend "$HOME/bin"
+path_prepend "$HOME/.local/bin"
+export PATH
+unset -f path_prepend
