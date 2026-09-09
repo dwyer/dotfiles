@@ -13,7 +13,7 @@ function parse_git_status() {
 
 PS1="\u@\h:\w \$(parse_git_status)\$ "
 
-for filename in .aliases .profile .bashrc.local; do
+for filename in .aliases .shrc .bashrc.local; do
     if [ -f ~/$filename ]; then
         source ~/$filename
     fi

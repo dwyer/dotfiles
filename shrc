@@ -1,3 +1,6 @@
+# Environment shared by bash and zsh. Sourced by ~/.bashrc and ~/.zshrc,
+# never by sh -- ~/.profile is left to the system.
+
 # editor
 export EDITOR=vim
 
@@ -14,14 +17,14 @@ path_prepend() {
     esac
 }
 
-for filename in "$HOME"/.profile.d/*.sh; do
+for filename in "$HOME"/.shrc.d/*.sh; do
     [ -e "$filename" ] || continue
     . "$filename"
 done
 unset filename
 
-if [ -f "$HOME/.profile.local" ]; then
-    . "$HOME/.profile.local"
+if [ -f "$HOME/.shrc.local" ]; then
+    . "$HOME/.shrc.local"
 fi
 
 path_prepend "$HOME/bin"
