@@ -17,13 +17,10 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'dwyer/vim-swift'
 Plug 'godlygeek/tabular'
 Plug 'jamessan/vim-gnupg'
 Plug 'lifepillar/vim-solarized8'
 Plug 'mattn/emmet-vim'
-Plug 'maxbane/vim-asm_ca65'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-abolish'
@@ -110,26 +107,7 @@ set spelllang=en_us
 
 " Filetypes {{{1
 
-function! ObjcFold()
-    " A function for folding Objective-C code.
-    let line = getline(v:lnum)
-    if line == '@end'
-        return 0
-    elseif line =~ '^@interface' || line =~ '^@implementation'
-        return '>1'
-    elseif line =~ '^#pragma mark'
-        return '>2'
-    elseif line =~ '^[\+\-][^;]*$'
-        return '>3'
-    endif
-    return '='
-endfunction
-
 set lispwords+=syntax-case,syntax-rules,define-record-type
-
-" Vim's own *.m detection resolves to matlab and marks the filetype as decided,
-" which makes a later :setfiletype objc a no-op. This is the supported override.
-let g:filetype_m = 'objc'
 
 " Grouped so that re-sourcing this file (<leader>r, <F5>) replaces these
 " autocmds instead of stacking another copy of each one.
@@ -138,7 +116,6 @@ augroup vimrc
     autocmd FileType c setlocal cin cino=(0,:0
     autocmd FileType crontab setlocal backupcopy=yes
     autocmd FileType css setlocal shiftwidth=2 softtabstop=2
-    autocmd FileType dart setlocal shiftwidth=2 softtabstop=2
     autocmd FileType gitcommit setlocal spell
     autocmd FileType gitconfig setlocal noexpandtab shiftwidth=8
     autocmd FileType go setlocal noexpandtab shiftwidth=8
@@ -150,23 +127,15 @@ augroup vimrc
     autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2
     autocmd FileType javascript nnoremap <LocalLeader>= :0,$!clang-format -assume-filename=.js<CR>
     autocmd FileType json setlocal nolinebreak shiftwidth=2 softtabstop=2
-    autocmd FileType li setlocal lisp
     autocmd FileType mail setlocal spell textwidth=72
-    autocmd FileType objc setlocal foldcolumn=4 foldexpr=ObjcFold()
-                \ foldmethod=expr foldtext=getline(v:foldstart) nolinebreak
     autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
     autocmd FileType python nnoremap <LocalLeader>i :!isort %<CR><CR>
     autocmd FileType python setlocal textwidth=79
     autocmd FileType vim setlocal foldcolumn=4 foldmethod=marker
     autocmd FileType yaml setlocal nolinebreak shiftwidth=2 softtabstop=2
-    " *.sub is detected as krl, so force rather than :setfiletype here.
-    autocmd BufNewFile,BufRead *.li,*.sub set filetype=scheme
-    autocmd BufNewFile,BufRead *.muttrc setfiletype muttrc
-    autocmd BufNewFile,BufRead *.pch setfiletype objc
-    autocmd BufNewFile,BufRead *.s,*.inc,*.s65 set ft=asm_ca65
+    autocmd BufNewFile,BufRead *.li set filetype=scheme
     autocmd BufNewFile,BufRead aliases setlocal filetype=sh
     autocmd BufNewFile,BufRead gitconfig setfiletype gitconfig
-    autocmd BufNewFile,BufRead mutt-* setfiletype mail
     autocmd BufNewFile,BufRead profile setlocal filetype=sh
     autocmd VimEnter,WinEnter * call s:MatchTrailingSpace()
     autocmd InsertEnter * hi link EndOfLineSpace Normal
