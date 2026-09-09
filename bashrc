@@ -6,15 +6,7 @@ function parse_git_status() {
     printf '[git(%s)] ' "$ref"
 }
 
-function col_begin() {
-    echo -ne "\[\e[38;5;$1m\]";
-}
-
-function col_end() {
-    echo -ne '\[\e[m\]';
-}
-
-export PS1="\u@\h:\w \$(parse_git_status)\$ "
+PS1="\u@\h:\w \$(parse_git_status)\$ "
 
 for filename in .aliases .profile .bashrc.orig; do
     if [ -f ~/$filename ]; then
