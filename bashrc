@@ -31,6 +31,14 @@ PS1+="${c_host}\u@\h${c_off}:${c_dir}\w${c_off} "
 PS1+='$(parse_git_status)\$ '
 unset c_host c_dir c_off
 
+# History. ~/.bashrc.orig sets HISTSIZE and HISTFILESIZE up top, so this has to
+# come after it. With HISTFILE unset bash keeps history in memory for the
+# session and writes nothing on exit; HISTFILESIZE=0 truncates the file anyway
+# should anything restore HISTFILE later. Neither is exported -- a child shell
+# reads its own ~/.bashrc and disables history from there.
+unset HISTFILE
+HISTFILESIZE=0
+
 for filename in .aliases .shrc .bashrc.local; do
     if [ -f ~/$filename ]; then
         source ~/$filename

@@ -11,12 +11,13 @@ setopt nolistbeep # don't beep while completing
 # History.
 # setopt histignorealldups
 # setopt sharehistory
-# Without SAVEHIST, zsh keeps history in memory and never writes HISTFILE.
-# These three are shell parameters, not environment; exporting them leaks into
-# subshells that read the same names.
-HISTFILE=~/.history
+# History stays in memory for the session and is never written to disk: with
+# HISTFILE unset zsh has nowhere to save it, and SAVEHIST=0 keeps it that way
+# should anything restore HISTFILE later. These are shell parameters, not
+# environment; exporting them leaks into subshells that read the same names.
+unset HISTFILE
 HISTSIZE=1000
-SAVEHIST=$HISTSIZE
+SAVEHIST=0
 
 # Prompt.
 # autoload -Uz promptinit && promptinit
