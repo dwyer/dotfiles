@@ -30,7 +30,7 @@
 	preloadindex = true
 	fscache = true
 [push]
-	default = matching
+	default = simple
 [user]
 	name = Casey Dwyer
 	email = caseydwyer@gmail.com
