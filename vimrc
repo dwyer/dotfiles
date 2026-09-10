@@ -141,6 +141,16 @@ augroup vimrc
     autocmd FileType vim setlocal foldcolumn=4 foldmethod=marker
     autocmd FileType yaml setlocal nolinebreak shiftwidth=2 softtabstop=2
     autocmd BufNewFile,BufRead *.li set filetype=scheme
+
+    " Vim on macOS hangs on very large .ts and .jsx files, and forcing the NFA
+    " engine is the cheapest fix. 'regexpengine' is global, so the first
+    " JavaScript file opened switches the engine for every buffer for the rest
+    " of the session; most sessions never open one. BufReadPre rather than
+    " FileType, so the change lands before the syntax patterns are compiled.
+    if has('mac')
+        autocmd BufReadPre,BufNewFile *.js,*.jsx,*.ts,*.tsx set regexpengine=2
+    endif
+
     autocmd BufNewFile,BufRead aliases,.aliases,shrc,.shrc,.shrc.local
                 \ setlocal filetype=bash
     autocmd BufNewFile,BufRead gitconfig setfiletype gitconfig
