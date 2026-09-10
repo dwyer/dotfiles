@@ -11,7 +11,19 @@ function parse_git_status() {
     printf '[git(%s)] ' "$ref"
 }
 
-PS1="\u@\h:\w \$(parse_git_status)\$ "
+# ~/.bashrc.orig works out whether the terminal can do color, then unsets
+# color_prompt before we get here, so ask terminfo again. tput fails on a
+# dumb terminal, on an unset TERM, and where it is not installed at all.
+if tput setaf 1 >/dev/null 2>&1; then
+    c_host='\[\033[01;32m\]'
+    c_dir='\[\033[01;34m\]'
+    c_off='\[\033[00m\]'
+fi
+
+PS1="${debian_chroot:+($debian_chroot)}"
+PS1+="${c_host}\u@\h${c_off}:${c_dir}\w${c_off} "
+PS1+='$(parse_git_status)\$ '
+unset c_host c_dir c_off
 
 for filename in .aliases .shrc .bashrc.local; do
     if [ -f ~/$filename ]; then
