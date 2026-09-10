@@ -20,6 +20,12 @@ if tput setaf 1 >/dev/null 2>&1; then
     c_off='\[\033[00m\]'
 fi
 
+# PS1 belongs to bash alone. sh and dash inherit an exported one, print the
+# prompt escapes literally, and then run $(parse_git_status) as a real command
+# substitution and fail on it once per prompt. A plain assignment keeps an
+# export attribute inherited from an ancestor shell, so clear it first.
+export -n PS1
+
 PS1="${debian_chroot:+($debian_chroot)}"
 PS1+="${c_host}\u@\h${c_off}:${c_dir}\w${c_off} "
 PS1+='$(parse_git_status)\$ '
