@@ -2,7 +2,7 @@ INSTALL=ln -s
 RM=rm -f
 
 SRCFILES=$(shell ls -d [a-z]*)
-DOTFILES=$(addprefix $(HOME)/., gitignore_global hgignore_global $(SRCFILES))
+DOTFILES=$(addprefix $(HOME)/., gitignore_global $(SRCFILES))
 
 usage:
 	@echo Usage:
@@ -14,7 +14,7 @@ install: $(DOTFILES)
 uninstall:
 	$(RM) $(DOTFILES)
 
-$(HOME)/.%ignore_global: .gitignore
+$(HOME)/.gitignore_global: .gitignore
 	$(INSTALL) $(PWD)/$< $@
 
 $(HOME)/.%: %
