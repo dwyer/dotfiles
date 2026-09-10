@@ -26,8 +26,7 @@ fi
 # export attribute inherited from an ancestor shell, so clear it first.
 export -n PS1
 
-PS1="${debian_chroot:+($debian_chroot)}"
-PS1+="${c_host}\u@\h${c_off}:${c_dir}\w${c_off} "
+PS1="${c_host}\u@\h${c_off}:${c_dir}\w${c_off} "
 PS1+='$(parse_git_status)\$ '
 unset c_host c_dir c_off
 
