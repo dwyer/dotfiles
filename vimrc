@@ -141,9 +141,9 @@ augroup vimrc
     autocmd FileType vim setlocal foldcolumn=4 foldmethod=marker
     autocmd FileType yaml setlocal nolinebreak shiftwidth=2 softtabstop=2
     autocmd BufNewFile,BufRead *.li set filetype=scheme
-    autocmd BufNewFile,BufRead aliases setlocal filetype=sh
+    autocmd BufNewFile,BufRead aliases,.aliases,shrc,.shrc,.shrc.local
+                \ setlocal filetype=bash
     autocmd BufNewFile,BufRead gitconfig setfiletype gitconfig
-    autocmd BufNewFile,BufRead profile setlocal filetype=sh
     autocmd VimEnter,WinEnter * call s:MatchTrailingSpace()
     autocmd InsertEnter * hi link EndOfLineSpace Normal
     autocmd InsertLeave * hi link EndOfLineSpace ErrorMsg
