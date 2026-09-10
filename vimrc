@@ -172,23 +172,14 @@ nnoremap Q                  q
 nnoremap q                  :quit<cr>
 
 " Navigation {{{3
-" Use H and L to go to beginning and end of a line. J and K to go up and down
-" (half) a page. These keys have been remapped to CTRL. I didn't remap the CTRL
-" keys to LEADER because they're not very useful.
-nnoremap <c-h>              H
-nnoremap <c-j>              J
-nnoremap <c-k>              K
-nnoremap <c-l>              L
-nnoremap H                  ^
-nnoremap J                  <c-d>
-nnoremap K                  <c-u>
-nnoremap L                  $
-
-" Undo/Redo {{{3
-" Use U to redo, CTRL-u to toggle undo the current line. K replaces CTRL-u (see
-" Navigation).
-nnoremap <c-u>              U
-nnoremap U                  <c-r>
+" CTRL-j and CTRL-k go half a page down and up. Nothing else here is remapped:
+" H, J, K, L and U keep the meanings vim gives them, ^ and $ are already short
+" enough, and CTRL-l is left alone because a redraw is what you want on a
+" terminal that has got itself into a state. This file is not always the one in
+" front of me, and J joining lines under a finger that expected a page down is
+" a bad way to find that out.
+nnoremap <c-j>              <c-d>
+nnoremap <c-k>              <c-u>
 
 " Windows {{{3
 " Use TAB as the window prefix. Use CTRL-p to move forward through the jump
