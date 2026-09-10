@@ -27,8 +27,6 @@
 	editor = vim
 	excludesfile = ~/.gitignore_global
 	safecrlf = false
-	preloadindex = true
-	fscache = true
 [push]
 	default = simple
 [user]
