@@ -1,7 +1,0 @@
-NPM_PACKAGES="${HOME}/.npm-packages"
-
-if [ -e "${NPM_PACKAGES}" ]; then
-    path_prepend "${NPM_PACKAGES}/bin"
-    NODE_PATH="${NPM_PACKAGES}/lib/node_modules:${NODE_PATH}"
-    export NPM_PACKAGES
-fi

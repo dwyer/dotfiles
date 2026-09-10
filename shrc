@@ -17,12 +17,8 @@ path_prepend() {
     esac
 }
 
-for filename in "$HOME"/.shrc.d/*.sh; do
-    [ -e "$filename" ] || continue
-    . "$filename"
-done
-unset filename
-
+# Machine-local environment: per-host paths and anything an installer wants to
+# inject. path_prepend is still defined here, so this file may use it.
 if [ -f "$HOME/.shrc.local" ]; then
     . "$HOME/.shrc.local"
 fi
