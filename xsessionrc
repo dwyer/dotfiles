@@ -1,9 +1,19 @@
-# swap caps lock and escape
-xmodmap -e '! Swap caps lock and escape'
-xmodmap -e 'remove Lock = Caps_Lock'
-xmodmap -e 'keysym Escape = Caps_Lock'
-xmodmap -e 'keysym Caps_Lock = Escape'
-xmodmap -e 'add Lock = Caps_Lock'
+# Sourced by /etc/X11/Xsession, which is /bin/sh -- keep this POSIX, and
+# clean up any variables it sets.
 
-# enable tap on the trackpad
-synclient TapButton1=1
+# Swap caps lock and escape. ~/.xmodmap holds the actual bindings; running
+# them through -e here meant maintaining a second, drifting copy.
+if [ -r "$HOME/.xmodmap" ]; then
+    xmodmap "$HOME/.xmodmap"
+fi
+
+# Tap to click. synclient came with the synaptics X driver, which modern
+# systems have replaced with libinput -- the setting is now a device
+# property. A machine with no touchpad, or no xinput, falls through quietly.
+if command -v xinput >/dev/null 2>&1; then
+    touchpad=$(xinput list --name-only 2>/dev/null | grep -i touchpad | head -n 1)
+    if [ -n "$touchpad" ]; then
+        xinput set-prop "$touchpad" 'libinput Tapping Enabled' 1
+    fi
+    unset touchpad
+fi
