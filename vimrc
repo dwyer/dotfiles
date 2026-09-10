@@ -55,7 +55,7 @@ endif
 " reloads, including the light/dark toggle below.
 augroup vimrc_colors
     autocmd!
-    autocmd ColorScheme * highlight Normal ctermbg=none guibg=none
+    autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 augroup END
 
 set background=dark
