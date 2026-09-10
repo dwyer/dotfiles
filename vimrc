@@ -235,6 +235,7 @@ nnoremap <leader>e          :edit<space>
 nnoremap <leader>h          :help<space>
 nnoremap <leader>ls         :ls<cr>
 nnoremap <leader>m          :make<cr>
+nnoremap <leader>n          :setlocal number!<cr>
 nnoremap <leader>r          :source $MYVIMRC<cr>
 nnoremap <leader>s          :split<space>
 nnoremap <leader>t          :tabnew<space>
