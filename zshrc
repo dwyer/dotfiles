@@ -39,6 +39,20 @@ PROMPT='\
 %# '
 RPROMPT='[%D %*]'
 
+# Keybindings.
+# zsh picks the ZLE keymap at startup: emacs, unless $EDITOR or $VISUAL
+# already contains "vi" in the environment it inherits. ~/.shrc exports
+# EDITOR=vim, but it runs from the bottom of this file -- too late to count --
+# so a shell started from a clean environment gets emacs and one started from
+# a shell that has already sourced ~/.shrc gets vi. tmux is where that bites:
+# the server inherits EDITOR from whichever shell first started it and hands
+# that environment to every pane, so panes come up in vi insert mode while the
+# same zsh outside tmux comes up in emacs mode. In viins the unbound control
+# keys fall through to self-insert, which is why <c-p> and <c-n> printed a
+# literal ^P and ^N there instead of walking the history. Pin the keymap and
+# the two agree again.
+bindkey -e
+
 # <c-x><c-e> to edit command line (like in bash)
 autoload -Uz edit-command-line \
     && zle -N edit-command-line \
