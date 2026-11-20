@@ -37,7 +37,6 @@ PROMPT='\
 %{$fg[blue]%}%~%{$reset_color%} \
 %{$fg[none]%}${vcs_info_msg_0_}%{$reset_color%}\
 %# '
-RPROMPT='[%D %*]'
 
 # Keybindings.
 # zsh picks the ZLE keymap at startup: emacs, unless $EDITOR or $VISUAL
